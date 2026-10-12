@@ -1,0 +1,27 @@
+# Local Python and caches
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Patient data: never commit raw/processed data
+data/raw/*
+!data/raw/.gitkeep
+data/processed/*
+!data/processed/.gitkeep
+
+# Model artifacts
+models/*
+!models/.gitkeep
+*.joblib
+*.pkl
+*.pt
+*.pth
+
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Experiment outputs
+mlruns/
