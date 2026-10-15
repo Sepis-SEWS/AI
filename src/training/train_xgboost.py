@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import random
 from pathlib import Path
 
 import joblib
@@ -119,12 +120,33 @@ def main() -> None:
     """Train a simple first baseline without using test data for fitting."""
     parser = argparse.ArgumentParser()
     parser.add_argument("--max-patients", type=int, default=None,
-                        help="Use first N patient files for a quick smoke test")
+                        help="Use N randomly sampled patient files for a quick smoke test")
+    parser.add_argument("--split-manifest", type=Path, default=None,
+                        help="Use source-aware patient splits from prepare_data.py")
     args = parser.parse_args()
 
-    paths = file_list(args.max_patients)
-    train_dev, test = train_test_split(paths, test_size=0.2, random_state=42)
-    train, val = train_test_split(train_dev, test_size=0.2, random_state=42)
+    if args.split_manifest:
+        if args.max_patients is not None:
+            parser.error("--max-patients and --split-manifest cannot be combined")
+        manifest = json.loads(args.split_manifest.read_text(encoding="utf-8"))
+        index = pd.read_csv("data/splits/patient_index.csv")
+        file_by_id = dict(zip(index["patient_id"], index["path"]))
+        def paths_for(group: str) -> list[Path]:
+            return [Path(file_by_id[pid]) for pid in manifest["split"][group]]
+        train = paths_for("train")
+        val = paths_for("validation")
+        test = paths_for("test")
+        if len(set(train + val + test)) != sum(map(len, (train, val, test))):
+            raise ValueError("Overlapping patient file paths in split manifest")
+    else:
+        paths = file_list(None)
+        random.Random(42).shuffle(paths)
+        if args.max_patients is not None:
+            paths = paths[:args.max_patients]
+        train_dev, test = train_test_split(paths, test_size=0.2, random_state=42)
+        train, val = train_test_split(train_dev, test_size=0.2, random_state=42)
+        print("WARNING: no source/label stratification; run prepare_data.py "
+              "and use --split-manifest for formal experiments")
     print(f"Patients: train={len(train)} val={len(val)} test={len(test)}")
     print("Generating causal 24-hour statistics (160 features)...")
     X_train, y_train = load_group(train)
