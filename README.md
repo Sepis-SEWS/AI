@@ -53,3 +53,46 @@ python src/training/train_xgboost.py --max-patients 200
 
 ## 팀 역할 및 개인 기여
 추후 팀원별 담당/실제 커밋·실험을 기록할 것.
+
+## 개발 진행 기록 및 전체 데이터 학습 절차 (2026-10-15)
+
+### 지금까지 완료된 사항
+- GitHub AI/Backend/Frontend 저장소 및 각 README 생성.
+- 원본 PSV 저장 경로 확인 (전체 파일 무결성 확인은 별도 필요).
+- XGBoost smoke test **사용자가 로컬에서 실행 성공**: 200명, Train 128/Val 32/Test 40명, 학습 샘플 2,229(양성 71), Validation AUROC **0.6532**, AUPRC **0.4857**, 양성 시점 비율 **0.0489**. 소규모 표본의 결과이며 최종 성능으로 인용하지 말 것.
+- `src/preprocessing/prepare_data.py`: Set A/B 환자별 파일 읽기, 결측률·측정 빈도·평균·양성률 등 기초 EDA, 출처와 환자 양성 여부를 고려한 환자 단위 분할 생성.
+- `src/training/train_xgboost.py`: 기존 160개 특징을 유지하면서 재현 가능한 무작위 smoke test와 분할 매니페스트 입력 지원.
+
+### 팀원이 처음 실행하는 순서 (프로젝트 루트 기준)
+```bash
+python -m pip install -r requirements.txt
+# 먼저 빠른 데이터 비교 및 분할 점검 (소규모 표본)
+python src/preprocessing/prepare_data.py --max-patients 2000
+# 소규모 분할표에 따라 실제 XGBoost 학습
+python src/training/train_xgboost.py --split-manifest data/splits/patient_splits_sample2000.json
+
+# 전체 환자 EDA 및 환자 단위 64/16/20 분할 (시간·메모리 필요)
+python src/preprocessing/prepare_data.py
+# 전체 데이터 XGBoost 베이스라인 학습 (수십 분 이상 걸릴 수 있음)
+python src/training/train_xgboost.py --split-manifest data/splits/patient_splits.json
+```
+
+- `prepare_data.py`는 소규모/전체 실행마다 `data/splits/patient_index.csv`를 덮어쓰므로 **반드시 분할표와 같은 실행의 인덱스 파일을 유지**해야 함.
+- EDA 출력: `reports/set_ab_eda_sample2000.csv` 또는 `reports/set_ab_eda.csv`; 전체 Set A/B의 차이를 검토한 뒤 병합 정책 확정.
+- `data/splits/patient_splits*.json`: 출처(Set A/B) 및 환자 양성 여부 층화, `seed=42`, 환자 단위 비중 Train 64%, Validation 16%, Test 20%.
+- 24시간 미만인 환자는 현 XGBoost 코드에서 학습용 window를 생성하지 않음. 이는 향후 초기 시간 예측 정책과 함께 검토해야 함.
+- `SepsisLabel`은 이미 6시간 조기경보 라벨이므로 시점 이동 금지. 특징 생성 시 현재 시점 이후 데이터 사용 금지.
+- 전처리 전략 중 과제 필수 Forward Fill / Interpolation / KNN Imputation 적용과 비교는 **추후 구현**; 현 코드는 관측값만으로 통계를 계산하고 XGBoost가 결측 특징을 자체 처리.
+- 파일 출처에 따른 분할은 정확도를 보장하지 않음. 임상적 분포 차이가 크면 별도의 Set A→B 일반화 실험 고려.
+
+### 다음 개발 단계
+1. 전체 PSV 파일 무결성 및 Set A/B EDA 검증, 관찰 기간/결측/라벨 정책 확정
+2. 미래 데이터 누수 없는 Forward Fill 등 적용, 특징/원시 시퀀스 공통 파이프라인
+3. XGBoost 전체 학습 + 5-Fold Group K-Fold (개발 세트만), 검증 성능 안정성 측정
+4. 공식 PhysioNet Utility Score, 혼동행렬/PR Curve, 임계값 및 경보 피로 분석
+5. Platt/Isotonic Calibration 및 Brier/ECE, SHAP
+6. LSTM/GRU, Soft Voting 앙상블, 실험 기록 MLflow/WandB
+7. 가능한 SOFA/qSOFA 계산 범위 명시, 불가능한 항목 데이터 한계 리포트
+8. FastAPI 추론 계약과 Streamlit 통합, Docker Compose, 지연·재현성 테스트, 기술 보고서
+
+> 현재 모델 성능 목표 달성 여부는 미확정이다. 전체 데이터 학습, 교차검증, 공식 Utility Score, 보정, 서비스 구현은 아직 완료되지 않았다.
