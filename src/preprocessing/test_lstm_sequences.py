@@ -46,8 +46,8 @@ def main():
         assert x[0,0,1] == 0.0  # HR observed mask
         assert x[0,0,3] == 1.0  # HR never observed
         assert x[0,0,4] == 0.0  # Temp observed value: train median 1
-        assert x[0,0,29] == 0.0  # Lactate observed mask, no observed labs
-        assert x[0,0,31] == 1.0  # Lactate never-observed channel
+        assert x[0,0,33] == 0.0  # Lactate observed mask, no observed labs
+        assert x[0,0,35] == 1.0  # Lactate never-observed channel
         short, labels = make_sequences(eval_patient.iloc[:20], stats)
         assert short.shape == (0,24,64) and len(labels)==0
         empty = root/"empty.json"
