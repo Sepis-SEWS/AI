@@ -1,0 +1,38 @@
+{
+  "scope": "train300_val100",
+  "train_patients": 300,
+  "validation_patients": 100,
+  "test_patients_evaluated": 0,
+  "best_validation_AP": 0.033091375993229366,
+  "history": [
+    {
+      "epoch": 1,
+      "training": {
+        "loss": 0.4994185359736572,
+        "samples": 4684
+      },
+      "validation": {
+        "loss": 0.2101632857798758,
+        "samples": 1853,
+        "AUROC": 0.5376236672749976,
+        "AP": 0.033091375993229366,
+        "positive_rate": 0.03130059316754341
+      }
+    },
+    {
+      "epoch": 2,
+      "training": {
+        "loss": 0.14221923180516208,
+        "samples": 4684
+      },
+      "validation": {
+        "loss": 0.140446435420885,
+        "samples": 1853,
+        "AUROC": 0.5043223513591394,
+        "AP": 0.03136783567297847,
+        "positive_rate": 0.03130059316754341
+      }
+    }
+  ],
+  "limitations": "Single fixed Validation; not 5-Fold, not calibrated, not clinical."
+}
