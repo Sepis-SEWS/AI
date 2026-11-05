@@ -128,6 +128,8 @@ def main():
     parser.add_argument("--max-validation", type=int, default=None)
     parser.add_argument("--epochs", type=int, default=12)
     parser.add_argument("--patience", type=int, default=3)
+    parser.add_argument("--pos-weight", type=float, default=1.0,
+                        help="Weight for positive samples in BCE loss (1.0 = baseline)")
     parser.add_argument("--batch-size", type=int, default=256)
     parser.add_argument("--hidden-size", type=int, default=64)
     parser.add_argument("--seed", type=int, default=42)
@@ -135,6 +137,8 @@ def main():
     args = parser.parse_args()
     if args.epochs < 1 or args.batch_size < 1:
         parser.error("epochs and batch size must be positive")
+    if not np.isfinite(args.pos_weight) or args.pos_weight <= 0:
+        parser.error("--pos-weight must be finite and positive")
 
     groups = read_manifest(args.manifest)
     stats = json.loads(args.stats.read_text(encoding="utf-8"))
@@ -164,21 +168,24 @@ def main():
     scope = ("full" if len(train_ids) == len(groups["train"]) and
              len(val_ids) == len(groups["validation"]) else
              f"train{len(train_ids)}_val{len(val_ids)}")
-    out = Path("models") / f"lstm_{scope}_best.pt"
-    report_path = Path("reports") / f"lstm_{scope}_history.json"
+    # Separate artifact names prevent different loss experiments overwriting each other.
+    variant = f"_pw{args.pos_weight:g}" if args.pos_weight != 1.0 else ""
+    out = Path("models") / f"lstm_{scope}{variant}_best.pt"
+    report_path = Path("reports") / f"lstm_{scope}{variant}_history.json"
     out.parent.mkdir(parents=True, exist_ok=True)
     report_path.parent.mkdir(parents=True, exist_ok=True)
     model = RiskLSTM(hidden=args.hidden_size).to(device)
     optimizer = torch.optim.Adam(model.parameters(), lr=0.001)
     # Use unweighted BCE first; alternative weighting can be compared later.
-    criterion = nn.BCEWithLogitsLoss()
+    criterion = nn.BCEWithLogitsLoss(
+        pos_weight=torch.tensor(args.pos_weight, device=device, dtype=torch.float32))
     train_data = PatientSequences(train_ids, args.data_root, stats, args.batch_size,
                                   True, args.seed)
     val_data = PatientSequences(val_ids, args.data_root, stats, args.batch_size,
                                 False, args.seed)
     history = []
     best, bad_epochs = -1.0, 0
-    print(f"Training LSTM {scope} on {device}, Test HELD OUT; "
+    print(f"Training LSTM {scope} on {device}, pos_weight={args.pos_weight:g}, Test HELD OUT; "
           f"Train {len(train_ids)}, Val {len(val_ids)} patients", flush=True)
     for epoch in range(1, args.epochs + 1):
         train_data.epoch = epoch
@@ -194,13 +201,15 @@ def main():
                         "features": FEATURES, "input_shape": [24, len(FEATURES) * 4],
                         "stats_path": str(args.stats), "hidden_size": args.hidden_size,
                         "layers": 1, "best_epoch": epoch,
-                        "validation": validation, "scope": scope}, out)
+                        "validation": validation, "scope": scope,
+                        "pos_weight": args.pos_weight}, out)
         else:
             bad_epochs += 1
         report_path.write_text(json.dumps({
             "scope": scope, "train_patients": len(train_ids),
             "validation_patients": len(val_ids), "test_patients_evaluated": 0,
             "best_validation_AP": best, "history": history,
+            "pos_weight": args.pos_weight,
             "limitations": "Single fixed Validation; not 5-Fold, not calibrated, not clinical.",
         }, indent=2), encoding="utf-8")
         if bad_epochs >= args.patience:
