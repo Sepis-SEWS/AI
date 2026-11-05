@@ -1,0 +1,14 @@
+{
+  "fingerprint": "cc840a022956d7cbc4df4091fca520f37af83ad05b4e00c066fe354dc102eb2e",
+  "metrics": {
+    "experiment": "age_without_fio2_age",
+    "features": 175,
+    "AUROC": 0.7771204654867968,
+    "AP": 0.08879440148109764,
+    "positive_rate": 0.024542980100783464,
+    "test_patients_evaluated": 0
+  },
+  "scope": "full",
+  "train_patients": 25814,
+  "validation_patients": 6454
+}
