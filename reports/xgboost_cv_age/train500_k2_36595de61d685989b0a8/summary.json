@@ -1,0 +1,23 @@
+{
+  "run_id": "36595de61d685989b0a8",
+  "cohort": "locked_train_only",
+  "train_patients": 500,
+  "folds": 2,
+  "validation_patients_evaluated": 0,
+  "test_patients_evaluated": 0,
+  "mean_and_sd": {
+    "age_176": {
+      "AUROC_mean": 0.6256171511390756,
+      "AUROC_std": 0.04514527685201937,
+      "AP_mean": 0.03296471715927282,
+      "AP_std": 0.006916902518156504
+    },
+    "baseline_160": {
+      "AUROC_mean": 0.6163313315177806,
+      "AUROC_std": 0.01927429311032368,
+      "AP_mean": 0.03008050911614629,
+      "AP_std": 0.009076012855283264
+    }
+  },
+  "warning": "Age features were previously selected on fixed Validation. This CV is a robustness check, not independent evidence of generalization; final Test remains held out."
+}

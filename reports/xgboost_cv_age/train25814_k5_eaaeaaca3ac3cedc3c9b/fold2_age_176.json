@@ -1,0 +1,16 @@
+{
+  "run_id": "eaaeaaca3ac3cedc3c9b",
+  "fold": 2,
+  "variant": "age_176",
+  "train_patients": 20651,
+  "fold_validation_patients": 5163,
+  "train_rows": 346642,
+  "fold_validation_rows": 84263,
+  "features": 176,
+  "scale_pos_weight": 40.50904083343312,
+  "positive_rate": 0.025171190202105315,
+  "AUROC": 0.7781610113170816,
+  "AP": 0.10778972942593265,
+  "external_validation_patients_evaluated": 0,
+  "test_patients_evaluated": 0
+}
