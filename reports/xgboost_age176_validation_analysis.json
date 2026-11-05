@@ -1,0 +1,88 @@
+{
+  "model": "models\\xgboost_ablation_full_age_only.joblib",
+  "validation_patients": 6454,
+  "test_patients_evaluated": 0,
+  "overall": {
+    "rows": 108748,
+    "positive_rate": 0.024542980100783464,
+    "AUROC": 0.7900623071762783,
+    "AP": 0.09487981162898537
+  },
+  "by_source": {
+    "training_setA": {
+      "rows": 53837,
+      "positive_rate": 0.029199249586715458,
+      "AUROC": 0.7712979691720774,
+      "AP": 0.08436825593529705
+    },
+    "training_setB": {
+      "rows": 54911,
+      "positive_rate": 0.019977782229425797,
+      "AUROC": 0.8011004022464494,
+      "AP": 0.1195106649136183
+    }
+  },
+  "threshold_metrics": [
+    {
+      "score_threshold": 0.05,
+      "true_positive_rows": 2669,
+      "false_positive_rows": 105861,
+      "false_negative_rows": 0,
+      "true_negative_rows": 218,
+      "sensitivity": 1.0,
+      "specificity": 0.002055072163199125,
+      "precision": 0.024592278632636137,
+      "flagged_rows": 108530,
+      "flagged_patients": 4958
+    },
+    {
+      "score_threshold": 0.1,
+      "true_positive_rows": 2648,
+      "false_positive_rows": 97355,
+      "false_negative_rows": 21,
+      "true_negative_rows": 8724,
+      "sensitivity": 0.9921318846009741,
+      "specificity": 0.08224059427407875,
+      "precision": 0.026479205623831284,
+      "flagged_rows": 100003,
+      "flagged_patients": 4837
+    },
+    {
+      "score_threshold": 0.2,
+      "true_positive_rows": 2510,
+      "false_positive_rows": 67585,
+      "false_negative_rows": 159,
+      "true_negative_rows": 38494,
+      "sensitivity": 0.9404271262645185,
+      "specificity": 0.362880494725629,
+      "precision": 0.03580854554533133,
+      "flagged_rows": 70095,
+      "flagged_patients": 3793
+    },
+    {
+      "score_threshold": 0.3,
+      "true_positive_rows": 2289,
+      "false_positive_rows": 47520,
+      "false_negative_rows": 380,
+      "true_negative_rows": 58559,
+      "sensitivity": 0.8576245784938179,
+      "specificity": 0.5520319761687045,
+      "precision": 0.045955550201770765,
+      "flagged_rows": 49809,
+      "flagged_patients": 2889
+    },
+    {
+      "score_threshold": 0.5,
+      "true_positive_rows": 1715,
+      "false_positive_rows": 22715,
+      "false_negative_rows": 954,
+      "true_negative_rows": 83364,
+      "sensitivity": 0.6425627575871112,
+      "specificity": 0.7858671367565682,
+      "precision": 0.07020057306590258,
+      "flagged_rows": 24430,
+      "flagged_patients": 1648
+    }
+  ],
+  "warning": "Thresholds shown for exploration only. Raw score not calibrated; row-level FP counts are not counts of distinct clinical alarms. Feature gain is non-causal; no Test or utility evaluation."
+}
