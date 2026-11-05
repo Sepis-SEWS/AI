@@ -1,0 +1,49 @@
+{
+  "scope": "full",
+  "train_patients": 25814,
+  "validation_patients": 6454,
+  "test_patients_evaluated": 0,
+  "results": [
+    {
+      "experiment": "baseline_160",
+      "features": 160,
+      "AUROC": 0.7597753543718421,
+      "AP": 0.07723349232460215,
+      "positive_rate": 0.024542980100783464,
+      "origin": "prior_report"
+    },
+    {
+      "experiment": "all_208",
+      "features": 208,
+      "AUROC": 0.7891455437799064,
+      "AP": 0.09231113765683087,
+      "positive_rate": 0.024542980100783464,
+      "origin": "prior_report"
+    },
+    {
+      "experiment": "age_only",
+      "features": 176,
+      "AUROC": 0.7900623071762783,
+      "AP": 0.09487981162898537,
+      "positive_rate": 0.024542980100783464,
+      "origin": "new_ablation"
+    },
+    {
+      "experiment": "count24_only",
+      "features": 176,
+      "AUROC": 0.7661582981283406,
+      "AP": 0.07720074945345624,
+      "positive_rate": 0.024542980100783464,
+      "origin": "new_ablation"
+    },
+    {
+      "experiment": "count24_count6",
+      "features": 192,
+      "AUROC": 0.7869871126219153,
+      "AP": 0.0931332911118588,
+      "positive_rate": 0.024542980100783464,
+      "origin": "new_ablation"
+    }
+  ],
+  "notes": "Controlled feature ablations on fixed held-out Validation. Prior baseline/208 metrics are read from prior report; not a five-fold assessment, not a Test evaluation."
+}
