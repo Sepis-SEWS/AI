@@ -1,0 +1,21 @@
+{
+  "scope": "full",
+  "train_patients": 25814,
+  "validation_patients": 6454,
+  "test_patients_evaluated": 0,
+  "train_rows": 430905,
+  "validation_rows": 108748,
+  "baseline_160": {
+    "AUROC": 0.7597753543718421,
+    "AP": 0.07723349232460215,
+    "positive_rate": 0.024542980100783464
+  },
+  "with_missingness_208": {
+    "AUROC": 0.7891455437799064,
+    "AP": 0.09231113765683087,
+    "positive_rate": 0.024542980100783464
+  },
+  "delta_auroc": 0.02937018940806435,
+  "delta_ap": 0.015077645332228717,
+  "note": "Same splits/hyperparameters; only 48 causal measurement features change. Single Validation split, not Group 5-Fold; not calibrated."
+}
