@@ -130,7 +130,7 @@ def main() -> None:
                 "flagged_patients": int(len(set(pid[flagged]))),
                 "alerts_6h_cooldown": alarms,
                 "patients_with_alerts": alerted_patients,
-                "alerts_per_100_validation_patients": 100.0 * alarms / total_patients,
+                "alerts_per_100_scored_patients": 100.0 * alarms / total_patients,
             })
     OUTPUT.mkdir(parents=True, exist_ok=True)
     metric_path = OUTPUT / "ensemble_validation_calibration_diagnostics.csv"
@@ -139,14 +139,16 @@ def main() -> None:
     pd.DataFrame(alarm_rows).to_csv(alert_path, index=False)
     report = {
         "scope": "full_locked_validation_only",
-        "validation_patients": len(set(pid)),
+        "validation_patients_with_scored_windows": len(set(pid)),
+        "validation_patients_total": len(validation),
         "validation_rows": n,
         "test_patients_evaluated": 0,
         "cooldown_hours": COOLDOWN_HOURS,
         "thresholds": CUTOFFS,
         "models": main_rows,
         "warning": (
-            "Brier/ECE assess uncalibrated, class-weighted model scores; "
+            "Alert rate denominator counts only patients with at least one 24-row window, "
+            "not all 6,454 validation patients. Brier/ECE assess uncalibrated, class-weighted model scores; "
             "fixed thresholds are descriptive, not a clinical cutoff. "
             "The 6-hour cooldown is a simplified simulation without "
             "patient-specific alert adjudication or official utility scoring. "
