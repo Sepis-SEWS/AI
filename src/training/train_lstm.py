@@ -14,6 +14,7 @@ from __future__ import annotations
 import argparse
 import json
 import random
+import re
 import sys
 from pathlib import Path
 
@@ -133,6 +134,8 @@ def main():
     parser.add_argument("--batch-size", type=int, default=256)
     parser.add_argument("--hidden-size", type=int, default=64)
     parser.add_argument("--seed", type=int, default=42)
+    parser.add_argument("--run-tag", type=str, default="",
+                        help="Unique identifier appended to model/history filenames (required for CV)")
     parser.add_argument("--device", choices=["auto", "cpu", "cuda"], default="auto")
     args = parser.parse_args()
     if args.epochs < 1 or args.batch_size < 1:
@@ -140,7 +143,14 @@ def main():
     if not np.isfinite(args.pos_weight) or args.pos_weight <= 0:
         parser.error("--pos-weight must be finite and positive")
 
+    if args.run_tag and not re.fullmatch(r"[A-Za-z0-9_-]{1,40}", args.run_tag):
+        parser.error("--run-tag may contain only letters, numbers, _ or -")
     groups = read_manifest(args.manifest)
+    is_cv = args.manifest.parent.name == "lstm_cv"
+    if is_cv and not re.fullmatch(r"fold[1-5]", args.run_tag):
+        parser.error("LSTM CV folds require --run-tag fold1..fold5 to prevent overwrites")
+    if is_cv and args.stats.name != f"lstm_cv_{args.run_tag}_stats.json":
+        parser.error("CV fold-specific --stats path does not match --run-tag")
     stats = json.loads(args.stats.read_text(encoding="utf-8"))
     if (stats.get("train_patients_used") != len(groups["train"]) or
             stats.get("train_patients_in_manifest") != len(groups["train"])):
@@ -170,6 +180,10 @@ def main():
              f"train{len(train_ids)}_val{len(val_ids)}")
     # Separate artifact names prevent different loss experiments overwriting each other.
     variant = f"_pw{args.pos_weight:g}" if args.pos_weight != 1.0 else ""
+    if args.run_tag:
+        variant += f"_{args.run_tag}"
+    if is_cv and (Path("models") / f"lstm_{scope}{variant}_best.pt").exists():
+        raise FileExistsError("CV checkpoint already exists; refusing to overwrite")
     out = Path("models") / f"lstm_{scope}{variant}_best.pt"
     report_path = Path("reports") / f"lstm_{scope}{variant}_history.json"
     out.parent.mkdir(parents=True, exist_ok=True)
@@ -202,15 +216,17 @@ def main():
                         "stats_path": str(args.stats), "hidden_size": args.hidden_size,
                         "layers": 1, "best_epoch": epoch,
                         "validation": validation, "scope": scope,
-                        "pos_weight": args.pos_weight}, out)
+                        "pos_weight": args.pos_weight,
+                        "run_tag": args.run_tag, "manifest": str(args.manifest)}, out)
         else:
             bad_epochs += 1
         report_path.write_text(json.dumps({
             "scope": scope, "train_patients": len(train_ids),
             "validation_patients": len(val_ids), "test_patients_evaluated": 0,
             "best_validation_AP": best, "history": history,
-            "pos_weight": args.pos_weight,
-            "limitations": "Single fixed Validation; not 5-Fold, not calibrated, not clinical.",
+            "pos_weight": args.pos_weight, "run_tag": args.run_tag,
+            "manifest": str(args.manifest),
+            "limitations": "One CV fold or single fixed Validation; not calibrated or clinical.",
         }, indent=2), encoding="utf-8")
         if bad_epochs >= args.patience:
             print(f"Early stopping after {bad_epochs} unimproved epochs", flush=True)
