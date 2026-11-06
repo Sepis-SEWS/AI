@@ -1,0 +1,40 @@
+{
+  "scope": "pretest_validation_freeze_only",
+  "status": "provisional_policy_not_clinical",
+  "patients": {
+    "train": 25814,
+    "validation": 6454,
+    "test_held_out": 8068,
+    "validation_patients_with_24row_predictions": 4960,
+    "validation_scored_rows": 108748
+  },
+  "primary_candidate": {
+    "model": "lstm_full_pw10",
+    "checkpoint": "models\\lstm_full_pw10_best.pt",
+    "selection_reason": "simpler and better calibration before correction"
+  },
+  "secondary_candidate": {
+    "model": "raw_blend_lstm_0.75",
+    "composition": "0.25*xgboost176+0.75*lstm_full_pw10",
+    "exploratory_utility_threshold": 0.2,
+    "selection_reason": "higher Validation AUROC/AP/utility; bootstrap CI included zero for lift vs LSTM"
+  },
+  "preprocessing": {
+    "window_rows": 24,
+    "lstm_channels": 64,
+    "first_23_hours_policy": "no alert (no model window)",
+    "calibration_status": "diagnostic sigmoid study only; no final calibrator"
+  },
+  "artifacts_sha256": {
+    "data\\splits\\patient_splits.json": "91684dafae57c57ecf8ac0dc12d56d13dbb234411557d3abe4eb26ea130d68db",
+    "models\\lstm_preprocessing_stats.json": "f38b5e83455419f4375e057e0228cad69e92747cf1fa8023e17ea5ececb159f9",
+    "models\\xgboost_ablation_full_age_only.joblib": "645347de836ae2b0aaaaca6e8227ad325b7ddcb9dc5bd828e7dfca429719247a",
+    "models\\lstm_full_pw10_best.pt": "26282f5cb844692a3f5128410312ceedba1b61917dcb8aaf6ef02ef21d2d0767",
+    "reports\\ensemble_validation_scores.npz": "b6da9364c49dc7a976e9bbef9379d53d99b2d2d29f4fe40bc54fe09c464e4bc5",
+    "reports\\ensemble_validation_utility.json": "2186d36f32ca2ff6b23d0d12f9cc3cc8cd8bb8e4ffb3b4a427a614aab77581e7",
+    "reports\\validation_patient_split_calibration.json": "0f170e9b8527c9e2becbd2b8442835f2e35a4c29bddb8b843db027d7b69c43ff",
+    "reports\\xgboost_age176_shap_summary.json": "7726dc1c5e6e40b1954d9830d60bdaefa06625abd36c2259a246649b5d7b8eee"
+  },
+  "test_patients_evaluated": 0,
+  "limitations": "Repeated use of fixed Validation for model/weight/threshold choice induces selection bias. This manifests files, not independent performance. Before any final Test evaluation, separately verify official utility parity and freeze one primary model plus a consistent prediction threshold and scoring policy. Do not silently turn this provisional report into clinical policy."
+}
