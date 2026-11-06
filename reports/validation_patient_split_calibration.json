@@ -1,0 +1,81 @@
+{
+  "scope": "fixed_validation_only_with_patient_disjoint_calibration_evaluation",
+  "calibration_patients": 2480,
+  "evaluation_patients": 2480,
+  "calibration_rows": 54389,
+  "evaluation_rows": 54359,
+  "total_validation_patients": 6454,
+  "patients_with_scored_windows": 4960,
+  "test_patients_evaluated": 0,
+  "seed": 42,
+  "fraction": 0.5,
+  "comparison": [
+    {
+      "model": "xgboost_176",
+      "calibration": "uncalibrated",
+      "rows": 54359,
+      "positive_rate": 0.024908478816755276,
+      "mean_score": 0.3269499087451854,
+      "Brier": 0.14590430680215316,
+      "ECE_10_bins": 0.30204142992843025,
+      "AUROC": 0.7943144490284563,
+      "AP": 0.10813872917284953
+    },
+    {
+      "model": "xgboost_176",
+      "calibration": "sigmoid_calibrated",
+      "rows": 54359,
+      "positive_rate": 0.024908478816755276,
+      "mean_score": 0.02315801292345968,
+      "Brier": 0.023266592692864158,
+      "ECE_10_bins": 0.0017504658932956,
+      "AUROC": 0.7943144490284563,
+      "AP": 0.10813872917284953
+    },
+    {
+      "model": "lstm_full_pw10",
+      "calibration": "uncalibrated",
+      "rows": 54359,
+      "positive_rate": 0.024908478816755276,
+      "mean_score": 0.1321246195814094,
+      "Brier": 0.04647207242736434,
+      "ECE_10_bins": 0.10721614076465412,
+      "AUROC": 0.8453147239391173,
+      "AP": 0.1714691849503361
+    },
+    {
+      "model": "lstm_full_pw10",
+      "calibration": "sigmoid_calibrated",
+      "rows": 54359,
+      "positive_rate": 0.024908478816755276,
+      "mean_score": 0.022127165589807613,
+      "Brier": 0.022568757206803666,
+      "ECE_10_bins": 0.0027813132269476596,
+      "AUROC": 0.8453147239391173,
+      "AP": 0.1714691849503361
+    },
+    {
+      "model": "raw_blend_lstm_0.75",
+      "calibration": "uncalibrated",
+      "rows": 54359,
+      "positive_rate": 0.024908478816755276,
+      "mean_score": 0.1808309418723534,
+      "Brier": 0.059899076539852,
+      "ECE_10_bins": 0.15594120211106388,
+      "AUROC": 0.8456301396833191,
+      "AP": 0.1766828838011117
+    },
+    {
+      "model": "raw_blend_lstm_0.75",
+      "calibration": "sigmoid_calibrated",
+      "rows": 54359,
+      "positive_rate": 0.024908478816755276,
+      "mean_score": 0.0218551649857288,
+      "Brier": 0.02248709607624884,
+      "ECE_10_bins": 0.003053313831026478,
+      "AUROC": 0.8456301396833191,
+      "AP": 0.1766828838011117
+    }
+  ],
+  "limitations": "The underlying XGBoost/LSTM models and 25:75 blend were already selected using the same fixed Validation cohort, and LSTM early stopping used full Validation. Patient-disjoint fitting of the sigmoid calibrator does NOT remove this prior selection leakage. Diagnostic only; no calibrator persisted for deployment. Calibrated scores are not guaranteed to generalize."
+}
