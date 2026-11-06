@@ -73,11 +73,19 @@ def main() -> None:
         "preprocessing_stats": str(STATS),
         "patient_split": "data/splits/patient_splits.json",
     }
+    path_keys = {"checkpoint", "preprocessing_stats", "patient_split"}
     for key, expected in required.items():
-        if policy.get(key) != expected:
+        actual = policy.get(key)
+        if key in path_keys and isinstance(actual, str):
+            # Compare platform-independent path components; do not alter the lock.
+            matches = Path(actual.replace("\\", "/")).parts == Path(
+                expected.replace("\\", "/")).parts
+        else:
+            matches = actual == expected
+        if not matches:
             raise ValueError(
                 f"Locked policy mismatch on {key}: "
-                f"expected={expected!r}, actual={policy.get(key)!r}; "
+                f"expected={expected!r}, actual={actual!r}; "
                 "do not modify or regenerate the locked policy"
             )
     if sha256_file(Path("reports/model_pretest_freeze.json")) != policy["preflight_report_sha256"]:
