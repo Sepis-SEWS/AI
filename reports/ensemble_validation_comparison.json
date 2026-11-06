@@ -1,0 +1,58 @@
+{
+  "scope": "full_locked_validation_only",
+  "validation_patients": 6454,
+  "validation_rows": 108748,
+  "test_patients_evaluated": 0,
+  "lstm_checkpoint_epoch": 6,
+  "results": [
+    {
+      "model": "xgboost_176",
+      "AUROC": 0.7900623071762783,
+      "AP": 0.09487981162898537,
+      "positive_rate": 0.024542980100783464
+    },
+    {
+      "model": "lstm_full_pw10",
+      "AUROC": 0.8294292117790818,
+      "AP": 0.1354104882979276,
+      "positive_rate": 0.024542980100783464
+    },
+    {
+      "model": "raw_blend_lstm_0.25",
+      "AUROC": 0.8114410274780153,
+      "AP": 0.12144961193931948,
+      "positive_rate": 0.024542980100783464
+    },
+    {
+      "model": "raw_blend_lstm_0.5",
+      "AUROC": 0.8267798858815115,
+      "AP": 0.1342866933630521,
+      "positive_rate": 0.024542980100783464
+    },
+    {
+      "model": "raw_blend_lstm_0.75",
+      "AUROC": 0.8343355366569358,
+      "AP": 0.13851904991340586,
+      "positive_rate": 0.024542980100783464
+    },
+    {
+      "model": "rank_blend_lstm_0.25",
+      "AUROC": 0.8140359886670634,
+      "AP": 0.11851190880121455,
+      "positive_rate": 0.024542980100783464
+    },
+    {
+      "model": "rank_blend_lstm_0.5",
+      "AUROC": 0.829144574101692,
+      "AP": 0.12776887197516718,
+      "positive_rate": 0.024542980100783464
+    },
+    {
+      "model": "rank_blend_lstm_0.75",
+      "AUROC": 0.8342410853931009,
+      "AP": 0.13420775861508835,
+      "positive_rate": 0.024542980100783464
+    }
+  ],
+  "warning": "All blends are diagnostic; no calibration or clinical threshold. Rank blends rely on entire validation cohort and are not deployable as-is. Weight selection on the same Validation is optimistically biased. Do not score Test until final lock."
+}
