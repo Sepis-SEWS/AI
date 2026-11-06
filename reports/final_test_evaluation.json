@@ -1,0 +1,29 @@
+{
+  "status": "FINAL_LOCKED_TEST_EVALUATION_COMPLETE",
+  "test_patients": 8068,
+  "test_total_hourly_rows": 311078,
+  "test_scored_patients": 6149,
+  "test_patients_shorter_than_24_rows": 1919,
+  "test_scoreable_rows": 135693,
+  "model": "lstm_full_pw10",
+  "raw_score_threshold": 0.2,
+  "test_scoreable_row_positive_rate": 0.02499023531059082,
+  "test_scoreable_row_AUROC": 0.8243958841901619,
+  "test_scoreable_row_AP": 0.13188577558700623,
+  "test_scoreable_row_brier": 0.052582550793886185,
+  "test_scoreable_row_ECE_10_bins": 0.11442952627134798,
+  "full_hourly_threshold_confusion_matrix": {
+    "TP": 2427,
+    "FP": 28707,
+    "FN": 3156,
+    "TN": 276788,
+    "sensitivity": 0.43471252015045675,
+    "precision": 0.07795336288302178
+  },
+  "full_patient_timeline_normalized_utility": 0.29767429568159043,
+  "full_patient_timeline_raw_utility": -2510.8166666666652,
+  "best_utility": 4132.8333333333285,
+  "inaction_utility": -5326.666666666669,
+  "policy_file_sha256": "e098676681e28f2ad051754c83e1e090b043a227d51e651f73fb7d1deec539ca",
+  "limitations": "One-time evaluation of a previously locked model and threshold, not a clinical deployment claim. Test was not used for tuning. AUROC/AP/calibration apply only from completed 24-row windows. Utility and hourly confusion matrix include all Test patient hours with forced zero predictions before the first 24-row window. No cooldown and no sigmoid recalibration."
+}
