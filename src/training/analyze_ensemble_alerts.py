@@ -73,8 +73,11 @@ def main() -> None:
         raise ValueError("Row count mismatch")
     if not np.isin(y, [0, 1]).all():
         raise ValueError("Nonbinary labels")
-    if len(set(pid)) != 6454:
-        raise ValueError("Expected full locked Validation cohort: 6,454 patients")
+    # Some manifest patients may have fewer than 24 observations and thus no scored row.
+    manifest = json.loads(Path("data/splits/patient_splits.json").read_text(encoding="utf-8"))["split"]
+    validation = set(manifest["validation"])
+    if len(validation) != 6454 or not set(pid).issubset(validation):
+        raise ValueError("Saved score patient IDs do not match locked Validation")
     if not np.isfinite(times).all():
         raise ValueError("Invalid ICU times")
     for raw in (xgb, lstm):
