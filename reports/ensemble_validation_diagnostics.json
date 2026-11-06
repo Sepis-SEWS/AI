@@ -1,6 +1,7 @@
 {
   "scope": "full_locked_validation_only",
-  "validation_patients": 4960,
+  "validation_patients_with_scored_windows": 4960,
+  "validation_patients_total": 6454,
   "validation_rows": 108748,
   "test_patients_evaluated": 0,
   "cooldown_hours": 6.0,
@@ -47,7 +48,7 @@
       "observed_positive_rate": 0.024542980100783464
     }
   ],
-  "warning": "Brier/ECE assess uncalibrated, class-weighted model scores; fixed thresholds are descriptive, not a clinical cutoff. The 6-hour cooldown is a simplified simulation without patient-specific alert adjudication or official utility scoring. Ensemble selection on the same Validation is optimistic.",
+  "warning": "Alert rate denominator counts only patients with at least one 24-row window, not all 6,454 validation patients. Brier/ECE assess uncalibrated, class-weighted model scores; fixed thresholds are descriptive, not a clinical cutoff. The 6-hour cooldown is a simplified simulation without patient-specific alert adjudication or official utility scoring. Ensemble selection on the same Validation is optimistic.",
   "files": [
     "reports\\ensemble_validation_calibration_diagnostics.csv",
     "reports\\ensemble_validation_alert_burden.csv"

@@ -1,4 +1,4 @@
-model,score_threshold,tp_rows,fp_rows,fn_rows,tn_rows,sensitivity_rows,specificity_rows,precision_rows,flagged_rows,flagged_patients,alerts_6h_cooldown,patients_with_alerts,alerts_per_100_validation_patients
+model,score_threshold,tp_rows,fp_rows,fn_rows,tn_rows,sensitivity_rows,specificity_rows,precision_rows,flagged_rows,flagged_patients,alerts_6h_cooldown,patients_with_alerts,alerts_per_100_scored_patients
 xgboost_176,0.1,2648,97355,21,8724,0.9921318846009741,0.08224059427407875,0.026479205623831284,100003,4837,19170,4837,386.491935483871
 xgboost_176,0.2,2510,67585,159,38494,0.9404271262645185,0.362880494725629,0.03580854554533133,70095,3793,14090,3793,284.0725806451613
 xgboost_176,0.3,2289,47520,380,58559,0.8576245784938179,0.5520319761687045,0.045955550201770765,49809,2889,10249,2889,206.63306451612902

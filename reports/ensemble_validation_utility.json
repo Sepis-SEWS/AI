@@ -1,0 +1,123 @@
+{
+  "scope": "locked_validation_only",
+  "total_validation_patients": 6454,
+  "scored_patients": 4960,
+  "patients_with_fewer_than_24_rows": 1494,
+  "scored_rows": 108748,
+  "first_23_hours_policy": "predict 0 (insufficient observation window)",
+  "test_patients_evaluated": 0,
+  "official_best_utility": 3306.666666666665,
+  "official_inaction_utility": -4278.666666666666,
+  "threshold_results": [
+    {
+      "model": "xgboost_176",
+      "score_threshold": 0.1,
+      "normalized_utility": -0.026996543036272615,
+      "unnormalized_utility": -4483.4444444444725
+    },
+    {
+      "model": "xgboost_176",
+      "score_threshold": 0.2,
+      "normalized_utility": 0.13617141266771998,
+      "unnormalized_utility": -3245.761111111121
+    },
+    {
+      "model": "xgboost_176",
+      "score_threshold": 0.3,
+      "normalized_utility": 0.2159320618737918,
+      "unnormalized_utility": -2640.7499999999977
+    },
+    {
+      "model": "xgboost_176",
+      "score_threshold": 0.5,
+      "normalized_utility": 0.24345667076814947,
+      "unnormalized_utility": -2431.9666666666635
+    },
+    {
+      "model": "xgboost_176",
+      "score_threshold": 0.7,
+      "normalized_utility": 0.14091668131481722,
+      "unnormalized_utility": -3209.766666666673
+    },
+    {
+      "model": "xgboost_176",
+      "score_threshold": 0.9,
+      "normalized_utility": 0.005928839280482738,
+      "unnormalized_utility": -4233.694444444444
+    },
+    {
+      "model": "lstm_full_pw10",
+      "score_threshold": 0.1,
+      "normalized_utility": 0.2681776234839175,
+      "unnormalized_utility": -2244.449999999991
+    },
+    {
+      "model": "lstm_full_pw10",
+      "score_threshold": 0.2,
+      "normalized_utility": 0.28344319446885907,
+      "unnormalized_utility": -2128.655555555548
+    },
+    {
+      "model": "lstm_full_pw10",
+      "score_threshold": 0.3,
+      "normalized_utility": 0.24924781742544116,
+      "unnormalized_utility": -2388.038888888887
+    },
+    {
+      "model": "lstm_full_pw10",
+      "score_threshold": 0.5,
+      "normalized_utility": 0.1559010077928166,
+      "unnormalized_utility": -3096.105555555555
+    },
+    {
+      "model": "lstm_full_pw10",
+      "score_threshold": 0.7,
+      "normalized_utility": 0.05929937891838035,
+      "unnormalized_utility": -3828.8611111111118
+    },
+    {
+      "model": "lstm_full_pw10",
+      "score_threshold": 0.9,
+      "normalized_utility": 0.0016808753735277414,
+      "unnormalized_utility": -4265.916666666667
+    },
+    {
+      "model": "raw_blend_lstm_0.75",
+      "score_threshold": 0.1,
+      "normalized_utility": 0.18416461592547034,
+      "unnormalized_utility": -2881.7166666666653
+    },
+    {
+      "model": "raw_blend_lstm_0.75",
+      "score_threshold": 0.2,
+      "normalized_utility": 0.28836497334036537,
+      "unnormalized_utility": -2091.3222222222153
+    },
+    {
+      "model": "raw_blend_lstm_0.75",
+      "score_threshold": 0.3,
+      "normalized_utility": 0.2836724380383204,
+      "unnormalized_utility": -2126.9166666666606
+    },
+    {
+      "model": "raw_blend_lstm_0.75",
+      "score_threshold": 0.5,
+      "normalized_utility": 0.17442066561199987,
+      "unnormalized_utility": -2955.627777777777
+    },
+    {
+      "model": "raw_blend_lstm_0.75",
+      "score_threshold": 0.7,
+      "normalized_utility": 0.06295262787836162,
+      "unnormalized_utility": -3801.1500000000005
+    },
+    {
+      "model": "raw_blend_lstm_0.75",
+      "score_threshold": 0.9,
+      "normalized_utility": 0.0014596882873379997,
+      "unnormalized_utility": -4267.594444444445
+    }
+  ],
+  "warning": "Official Challenge 2019 utility formula/timing applied to full raw Validation patient trajectories, with zero predictions where 24-row models cannot score. This is NOT an official Challenge submission; threshold selection on the same Validation is optimistic. Utility is based on hourly binary predictions, not 6h-cooldown alerts.",
+  "reference": "https://github.com/physionetchallenges/evaluation-2019"
+}
