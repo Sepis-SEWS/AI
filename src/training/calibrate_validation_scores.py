@@ -4,7 +4,7 @@ The original full-Validation model/ensemble selection is already exploratory;
 this split reduces direct calibration-fitting leakage but does NOT create an
 independent external validation cohort. No Test access; no model training.
 
-From C:\AI:
+From repository root:
   python src/training/calibrate_validation_scores.py
 
 Within Validation patients who have >=24 hours, stratified 50/50 patient split:
