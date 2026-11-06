@@ -75,7 +75,11 @@ def main() -> None:
     }
     for key, expected in required.items():
         if policy.get(key) != expected:
-            raise ValueError(\n                f"Locked policy mismatch on {key}: "\n                f"expected={expected!r}, actual={policy.get(key)!r}; "\n                "do not modify or regenerate the locked policy"\n            )
+            raise ValueError(
+                f"Locked policy mismatch on {key}: "
+                f"expected={expected!r}, actual={policy.get(key)!r}; "
+                "do not modify or regenerate the locked policy"
+            )
     if sha256_file(Path("reports/model_pretest_freeze.json")) != policy["preflight_report_sha256"]:
         raise ValueError("Preflight freeze file changed after policy lock")
     for file, expected_hash in policy["artifact_sha256"].items():
