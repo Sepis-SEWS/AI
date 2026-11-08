@@ -1,0 +1,15 @@
+{
+  "scope": "full",
+  "fingerprint": "eacf9495ab3b60370a4e3a4e720f6625bf66f1143ad1a724f45b22a9a7f74508",
+  "metrics": {
+    "experiment": "count24_only",
+    "features": 176,
+    "AUROC": 0.7661582981283406,
+    "AP": 0.07720074945345624,
+    "positive_rate": 0.024542980100783464,
+    "origin": "new_ablation"
+  },
+  "train_patients": 25814,
+  "validation_patients": 6454,
+  "test_patients_evaluated": 0
+}

@@ -1,0 +1,56 @@
+{
+  "scope": "full_locked_validation_only",
+  "validation_patients_with_scored_windows": 4960,
+  "validation_patients_total": 6454,
+  "validation_rows": 108748,
+  "test_patients_evaluated": 0,
+  "cooldown_hours": 6.0,
+  "thresholds": [
+    0.1,
+    0.2,
+    0.3,
+    0.5,
+    0.7,
+    0.9
+  ],
+  "models": [
+    {
+      "model": "xgboost_176",
+      "rows": 108748,
+      "patients": 4960,
+      "AUROC": 0.7900623071762783,
+      "AP": 0.09487981162898537,
+      "brier_score": 0.14907726771404645,
+      "ece_10_equal_width_bins": 0.3062196264113881,
+      "mean_score": 0.33076260651217154,
+      "observed_positive_rate": 0.024542980100783464
+    },
+    {
+      "model": "lstm_full_pw10",
+      "rows": 108748,
+      "patients": 4960,
+      "AUROC": 0.8294292117790818,
+      "AP": 0.1354104882979276,
+      "brier_score": 0.05002997039122384,
+      "ece_10_equal_width_bins": 0.11132295751864044,
+      "mean_score": 0.1358659376194239,
+      "observed_positive_rate": 0.024542980100783464
+    },
+    {
+      "model": "raw_blend_lstm_0.75",
+      "rows": 108748,
+      "patients": 4960,
+      "AUROC": 0.8343355401889465,
+      "AP": 0.13851904140178317,
+      "brier_score": 0.06329232886468451,
+      "ece_10_equal_width_bins": 0.1600471247418274,
+      "mean_score": 0.1845901048426108,
+      "observed_positive_rate": 0.024542980100783464
+    }
+  ],
+  "warning": "Alert rate denominator counts only patients with at least one 24-row window, not all 6,454 validation patients. Brier/ECE assess uncalibrated, class-weighted model scores; fixed thresholds are descriptive, not a clinical cutoff. The 6-hour cooldown is a simplified simulation without patient-specific alert adjudication or official utility scoring. Ensemble selection on the same Validation is optimistic.",
+  "files": [
+    "reports\\ensemble_validation_calibration_diagnostics.csv",
+    "reports\\ensemble_validation_alert_burden.csv"
+  ]
+}

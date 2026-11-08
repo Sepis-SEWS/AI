@@ -1,0 +1,193 @@
+{
+  "scope": "locked_validation_sample_only",
+  "rows_sampled": 3000,
+  "validation_rows_total": 108748,
+  "test_patients_evaluated": 0,
+  "seed": 42,
+  "unit": "raw XGBoost margin (log odds), NOT probability percentage",
+  "additivity_verified": true,
+  "total_absolute_shap_by_age_features": 0.21868610382080078,
+  "top_20": [
+    {
+      "feature": "FiO2_age_hours",
+      "is_age_feature": true,
+      "n_sampled_rows": 3000,
+      "mean_abs_shap_raw_logodds": 0.4793725609779358,
+      "mean_shap_raw_logodds": -0.1902163326740265,
+      "training_setA_mean_abs_shap": 0.4908565282821655,
+      "training_setB_mean_abs_shap": 0.46851426362991333
+    },
+    {
+      "feature": "Temp_max",
+      "is_age_feature": false,
+      "n_sampled_rows": 3000,
+      "mean_abs_shap_raw_logodds": 0.26028767228126526,
+      "mean_shap_raw_logodds": -0.09300453960895538,
+      "training_setA_mean_abs_shap": 0.2348831593990326,
+      "training_setB_mean_abs_shap": 0.2843082845211029
+    },
+    {
+      "feature": "pH_age_hours",
+      "is_age_feature": true,
+      "n_sampled_rows": 3000,
+      "mean_abs_shap_raw_logodds": 0.11009865254163742,
+      "mean_shap_raw_logodds": -0.055443309247493744,
+      "training_setA_mean_abs_shap": 0.10940234363079071,
+      "training_setB_mean_abs_shap": 0.11075703054666519
+    },
+    {
+      "feature": "Temp_slope",
+      "is_age_feature": false,
+      "n_sampled_rows": 3000,
+      "mean_abs_shap_raw_logodds": 0.10906004160642624,
+      "mean_shap_raw_logodds": -0.020031992346048355,
+      "training_setA_mean_abs_shap": 0.11662039160728455,
+      "training_setB_mean_abs_shap": 0.10191154479980469
+    },
+    {
+      "feature": "BUN_mean",
+      "is_age_feature": false,
+      "n_sampled_rows": 3000,
+      "mean_abs_shap_raw_logodds": 0.10768875479698181,
+      "mean_shap_raw_logodds": -0.025374960154294968,
+      "training_setA_mean_abs_shap": 0.10796169191598892,
+      "training_setB_mean_abs_shap": 0.10743068158626556
+    },
+    {
+      "feature": "Resp_min",
+      "is_age_feature": false,
+      "n_sampled_rows": 3000,
+      "mean_abs_shap_raw_logodds": 0.1041070744395256,
+      "mean_shap_raw_logodds": -0.019942184910178185,
+      "training_setA_mean_abs_shap": 0.11443978548049927,
+      "training_setB_mean_abs_shap": 0.09433721750974655
+    },
+    {
+      "feature": "Resp_mean",
+      "is_age_feature": false,
+      "n_sampled_rows": 3000,
+      "mean_abs_shap_raw_logodds": 0.0990278348326683,
+      "mean_shap_raw_logodds": -0.022689877077937126,
+      "training_setA_mean_abs_shap": 0.1022174134850502,
+      "training_setB_mean_abs_shap": 0.09601200371980667
+    },
+    {
+      "feature": "HR_rate",
+      "is_age_feature": false,
+      "n_sampled_rows": 3000,
+      "mean_abs_shap_raw_logodds": 0.09108945727348328,
+      "mean_shap_raw_logodds": -0.01264968328177929,
+      "training_setA_mean_abs_shap": 0.08687391877174377,
+      "training_setB_mean_abs_shap": 0.0950753390789032
+    },
+    {
+      "feature": "Creatinine_min",
+      "is_age_feature": false,
+      "n_sampled_rows": 3000,
+      "mean_abs_shap_raw_logodds": 0.0717831552028656,
+      "mean_shap_raw_logodds": 0.001025115605443716,
+      "training_setA_mean_abs_shap": 0.0718475878238678,
+      "training_setB_mean_abs_shap": 0.07172223925590515
+    },
+    {
+      "feature": "BUN_min",
+      "is_age_feature": false,
+      "n_sampled_rows": 3000,
+      "mean_abs_shap_raw_logodds": 0.06966860592365265,
+      "mean_shap_raw_logodds": -0.020017201080918312,
+      "training_setA_mean_abs_shap": 0.06940387934446335,
+      "training_setB_mean_abs_shap": 0.0699189081788063
+    },
+    {
+      "feature": "HR_max",
+      "is_age_feature": false,
+      "n_sampled_rows": 3000,
+      "mean_abs_shap_raw_logodds": 0.06767717748880386,
+      "mean_shap_raw_logodds": -0.00795136671513319,
+      "training_setA_mean_abs_shap": 0.05816122889518738,
+      "training_setB_mean_abs_shap": 0.07667474448680878
+    },
+    {
+      "feature": "Lactate_age_hours",
+      "is_age_feature": true,
+      "n_sampled_rows": 3000,
+      "mean_abs_shap_raw_logodds": 0.06128238886594772,
+      "mean_shap_raw_logodds": -0.028918780386447906,
+      "training_setA_mean_abs_shap": 0.06764320284128189,
+      "training_setB_mean_abs_shap": 0.05526808276772499
+    },
+    {
+      "feature": "WBC_min",
+      "is_age_feature": false,
+      "n_sampled_rows": 3000,
+      "mean_abs_shap_raw_logodds": 0.06042909622192383,
+      "mean_shap_raw_logodds": -0.015779513865709305,
+      "training_setA_mean_abs_shap": 0.05303241312503815,
+      "training_setB_mean_abs_shap": 0.06742283701896667
+    },
+    {
+      "feature": "BUN_median",
+      "is_age_feature": false,
+      "n_sampled_rows": 3000,
+      "mean_abs_shap_raw_logodds": 0.05793100968003273,
+      "mean_shap_raw_logodds": -0.015451486222445965,
+      "training_setA_mean_abs_shap": 0.059106018394231796,
+      "training_setB_mean_abs_shap": 0.05682000890374184
+    },
+    {
+      "feature": "Creatinine_max",
+      "is_age_feature": false,
+      "n_sampled_rows": 3000,
+      "mean_abs_shap_raw_logodds": 0.05650317296385765,
+      "mean_shap_raw_logodds": -0.013239186257123947,
+      "training_setA_mean_abs_shap": 0.055582400411367416,
+      "training_setB_mean_abs_shap": 0.05737379938364029
+    },
+    {
+      "feature": "BUN_max",
+      "is_age_feature": false,
+      "n_sampled_rows": 3000,
+      "mean_abs_shap_raw_logodds": 0.04997364804148674,
+      "mean_shap_raw_logodds": -0.012300760485231876,
+      "training_setA_mean_abs_shap": 0.05297202616930008,
+      "training_setB_mean_abs_shap": 0.047138605266809464
+    },
+    {
+      "feature": "FiO2_mean",
+      "is_age_feature": false,
+      "n_sampled_rows": 3000,
+      "mean_abs_shap_raw_logodds": 0.0401214174926281,
+      "mean_shap_raw_logodds": -0.01244435366243124,
+      "training_setA_mean_abs_shap": 0.03747237101197243,
+      "training_setB_mean_abs_shap": 0.04262616112828255
+    },
+    {
+      "feature": "Bilirubin_total_age_hours",
+      "is_age_feature": true,
+      "n_sampled_rows": 3000,
+      "mean_abs_shap_raw_logodds": 0.039088185876607895,
+      "mean_shap_raw_logodds": -0.012758891098201275,
+      "training_setA_mean_abs_shap": 0.03622974827885628,
+      "training_setB_mean_abs_shap": 0.0417909100651741
+    },
+    {
+      "feature": "Temp_mean",
+      "is_age_feature": false,
+      "n_sampled_rows": 3000,
+      "mean_abs_shap_raw_logodds": 0.03776317462325096,
+      "mean_shap_raw_logodds": -0.012029331177473068,
+      "training_setA_mean_abs_shap": 0.034725528210401535,
+      "training_setB_mean_abs_shap": 0.04063533619046211
+    },
+    {
+      "feature": "SBP_std",
+      "is_age_feature": false,
+      "n_sampled_rows": 3000,
+      "mean_abs_shap_raw_logodds": 0.03572738170623779,
+      "mean_shap_raw_logodds": -0.007553239353001118,
+      "training_setA_mean_abs_shap": 0.03685764595866203,
+      "training_setB_mean_abs_shap": 0.03465868532657623
+    }
+  ],
+  "warning": "TreeSHAP attributions describe the fitted model, not causation. FiO2 measurement timing may proxy source-specific clinical measurement practices. Validation sampling is descriptive and not final independent evaluation."
+}

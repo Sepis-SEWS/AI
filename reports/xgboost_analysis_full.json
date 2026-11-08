@@ -1,0 +1,128 @@
+{
+  "scope": "full",
+  "model": "models\\xgboost_compare_full_best_ap.joblib",
+  "patients": 6454,
+  "overall": {
+    "rows": 108748,
+    "positive_rate": 0.024542980100783464,
+    "AUROC": 0.7597753543718421,
+    "AP": 0.07723349232460215
+  },
+  "by_source": {
+    "training_setA": {
+      "rows": 53837,
+      "positive_rate": 0.029199249586715458,
+      "AUROC": 0.7465255478965704,
+      "AP": 0.08316927469656532
+    },
+    "training_setB": {
+      "rows": 54911,
+      "positive_rate": 0.019977782229425797,
+      "AUROC": 0.7650273593378238,
+      "AP": 0.07008833759146056
+    }
+  },
+  "top_features": [
+    {
+      "feature": "FiO2_mean",
+      "gain": 7228.30419921875,
+      "missing_fraction": 0.5869901055651598
+    },
+    {
+      "feature": "FiO2_min",
+      "gain": 6359.2783203125,
+      "missing_fraction": 0.5869901055651598
+    },
+    {
+      "feature": "Temp_max",
+      "gain": 2628.87060546875,
+      "missing_fraction": 0.007246110273292383
+    },
+    {
+      "feature": "Lactate_iqr",
+      "gain": 2318.5732421875,
+      "missing_fraction": 0.7630393202633612
+    },
+    {
+      "feature": "BUN_min",
+      "gain": 2245.767822265625,
+      "missing_fraction": 0.05786773090079818
+    },
+    {
+      "feature": "Resp_min",
+      "gain": 2242.711669921875,
+      "missing_fraction": 0.003034538566226505
+    },
+    {
+      "feature": "Bilirubin_total_iqr",
+      "gain": 2160.8037109375,
+      "missing_fraction": 0.7493011365726266
+    },
+    {
+      "feature": "WBC_mean",
+      "gain": 1927.82958984375,
+      "missing_fraction": 0.07838305072277191
+    },
+    {
+      "feature": "Temp_mean",
+      "gain": 1848.3077392578125,
+      "missing_fraction": 0.007246110273292383
+    },
+    {
+      "feature": "HR_max",
+      "gain": 1730.597900390625,
+      "missing_fraction": 0.0006436899988965314
+    },
+    {
+      "feature": "WBC_max",
+      "gain": 1726.3489990234375,
+      "missing_fraction": 0.07838305072277191
+    },
+    {
+      "feature": "Resp_mean",
+      "gain": 1659.899169921875,
+      "missing_fraction": 0.003034538566226505
+    },
+    {
+      "feature": "BUN_median",
+      "gain": 1496.0413818359375,
+      "missing_fraction": 0.05786773090079818
+    },
+    {
+      "feature": "BUN_mean",
+      "gain": 1479.1761474609375,
+      "missing_fraction": 0.05786773090079818
+    },
+    {
+      "feature": "FiO2_iqr",
+      "gain": 1464.5419921875,
+      "missing_fraction": 0.5869901055651598
+    },
+    {
+      "feature": "Lactate_median",
+      "gain": 1442.5662841796875,
+      "missing_fraction": 0.7630393202633612
+    },
+    {
+      "feature": "HR_rate",
+      "gain": 1437.7825927734375,
+      "missing_fraction": 0.0007448412844374149
+    },
+    {
+      "feature": "Lactate_rate",
+      "gain": 1325.234619140625,
+      "missing_fraction": 0.8665906499429875
+    },
+    {
+      "feature": "SBP_median",
+      "gain": 1320.9737548828125,
+      "missing_fraction": 0.01680030897119947
+    },
+    {
+      "feature": "SBP_cv",
+      "gain": 1300.8748779296875,
+      "missing_fraction": 0.017940559826387613
+    }
+  ],
+  "caution": "Gain is not causal. Validation only; score not calibrated. No Test predictions, Group 5-Fold, SHAP, or clinical utility."
+}

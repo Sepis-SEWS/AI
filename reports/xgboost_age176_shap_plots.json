@@ -1,0 +1,14 @@
+{
+  "scope": "locked_validation_sample_only",
+  "sampled_rows": 1000,
+  "test_evaluated": false,
+  "units": "XGBoost raw margin (log-odds)",
+  "representative_window_prediction_margin": -0.3510839343070984,
+  "representative_window_bias": 0.017950231209397316,
+  "additivity_verified": true,
+  "notes": "Plots are descriptive, non-causal, not probability contributions. Local plot shows a reproducibly selected window without identifying information.",
+  "files": [
+    "reports/xgboost_age176_shap_summary.png",
+    "reports/xgboost_age176_shap_local_contributions.png"
+  ]
+}

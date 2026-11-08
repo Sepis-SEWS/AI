@@ -1,0 +1,92 @@
+{
+  "title": "Sepsis-3 SOFA/qSOFA component feasibility audit",
+  "scope": "per-source structural audit, without label modification or model scoring",
+  "sample_patients_per_set": null,
+  "full_sofa_calculable": false,
+  "full_qsofa_calculable": false,
+  "limitations": {
+    "SOFA_respiratory": "PaO2 and respiratory support status absent (FiO2/O2Sat alone insufficient)",
+    "SOFA_CNS": "GCS absent",
+    "SOFA_full_cardiovascular": "Vasopressor agents and doses absent (MAP alone insufficient)",
+    "SOFA_full_renal": "Urine output absent (creatinine-only score may underestimate renal severity)",
+    "qSOFA_full": "Altered mentation/GCS absent",
+    "Sepsis3_relabel": "Suspected infection and complete baseline/serial SOFA unavailable"
+  },
+  "unit_assumption": "Platelets in 10^3/uL; Bilirubin_total and Creatinine in mg/dL per challenge documentation. Verify units before operational use.",
+  "component_output_warning": "No total SOFA/qSOFA computed. Missing vital observations remain missing; absent components are not normal scores.",
+  "reference": "https://doi.org/10.1001/jama.2016.0287",
+  "sources": [
+    {
+      "source": "training_setA",
+      "patients": 20336,
+      "rows": 790215,
+      "observed_count": {
+        "Resp": 712957,
+        "SBP": 670014,
+        "MAP": 709357,
+        "Platelets": 51499,
+        "Bilirubin_total": 9693,
+        "Creatinine": 52487
+      },
+      "observed_rate": {
+        "Resp": 0.9022316711274779,
+        "SBP": 0.8478882329492606,
+        "MAP": 0.8976759489506021,
+        "Platelets": 0.06517087121859241,
+        "Bilirubin_total": 0.012266281961238397,
+        "Creatinine": 0.06642116386046835
+      },
+      "component_available_count": {
+        "qsofa_two_components_observed": 652680,
+        "sofa_Platelets_component": 51499,
+        "sofa_Bilirubin_total_component": 9693,
+        "sofa_Creatinine_component": 52487,
+        "sofa_cardiovascular_map_low_flag": 709357
+      },
+      "component_available_rate": {
+        "qsofa_two_components_observed": 0.8259524306676032,
+        "sofa_Platelets_component": 0.06517087121859241,
+        "sofa_Bilirubin_total_component": 0.012266281961238397,
+        "sofa_Creatinine_component": 0.06642116386046835,
+        "sofa_cardiovascular_map_low_flag": 0.8976759489506021
+      },
+      "negative_lab_measurement_rows": 0
+    },
+    {
+      "source": "training_setB",
+      "patients": 20000,
+      "rows": 761995,
+      "observed_count": {
+        "Resp": 600918,
+        "SBP": 655931,
+        "MAP": 649583,
+        "Platelets": 40710,
+        "Bilirubin_total": 13448,
+        "Creatinine": 42129
+      },
+      "observed_rate": {
+        "Resp": 0.7886114738285684,
+        "SBP": 0.8608074856134227,
+        "MAP": 0.852476722288204,
+        "Platelets": 0.053425547411728426,
+        "Bilirubin_total": 0.017648409766468285,
+        "Creatinine": 0.05528776435540916
+      },
+      "component_available_count": {
+        "qsofa_two_components_observed": 590292,
+        "sofa_Platelets_component": 40710,
+        "sofa_Bilirubin_total_component": 13448,
+        "sofa_Creatinine_component": 42129,
+        "sofa_cardiovascular_map_low_flag": 649583
+      },
+      "component_available_rate": {
+        "qsofa_two_components_observed": 0.7746665004363545,
+        "sofa_Platelets_component": 0.053425547411728426,
+        "sofa_Bilirubin_total_component": 0.017648409766468285,
+        "sofa_Creatinine_component": 0.05528776435540916,
+        "sofa_cardiovascular_map_low_flag": 0.852476722288204
+      },
+      "negative_lab_measurement_rows": 0
+    }
+  ]
+}

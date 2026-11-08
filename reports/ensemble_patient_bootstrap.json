@@ -1,0 +1,45 @@
+{
+  "scope": "locked_validation_scored_patients_only",
+  "patients_with_24row_windows": 4960,
+  "total_validation_patients": 6454,
+  "hourly_rows": 108748,
+  "repeats_requested": 200,
+  "repeats_valid": 200,
+  "seed": 42,
+  "test_patients_evaluated": 0,
+  "point_estimates": {
+    "xgboost_176": {
+      "AUROC": 0.7900623071762783,
+      "AP": 0.09487981162898537
+    },
+    "lstm_full_pw10": {
+      "AUROC": 0.8294292117790818,
+      "AP": 0.1354104882979276
+    },
+    "raw_blend_lstm_0.75": {
+      "AUROC": 0.8343355401889465,
+      "AP": 0.13851904140178317
+    }
+  },
+  "paired_deltas_vs_lstm": {
+    "blend_minus_lstm_AUROC": {
+      "point_delta": 0.004906328409864713,
+      "bootstrap_mean": 0.005011688097826042,
+      "percentile_95_CI": [
+        -0.0007897408928552452,
+        0.011324009563102075
+      ],
+      "fraction_delta_le_zero": 0.07
+    },
+    "blend_minus_lstm_AP": {
+      "point_delta": 0.003108553103855577,
+      "bootstrap_mean": 0.0028042706232871617,
+      "percentile_95_CI": [
+        -0.0020624203347461775,
+        0.008515469841451783
+      ],
+      "fraction_delta_le_zero": 0.14
+    }
+  },
+  "notes": "Resamples whole patients with replacement; all 24-row-scored hours for sampled patients remain together. Intervals quantify sampling variation on an already-used fixed Validation set, not independent generalization nor model-selection uncertainty. All blend weights were previously evaluated on Validation. No clinical claims."
+}

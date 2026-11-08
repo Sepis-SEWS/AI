@@ -1,0 +1,58 @@
+{
+  "description": "Single Validation split ablations; NOT 5-fold or final Test evaluation",
+  "scope": "train300_val100",
+  "results": [
+    {
+      "experiment": "baseline",
+      "train_patients": 300,
+      "validation_patients": 100,
+      "train_samples": 4684,
+      "validation_samples": 1853,
+      "test_patients_evaluated": 0,
+      "max_depth": 4,
+      "scale_pos_weight": 35.59375,
+      "AUROC": 0.6345115742964171,
+      "AP": 0.06479562731086322,
+      "positive_rate": 0.03130059363194819
+    },
+    {
+      "experiment": "depth_3",
+      "train_patients": 300,
+      "validation_patients": 100,
+      "train_samples": 4684,
+      "validation_samples": 1853,
+      "test_patients_evaluated": 0,
+      "max_depth": 3,
+      "scale_pos_weight": 35.59375,
+      "AUROC": 0.6310344827586207,
+      "AP": 0.06528330357508516,
+      "positive_rate": 0.03130059363194819
+    },
+    {
+      "experiment": "depth_6",
+      "train_patients": 300,
+      "validation_patients": 100,
+      "train_samples": 4684,
+      "validation_samples": 1853,
+      "test_patients_evaluated": 0,
+      "max_depth": 6,
+      "scale_pos_weight": 35.59375,
+      "AUROC": 0.6870809720487946,
+      "AP": 0.10364039626290664,
+      "positive_rate": 0.03130059363194819
+    },
+    {
+      "experiment": "weight_1",
+      "train_patients": 300,
+      "validation_patients": 100,
+      "train_samples": 4684,
+      "validation_samples": 1853,
+      "test_patients_evaluated": 0,
+      "max_depth": 4,
+      "scale_pos_weight": 1.0,
+      "AUROC": 0.6742868120257419,
+      "AP": 0.08597071659754209,
+      "positive_rate": 0.03130059363194819
+    }
+  ]
+}

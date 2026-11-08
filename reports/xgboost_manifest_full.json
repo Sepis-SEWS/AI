@@ -1,0 +1,15 @@
+{
+  "experiment": "xgboost_locked_patient_split",
+  "full_train": true,
+  "full_validation": true,
+  "train_patients": 25814,
+  "validation_patients": 6454,
+  "test_patients_evaluated": 0,
+  "train_samples": 430905,
+  "validation_samples": 108748,
+  "validation_positive_rate": 0.024542980100783464,
+  "validation_auroc": 0.7597753543718421,
+  "validation_ap": 0.07723349232460215,
+  "features": 160,
+  "seed": 42
+}

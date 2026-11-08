@@ -1,0 +1,258 @@
+{
+  "scope": "Validation 24-row-scoreable timestamps only",
+  "frozen_test_policy_unchanged": true,
+  "test_evaluated_in_this_run": false,
+  "warnings": [
+    "Sensitivity at 95% specificity is descriptive, not a new Test cutoff.",
+    "Uncalibrated weighted model scores are not probabilities.",
+    "The final Test is NEVER reread; all diagrams come from Validation archive."
+  ],
+  "models": [
+    {
+      "model": "XGBoost 176",
+      "validation_scoreable_rows": 108748,
+      "validation_scored_patients": 4960,
+      "sensitivity_at_specificity_at_least_95pct": 0.2517796927688273,
+      "specificity_at_selected_roc_point": 0.9502069212567992,
+      "diagnostic_roc_score_threshold": 0.7273187041282654,
+      "frozen_threshold_for_classification_report": 0.2,
+      "confusion_matrix_0_1": [
+        [
+          38494,
+          67585
+        ],
+        [
+          159,
+          2510
+        ]
+      ],
+      "classification_report": {
+        "0": {
+          "precision": 0.995886477116912,
+          "recall": 0.362880494725629,
+          "f1-score": 0.5319348865489318,
+          "support": 106079.0
+        },
+        "1": {
+          "precision": 0.03580854554533133,
+          "recall": 0.9404271262645185,
+          "f1-score": 0.06899015996921555,
+          "support": 2669.0
+        },
+        "accuracy": 0.3770552102107625,
+        "macro avg": {
+          "precision": 0.5158475113311217,
+          "recall": 0.6516538104950738,
+          "f1-score": 0.3004625232590737,
+          "support": 108748.0
+        },
+        "weighted avg": {
+          "precision": 0.9723233035471494,
+          "recall": 0.3770552102107625,
+          "f1-score": 0.5205728433367233,
+          "support": 108748.0
+        }
+      },
+      "reliability_bin_mean_prediction": [
+        0.08069125321582428,
+        0.14879435126619758,
+        0.24655507396666781,
+        0.3473906702548679,
+        0.44802683887122247,
+        0.5488982833460397,
+        0.6480012252731666,
+        0.7458603508544691,
+        0.8370054774679263,
+        0.9177993037262742
+      ],
+      "reliability_bin_observed_fraction": [
+        0.0024013722126929675,
+        0.004614150060184566,
+        0.010894212757566794,
+        0.01776790671848973,
+        0.028985507246376812,
+        0.04336013910019561,
+        0.0665431935441196,
+        0.088085827216262,
+        0.13994685562444642,
+        0.29591836734693877
+      ],
+      "reliability_bin_counts": [
+        8745,
+        29908,
+        20286,
+        14408,
+        10971,
+        9202,
+        7559,
+        5313,
+        2258,
+        98
+      ]
+    },
+    {
+      "model": "LSTM pw10",
+      "validation_scoreable_rows": 108748,
+      "validation_scored_patients": 4960,
+      "sensitivity_at_specificity_at_least_95pct": 0.3368302735106782,
+      "specificity_at_selected_roc_point": 0.9500372363992873,
+      "diagnostic_roc_score_threshold": 0.47216498851776123,
+      "frozen_threshold_for_classification_report": 0.2,
+      "confusion_matrix_0_1": [
+        [
+          83442,
+          22637
+        ],
+        [
+          797,
+          1872
+        ]
+      ],
+      "classification_report": {
+        "0": {
+          "precision": 0.9905388240601146,
+          "recall": 0.7866024378057862,
+          "f1-score": 0.8768692399037401,
+          "support": 106079.0
+        },
+        "1": {
+          "precision": 0.07638010526745277,
+          "recall": 0.701386286998876,
+          "f1-score": 0.1377584811244389,
+          "support": 2669.0
+        },
+        "accuracy": 0.7845109795122669,
+        "macro avg": {
+          "precision": 0.5334594646637837,
+          "recall": 0.7439943624023311,
+          "f1-score": 0.5073138605140894,
+          "support": 108748.0
+        },
+        "weighted avg": {
+          "precision": 0.9681026448158286,
+          "recall": 0.7845109795122669,
+          "f1-score": 0.8587292592587448,
+          "support": 108748.0
+        }
+      },
+      "reliability_bin_mean_prediction": [
+        0.04257829667977556,
+        0.14295523513657793,
+        0.2469003560944017,
+        0.34605567959866207,
+        0.445931907248509,
+        0.5474518134800241,
+        0.6469861768953727,
+        0.742040061155955,
+        0.8294039671273195,
+        0.9163634280363718
+      ],
+      "reliability_bin_observed_fraction": [
+        0.005645835822678934,
+        0.024237866604963267,
+        0.04324147696329376,
+        0.05556474284769307,
+        0.0829979879275654,
+        0.11468812877263582,
+        0.14484848484848484,
+        0.19555555555555557,
+        0.3953488372093023,
+        0.5833333333333334
+      ],
+      "reliability_bin_counts": [
+        66952,
+        17287,
+        9181,
+        6047,
+        3976,
+        2485,
+        1650,
+        900,
+        258,
+        12
+      ]
+    },
+    {
+      "model": "Ensemble 25:75",
+      "validation_scoreable_rows": 108748,
+      "validation_scored_patients": 4960,
+      "sensitivity_at_specificity_at_least_95pct": 0.3349569127013863,
+      "specificity_at_selected_roc_point": 0.9501692135106854,
+      "diagnostic_roc_score_threshold": 0.5135725811123848,
+      "frozen_threshold_for_classification_report": 0.2,
+      "confusion_matrix_0_1": [
+        [
+          73254,
+          32825
+        ],
+        [
+          483,
+          2186
+        ]
+      ],
+      "classification_report": {
+        "0": {
+          "precision": 0.9934496928272102,
+          "recall": 0.6905608084540766,
+          "f1-score": 0.8147662054544645,
+          "support": 106079.0
+        },
+        "1": {
+          "precision": 0.06243751963668561,
+          "recall": 0.8190333458224054,
+          "f1-score": 0.11602972399150743,
+          "support": 2669.0
+        },
+        "accuracy": 0.6937139073822047,
+        "macro avg": {
+          "precision": 0.5279436062319479,
+          "recall": 0.7547970771382411,
+          "f1-score": 0.465397964722986,
+          "support": 108748.0
+        },
+        "weighted avg": {
+          "precision": 0.9705998795870079,
+          "recall": 0.6937139073822047,
+          "f1-score": 0.7976171298942277,
+          "support": 108748.0
+        }
+      },
+      "reliability_bin_mean_prediction": [
+        0.06345819494752344,
+        0.1421610103897404,
+        0.24507977496777572,
+        0.3461890117407868,
+        0.44596497527616175,
+        0.5469700712484744,
+        0.6460026484368937,
+        0.7421845303953819,
+        0.827685823083901,
+        0.9184505442778269
+      ],
+      "reliability_bin_observed_fraction": [
+        0.002356513266716516,
+        0.012802324010268883,
+        0.028704094554664415,
+        0.05212603959236266,
+        0.07292418772563176,
+        0.09790002957704821,
+        0.14461994076999013,
+        0.19528301886792454,
+        0.3770491803278688,
+        0.6666666666666666
+      ],
+      "reliability_bin_counts": [
+        44133,
+        29604,
+        14214,
+        8537,
+        5540,
+        3381,
+        2026,
+        1060,
+        244,
+        9
+      ]
+    }
+  ]
+}
