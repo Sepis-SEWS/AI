@@ -96,3 +96,34 @@ python src/training/train_xgboost.py --split-manifest data/splits/patient_splits
 8. FastAPI 추론 계약과 Streamlit 통합, Docker Compose, 지연·재현성 테스트, 기술 보고서
 
 > 현재 모델 성능 목표 달성 여부는 미확정이다. 전체 데이터 학습, 교차검증, 공식 Utility Score, 보정, 서비스 구현은 아직 완료되지 않았다.
+
+## AI 개발 진행 현황 (2026-11-08, GitHub 원격 확인 기준)
+
+- 고정 코호트: Train 25,814명 / Validation 6,454명 / Test 8,068명. 동일 환자의 시간별 행이 분할 사이에 중복되지 않도록 관리.
+- XGBoost 176 특징: Validation AUROC 0.790062, AP 0.094880.
+- 최종 LSTM (`pos_weight=10`, 24×64, Epoch 6): Validation AUROC 0.829429, AP 0.135410.
+- 25:75 XGBoost-LSTM 앙상블: Validation AUROC 0.834336, AP 0.138519. 환자 부트스트랩에서 LSTM 대비 개선이 확실하다고 보기 어려워 최종 Test 모델로 선택하지 않음.
+- **잠금 LSTM 최초 Test**: 예측 가능 환자 6,149명, 예측 가능 시점 135,693개. AUROC **0.824396**, AP **0.131886**, Brier **0.052583**, ECE(10-bin) **0.114430**, 전체 Test 환자 시간축 normalized utility **0.297674**. Test 환자 전체 8,068명. 최초 23개 시점 및 24행 미만 환자의 경보를 0으로 두고, 임계값 **0.2**, 별도 calibration 및 경보 cooldown 없음.
+- 최종 Test는 **다시 실행하거나 이 결과로 모델/임계값을 최적화하지 않음**. AUROC 0.82 목표 달성, AP 0.40 목표 미달. 이는 임상 검증 결과가 아닌 연구용 고정 평가임.
+- 설명/검증: XGBoost Native TreeSHAP와 그림, Validation PR Curve/Reliability Diagram, Sensitivity@≥95% Specificity, 공식 Utility 분기 독립 패리티 테스트 1,250개 사례, Calibration 진단 완료.
+- LSTM 5-Fold CV는 **원래 Train 환자 내부**에서 진행 중. GitHub에 Fold 1/2의 학습 기록이 반영되어 있고 Fold 3/4/5 완료 여부는 로컬 결과 확인 필요. 각 Fold는 별도의 통계·체크포인트를 사용하고 원래 Validation·Test에 접근하지 않음.
+- 최종 모델 파일 및 최종 Test JSON은 로컬 산출물 관리 대상이다. 원격에 파일이 보이지 않는다고 학습이나 평가가 미실행된 것은 아니므로 원격 확인 사실과 로컬 실행 로그를 구분해야 한다.
+
+### 남은 LSTM CV 단계 (로컬 PowerShell, 프로젝트 루트)
+
+기존 Fold 3 학습이 완료되었는지 먼저 확인한 후, 미완료 상태라면 기존 체크포인트/기록을 확인하고 중복 학습으로 덮어쓰지 않도록 한다.
+
+```powershell
+git pull origin main
+Get-Content reports/lstm_full_pw10_fold3_history.json -Tail 18
+Test-Path models/lstm_full_pw10_fold3_best.pt
+# Fold 3이 최종 완료된 경우에만 다음 단계 진행
+python src/training/prepare_lstm_group_cv.py --fit-stats-fold 4
+python src/training/train_lstm.py --manifest data/splits/lstm_cv/fold4.json --stats models/lstm_cv_fold4_stats.json --run-tag fold4 --epochs 12 --patience 3 --pos-weight 10
+python src/training/prepare_lstm_group_cv.py --fit-stats-fold 5
+python src/training/train_lstm.py --manifest data/splits/lstm_cv/fold5.json --stats models/lstm_cv_fold5_stats.json --run-tag fold5 --epochs 12 --patience 3 --pos-weight 10
+# 전 Fold의 학습 완료 및 모델 파일 존재가 확인된 뒤에만 실행
+python src/training/summarize_lstm_group_cv.py
+```
+
+5-Fold 결과 집계는 각 Fold에서 AP가 가장 높은 Epoch의 AUROC/AP로 평균 및 표본 표준편차를 구한다. 동일 Fold의 최적 Epoch 선택에 사용된 점수이므로 독립적인 임상 일반화 성능으로 해석하지 않는다. 기존 Notion AI 개발계획서 및 완료한 Test 잠금 정책은 유지한다.
