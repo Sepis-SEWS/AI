@@ -1,0 +1,139 @@
+{
+  "scope": "full",
+  "train_patients": 20652,
+  "validation_patients": 5162,
+  "test_patients_evaluated": 0,
+  "best_validation_AP": 0.0962649247291016,
+  "history": [
+    {
+      "epoch": 1,
+      "training": {
+        "loss": 0.5417658766871347,
+        "samples": 341943
+      },
+      "validation": {
+        "loss": 0.5024090812716728,
+        "samples": 88962,
+        "AUROC": 0.768583255706182,
+        "AP": 0.0828149365609981,
+        "positive_rate": 0.023155953735113144
+      }
+    },
+    {
+      "epoch": 2,
+      "training": {
+        "loss": 0.5125258690918828,
+        "samples": 341943
+      },
+      "validation": {
+        "loss": 0.4988996601501243,
+        "samples": 88962,
+        "AUROC": 0.7799725888083283,
+        "AP": 0.08374355816719668,
+        "positive_rate": 0.023155953735113144
+      }
+    },
+    {
+      "epoch": 3,
+      "training": {
+        "loss": 0.49901747652457146,
+        "samples": 341943
+      },
+      "validation": {
+        "loss": 0.488799817864314,
+        "samples": 88962,
+        "AUROC": 0.7911253704373613,
+        "AP": 0.08394926226897398,
+        "positive_rate": 0.023155953735113144
+      }
+    },
+    {
+      "epoch": 4,
+      "training": {
+        "loss": 0.4849902662588108,
+        "samples": 341943
+      },
+      "validation": {
+        "loss": 0.48811213742645226,
+        "samples": 88962,
+        "AUROC": 0.7976361052166115,
+        "AP": 0.08896962422716831,
+        "positive_rate": 0.023155953735113144
+      }
+    },
+    {
+      "epoch": 5,
+      "training": {
+        "loss": 0.47568919191188447,
+        "samples": 341943
+      },
+      "validation": {
+        "loss": 0.48493284444287593,
+        "samples": 88962,
+        "AUROC": 0.799503698284844,
+        "AP": 0.09179819235835891,
+        "positive_rate": 0.023155953735113144
+      }
+    },
+    {
+      "epoch": 6,
+      "training": {
+        "loss": 0.46607159568209255,
+        "samples": 341943
+      },
+      "validation": {
+        "loss": 0.563761793322045,
+        "samples": 88962,
+        "AUROC": 0.8035243164211534,
+        "AP": 0.0962649247291016,
+        "positive_rate": 0.023155953735113144
+      }
+    },
+    {
+      "epoch": 7,
+      "training": {
+        "loss": 0.46206120795061845,
+        "samples": 341943
+      },
+      "validation": {
+        "loss": 0.49443304718856623,
+        "samples": 88962,
+        "AUROC": 0.8038099969991865,
+        "AP": 0.09146530026697065,
+        "positive_rate": 0.023155953735113144
+      }
+    },
+    {
+      "epoch": 8,
+      "training": {
+        "loss": 0.45395998836931306,
+        "samples": 341943
+      },
+      "validation": {
+        "loss": 0.48345967151678704,
+        "samples": 88962,
+        "AUROC": 0.8091069161043586,
+        "AP": 0.095568996224591,
+        "positive_rate": 0.023155953735113144
+      }
+    },
+    {
+      "epoch": 9,
+      "training": {
+        "loss": 0.4482670687409108,
+        "samples": 341943
+      },
+      "validation": {
+        "loss": 0.49923256700743107,
+        "samples": 88962,
+        "AUROC": 0.798422695981837,
+        "AP": 0.09571557546640129,
+        "positive_rate": 0.023155953735113144
+      }
+    }
+  ],
+  "pos_weight": 10.0,
+  "run_tag": "fold5",
+  "manifest": "data\\splits\\lstm_cv\\fold5.json",
+  "limitations": "One CV fold or single fixed Validation; not calibrated or clinical."
+}
