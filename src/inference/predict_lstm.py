@@ -83,15 +83,26 @@ def load_frozen_model(root: Path = ROOT) -> tuple[RiskLSTM, dict[str, Any]]:
             or stats.get("train_patients_in_manifest") != 25814):
         raise ValueError("Frozen preprocessing schema/fit scope mismatch")
     checkpoint = torch.load(root / MODEL_FILE, map_location="cpu", weights_only=True)
-    if (checkpoint.get("scope") != "full"
-            or checkpoint.get("run_tag") != ""
-            or checkpoint.get("features") != FEATURES
-            or checkpoint.get("input_shape") != [WINDOW, len(FEATURES) * 4]
-            or checkpoint.get("best_epoch") != 6
-            or checkpoint.get("pos_weight") != 10
-            or checkpoint.get("hidden_size") != 64
-            or checkpoint.get("layers") != 1):
-        raise ValueError("Unexpected frozen LSTM checkpoint metadata")
+    # Older frozen checkpoints predate the optional run_tag field. The
+    # official one-time Test evaluator does not require that field either.
+    # An explicitly tagged CV checkpoint is still forbidden.
+    if checkpoint.get("run_tag", "") != "":
+        raise ValueError("A CV/run-tag checkpoint cannot be served as the final model")
+    expected_meta = {
+        "scope": "full",
+        "features": FEATURES,
+        "input_shape": [WINDOW, len(FEATURES) * 4],
+        "best_epoch": 6,
+        "pos_weight": 10,
+        "hidden_size": 64,
+        "layers": 1,
+    }
+    for key, expected_value in expected_meta.items():
+        if checkpoint.get(key) != expected_value:
+            raise ValueError(
+                f"Frozen LSTM checkpoint metadata mismatch: {key} "
+                f"(expected {expected_value!r}, got {checkpoint.get(key)!r})"
+            )
     model = RiskLSTM(hidden=64, layers=1)
     model.load_state_dict(checkpoint["model_state_dict"], strict=True)
     model.eval()
