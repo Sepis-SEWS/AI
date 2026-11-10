@@ -1,0 +1,77 @@
+{
+  "status": "LSTM_TRAIN_ONLY_5FOLD_COMPLETED",
+  "evaluation_scope": "Original locked Train patients only; each patient in one held-out fold",
+  "model": "24x64 RiskLSTM; pos_weight=10; best AP checkpoint per fold",
+  "folds": [
+    {
+      "fold": 1,
+      "train_patients": 20651,
+      "heldout_train_patients": 5163,
+      "best_epoch_by_AP": 4,
+      "epochs_completed": 7,
+      "AUROC_at_best_AP_epoch": 0.795807463637028,
+      "AP_at_best_AP_epoch": 0.1121688689740092,
+      "validation_scoreable_rows": 85569,
+      "validation_positive_rate": 0.023805350065231323,
+      "history_file": "reports/lstm_full_pw10_fold1_history.json",
+      "checkpoint_file": "models/lstm_full_pw10_fold1_best.pt"
+    },
+    {
+      "fold": 2,
+      "train_patients": 20651,
+      "heldout_train_patients": 5163,
+      "best_epoch_by_AP": 6,
+      "epochs_completed": 9,
+      "AUROC_at_best_AP_epoch": 0.8040284644783953,
+      "AP_at_best_AP_epoch": 0.14930744819394484,
+      "validation_scoreable_rows": 84263,
+      "validation_positive_rate": 0.0251711905002594,
+      "history_file": "reports/lstm_full_pw10_fold2_history.json",
+      "checkpoint_file": "models/lstm_full_pw10_fold2_best.pt"
+    },
+    {
+      "fold": 3,
+      "train_patients": 20651,
+      "heldout_train_patients": 5163,
+      "best_epoch_by_AP": 10,
+      "epochs_completed": 12,
+      "AUROC_at_best_AP_epoch": 0.8239435062686604,
+      "AP_at_best_AP_epoch": 0.1479374457891472,
+      "validation_scoreable_rows": 86320,
+      "validation_positive_rate": 0.024976830929517746,
+      "history_file": "reports/lstm_full_pw10_fold3_history.json",
+      "checkpoint_file": "models/lstm_full_pw10_fold3_best.pt"
+    },
+    {
+      "fold": 4,
+      "train_patients": 20651,
+      "heldout_train_patients": 5163,
+      "best_epoch_by_AP": 9,
+      "epochs_completed": 12,
+      "AUROC_at_best_AP_epoch": 0.8177135187106329,
+      "AP_at_best_AP_epoch": 0.12767300621015865,
+      "validation_scoreable_rows": 85791,
+      "validation_positive_rate": 0.02445477992296219,
+      "history_file": "reports/lstm_full_pw10_fold4_history.json",
+      "checkpoint_file": "models/lstm_full_pw10_fold4_best.pt"
+    },
+    {
+      "fold": 5,
+      "train_patients": 20652,
+      "heldout_train_patients": 5162,
+      "best_epoch_by_AP": 6,
+      "epochs_completed": 9,
+      "AUROC_at_best_AP_epoch": 0.8035243164211534,
+      "AP_at_best_AP_epoch": 0.0962649247291016,
+      "validation_scoreable_rows": 88962,
+      "validation_positive_rate": 0.023155953735113144,
+      "history_file": "reports/lstm_full_pw10_fold5_history.json",
+      "checkpoint_file": "models/lstm_full_pw10_fold5_best.pt"
+    }
+  ],
+  "average_AUROC": 0.8090034539031741,
+  "sample_std_AUROC": 0.011488864391894582,
+  "average_AP": 0.1266703387792723,
+  "sample_std_AP": 0.022915691868638625,
+  "selection_note": "Best epoch selected on each fold's held-out patients; this is cross-validation model selection, not an independently estimated clinical performance. Original Validation and final Test were NOT rescored or used for CV."
+}
