@@ -126,10 +126,16 @@ def main() -> None:
     }
     OUT.parent.mkdir(parents=True, exist_ok=True)
     if OUT.exists():
-        raise FileExistsError(f"Existing 5-fold summary will not be overwritten: {OUT}")
-    OUT.write_text(json.dumps(summary, indent=2), encoding="utf-8")
+        existing = json.loads(OUT.read_text(encoding="utf-8"))
+        if existing != summary:
+            raise FileExistsError(
+                f"Existing 5-fold summary differs; refusing to overwrite: {OUT}"
+            )
+        print(f"Verified existing 5-fold summary: {OUT}")
+    else:
+        OUT.write_text(json.dumps(summary, indent=2), encoding="utf-8")
     for row in rows:
-        print(f"Fold {row['fold']}: best epoch={row['best_epoch_by_AP_epoch']}, "
+        print(f"Fold {row['fold']}: best epoch={row['best_epoch_by_AP']}, "
               f"AUROC={row['AUROC_at_best_AP_epoch']:.6f}, "
               f"AP={row['AP_at_best_AP_epoch']:.6f}")
     print(f"5-Fold mean±SD: AUROC={summary['average_AUROC']:.6f} ± "
