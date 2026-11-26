@@ -61,7 +61,10 @@ INITIAL = [
     config(arch="xgb", trend=True, weight=3),
     config(arch="xgb", trend=True, weight=1, sampler="under"),
     config(arch="xgb", trend=True, weight=1, sampler="over"),
-    config(arch="xgb", trend=True, weight=1, sampler="smote", features="dynamic"),
+    config(arch="xgb", weight=1, sampler="continuous", features="dynamic"),
+    config(arch="xgb", weight=1, sampler="smote", features="dynamic"),
+    config(arch="xgb", weight=1, sampler="borderline", features="dynamic"),
+    config(arch="xgb", weight=1, sampler="smote_under", features="dynamic"),
     config(arch="lightgbm", trend=True),
     config(arch="catboost", trend=True),
 ]
@@ -227,20 +230,26 @@ def neural(c,tr,va,ty,vy,to,vo,device,epochs,folder):
     return best_p
 
 def tabular(matrix,rows,starts,width,continuous=False):
-    blocks=[]
-    # For SMOTE use only continuous robust-scaled value channels, no masks or ages.
-    for a in range(0,len(rows),2048):
-        x=batch_windows(matrix,rows[a:a+2048],starts[a:a+2048],width)[:,:,:-1]
-        if continuous: x=x[:,:,::4]
-        blocks.append(np.concatenate((x[:,-1],x.mean(1),x.std(1),x.min(1),x.max(1),x[:,-1]-x[:,0]),axis=1))
-    return np.concatenate(blocks)
+    out=None
+    # Keep temporal summaries for value channels and last-row missingness/trends.
+    # Avoid storing a second full copy of the large feature matrix.
+    for a in range(0,len(rows),1024):
+        x=batch_windows(matrix,rows[a:a+1024],starts[a:a+1024],width)[:,:,:-1]
+        v=x[:,:,::4] if continuous else x
+        if continuous:
+            block=np.concatenate((v[:,-1],v.mean(1),v.std(1),v.min(1),v.max(1),v[:,-1]-v[:,0]),axis=1)
+        else:
+            block=np.concatenate((v[:,-1],v.mean(1),v.std(1),v[:,-1]-v[:,0]),axis=1)
+        if out is None: out=np.empty((len(rows),block.shape[1]),dtype=np.float32)
+        out[a:a+len(block)]=block
+    return out
 
 def trees(c,tr,va,ty,vy,to,vo,folder):
     import joblib
     rr,rs=endpoints(to); vr,vs=endpoints(vo)
     # SMOTE is a deliberately separate continuous-only representation.
     # Exclude trend block and static variables for this experiment.
-    cont=c["sampler"]=="smote"
+    cont=c["sampler"] in ("continuous","smote","borderline","smote_under")
     if cont:
         d=34
         tr=tr[:,:4*d]; va=va[:,:4*d]
@@ -255,10 +264,14 @@ def trees(c,tr,va,ty,vy,to,vo,folder):
     elif c["sampler"]=="over":
         p=np.flatnonzero(y==1); ix=rng.permutation(np.concatenate((np.arange(len(y)),p)))
         x,y=x[ix],y[ix]
-    elif cont:
-        from imblearn.over_sampling import SMOTE
+    elif c["sampler"] in ("smote","borderline","smote_under"):
+        from imblearn.over_sampling import SMOTE, BorderlineSMOTE
+        from imblearn.under_sampling import RandomUnderSampler
         # Synthetic statistics are exploratory, not synthetic clinical patients.
-        x,y=SMOTE(sampling_strategy=.1,random_state=c["seed"]).fit_resample(x,y)
+        cls=BorderlineSMOTE if c["sampler"]=="borderline" else SMOTE
+        x,y=cls(sampling_strategy=.1,random_state=c["seed"]).fit_resample(x,y)
+        if c["sampler"]=="smote_under":
+            x,y=RandomUnderSampler(sampling_strategy=.25,random_state=c["seed"]).fit_resample(x,y)
     if c["arch"]=="xgb":
         from xgboost import XGBClassifier
         model=XGBClassifier(n_estimators=400,max_depth=5,learning_rate=.04,subsample=.8,
@@ -282,21 +295,28 @@ def main():
     parser.add_argument("--epochs",type=int,default=12)
     parser.add_argument("--adaptive",type=int,default=8)
     parser.add_argument("--device",choices=["auto","cpu","cuda"],default="auto")
+    parser.add_argument("--retry-failed",action="store_true",help="Retry previous failed trials; successful trials are always reused.")
     args=parser.parse_args()
     if args.epochs<1 or args.adaptive<0: parser.error("Invalid search budget")
+    for required in (MANIFEST,BASELINE,DATA):
+        if not required.exists(): parser.error(f"Missing required input: {required}")
     groups=json.loads(MANIFEST.read_text(encoding="utf-8"))["split"]
     if tuple(len(groups[k]) for k in ("train","validation","test"))!=(25814,6454,8068) or len(set(groups["train"]+groups["validation"]+groups["test"]))!=40336:
         raise ValueError("Locked patient split changed")
     if args.dry_run:
+        import importlib.util
+        for package in ("xgboost","lightgbm","catboost","imblearn"):
+            print(package, "available" if importlib.util.find_spec(package) else "MISSING (affected trials will fail)")
+        print("CUDA available:",torch.cuda.is_available())
         for i,c in enumerate(INITIAL,1): print(i,c)
         print(f"Initial {len(INITIAL)} trials + up to {args.adaptive} adaptive trials; Test HELD OUT.")
         return
     OUT.mkdir(parents=True,exist_ok=True)
-    protocol=dict(epochs=args.epochs,version=1,initial=INITIAL,manifest_hash=hashlib.sha256(MANIFEST.read_bytes()).hexdigest())
+    protocol=dict(epochs=args.epochs,version=2,initial=INITIAL,manifest_hash=hashlib.sha256(MANIFEST.read_bytes()).hexdigest())
     protocol_path=OUT/"protocol.json"
     if protocol_path.exists() and json.loads(protocol_path.read_text())!=protocol:
         raise ValueError("Existing search protocol differs; use original epochs.")
-    atomic_json(protocol_path,protocol)
+    if not protocol_path.exists(): atomic_json(protocol_path,protocol)
     device="cuda" if args.device=="auto" and torch.cuda.is_available() else ("cpu" if args.device=="auto" else args.device)
     traw,ty,to=read_raw(groups["train"])
     vraw,vy,vo=read_raw(groups["validation"])
@@ -322,6 +342,9 @@ def main():
             if result["config"]!=c or len(p)!=len(vr) or not np.isfinite(p).all():
                 raise ValueError(f"Invalid resume artifact {k}")
         else:
+            if (folder/"error.txt").exists() and not args.retry_failed:
+                print(f"Skipping failed trial {k}; use --retry-failed to retry",flush=True)
+                return
             # Preserve any incomplete attempt before retrying.
             existing=[p for p in folder.iterdir() if p.name!="attempts"]
             if existing:
@@ -379,7 +402,9 @@ def main():
         trials=sorted(rows,key=lambda x:-x["ap"]),ensembles=ensembles,
         failures=[p.parent.name for p in OUT.glob("*/error.txt")])
     atomic_json(OUT/"summary.json",summary)
-    print(pd.DataFrame(summary["trials"]).drop(columns=["config"],errors="ignore").to_string(index=False))
+    table=pd.DataFrame([dict(id=r["id"],ap=r["ap"],auroc=r["auroc"],**r["config"]) for r in summary["trials"]])
+    table.to_csv(OUT/"leaderboard.csv",index=False)
+    print(table.to_string(index=False))
     print("Top ensembles:",ensembles[:5])
     print("Saved:",OUT/"summary.json","; Test HELD OUT.")
 
