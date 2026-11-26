@@ -1,0 +1,594 @@
+{
+  "scope": "inner Train selection, reused locked Validation common endpoints",
+  "test_patients_evaluated": 0,
+  "target_ap": 0.4,
+  "inner_trials": [
+    {
+      "id": "ff90a79646a98e19",
+      "config": {
+        "arch": "xgb",
+        "k": 0,
+        "weight": 1,
+        "depth": 3,
+        "leaves": 31,
+        "lr": 0.015,
+        "rounds": 1000,
+        "reg": 5,
+        "child": 20,
+        "seed": 42,
+        "window": 24
+      },
+      "ap": 0.19349715762075428,
+      "auroc": 0.8589067977890622
+    },
+    {
+      "id": "93a9d7a5d5a24fd3",
+      "config": {
+        "arch": "cat",
+        "k": 0,
+        "weight": 3,
+        "depth": 6,
+        "leaves": 31,
+        "lr": 0.04,
+        "rounds": 400,
+        "reg": 3,
+        "child": 20,
+        "seed": 42,
+        "window": 24
+      },
+      "ap": 0.18901015718622238,
+      "auroc": 0.8599014945148857
+    },
+    {
+      "id": "d58bcb0795e41d0b",
+      "config": {
+        "arch": "xgb",
+        "k": 0,
+        "weight": 3,
+        "depth": 3,
+        "leaves": 31,
+        "lr": 0.04,
+        "rounds": 600,
+        "reg": 5,
+        "child": 20,
+        "seed": 42,
+        "window": 24
+      },
+      "ap": 0.18895576027714173,
+      "auroc": 0.8557169075904395
+    },
+    {
+      "id": "5620cad975a3ab2d",
+      "config": {
+        "arch": "xgb",
+        "k": 0,
+        "weight": 1,
+        "depth": 3,
+        "leaves": 31,
+        "lr": 0.04,
+        "rounds": 600,
+        "reg": 5,
+        "child": 20,
+        "seed": 42,
+        "window": 24
+      },
+      "ap": 0.18797865268424116,
+      "auroc": 0.8558599815965101
+    },
+    {
+      "id": "125f5d8f771c0467",
+      "config": {
+        "arch": "xgb",
+        "k": 0,
+        "weight": 3,
+        "depth": 4,
+        "leaves": 31,
+        "lr": 0.02,
+        "rounds": 800,
+        "reg": 5,
+        "child": 20,
+        "seed": 42,
+        "window": 24
+      },
+      "ap": 0.18721009448120704,
+      "auroc": 0.857458050841493
+    },
+    {
+      "id": "0cb430986e1f1923",
+      "config": {
+        "arch": "cat",
+        "k": 0,
+        "weight": 3,
+        "depth": 6,
+        "leaves": 31,
+        "lr": 0.015,
+        "rounds": 1000,
+        "reg": 3,
+        "child": 20,
+        "seed": 42,
+        "window": 24
+      },
+      "ap": 0.1861904652794657,
+      "auroc": 0.8607756938537975
+    },
+    {
+      "id": "7f722991c3806885",
+      "config": {
+        "arch": "cat",
+        "k": 0,
+        "weight": 3,
+        "depth": 6,
+        "leaves": 31,
+        "lr": 0.04,
+        "rounds": 400,
+        "reg": 10,
+        "child": 20,
+        "seed": 42,
+        "window": 24
+      },
+      "ap": 0.1852705085474113,
+      "auroc": 0.8623274811742078
+    },
+    {
+      "id": "7fda7ad520b087b7",
+      "config": {
+        "arch": "xgb",
+        "k": 256,
+        "weight": 1,
+        "depth": 3,
+        "leaves": 31,
+        "lr": 0.04,
+        "rounds": 600,
+        "reg": 5,
+        "child": 20,
+        "seed": 42,
+        "window": 24
+      },
+      "ap": 0.18491105164191873,
+      "auroc": 0.8537608190655043
+    },
+    {
+      "id": "7dace879773a662b",
+      "config": {
+        "arch": "cat",
+        "k": 256,
+        "weight": 3,
+        "depth": 6,
+        "leaves": 31,
+        "lr": 0.04,
+        "rounds": 400,
+        "reg": 3,
+        "child": 20,
+        "seed": 42,
+        "window": 24
+      },
+      "ap": 0.18229002157280672,
+      "auroc": 0.8580133818431496
+    },
+    {
+      "id": "2c2716c8cd6ac7d4",
+      "config": {
+        "arch": "lgb",
+        "k": 0,
+        "weight": 1,
+        "depth": -1,
+        "leaves": 31,
+        "lr": 0.04,
+        "rounds": 400,
+        "reg": 0,
+        "child": 20,
+        "seed": 42,
+        "window": 24
+      },
+      "ap": 0.1821093609888445,
+      "auroc": 0.8494854799780551
+    },
+    {
+      "id": "b265424363e0f51e",
+      "config": {
+        "arch": "cat",
+        "k": 0,
+        "weight": 1,
+        "depth": 6,
+        "leaves": 31,
+        "lr": 0.04,
+        "rounds": 400,
+        "reg": 3,
+        "child": 20,
+        "seed": 42,
+        "window": 24
+      },
+      "ap": 0.17977077037594646,
+      "auroc": 0.860495073510236
+    },
+    {
+      "id": "1cd6d105bc24ecd7",
+      "config": {
+        "arch": "cat",
+        "k": 0,
+        "weight": 3,
+        "depth": 6,
+        "leaves": 31,
+        "lr": 0.04,
+        "rounds": 400,
+        "reg": 3,
+        "child": 20,
+        "seed": 43,
+        "window": 24
+      },
+      "ap": 0.17936104553051593,
+      "auroc": 0.8608635114325383
+    },
+    {
+      "id": "77961b921e7db64e",
+      "config": {
+        "arch": "xgb",
+        "k": 256,
+        "weight": 3,
+        "depth": 5,
+        "leaves": 31,
+        "lr": 0.04,
+        "rounds": 400,
+        "reg": 1,
+        "child": 20,
+        "seed": 42,
+        "window": 24
+      },
+      "ap": 0.17466470259394679,
+      "auroc": 0.8478201207738283
+    },
+    {
+      "id": "042d5238eb5cd717",
+      "config": {
+        "arch": "xgb",
+        "k": 0,
+        "weight": 3,
+        "depth": 5,
+        "leaves": 31,
+        "lr": 0.04,
+        "rounds": 400,
+        "reg": 1,
+        "child": 20,
+        "seed": 42,
+        "window": 24
+      },
+      "ap": 0.1734876216779932,
+      "auroc": 0.8498192730204766
+    },
+    {
+      "id": "68c24ea949345189",
+      "config": {
+        "arch": "xgb",
+        "k": 512,
+        "weight": 3,
+        "depth": 5,
+        "leaves": 31,
+        "lr": 0.04,
+        "rounds": 400,
+        "reg": 1,
+        "child": 20,
+        "seed": 42,
+        "window": 24
+      },
+      "ap": 0.17237716794147168,
+      "auroc": 0.853118341908725
+    },
+    {
+      "id": "3d9efad8514ff383",
+      "config": {
+        "arch": "lgb",
+        "k": 0,
+        "weight": 3,
+        "depth": -1,
+        "leaves": 15,
+        "lr": 0.04,
+        "rounds": 400,
+        "reg": 5,
+        "child": 80,
+        "seed": 42,
+        "window": 24
+      },
+      "ap": 0.1717094830208588,
+      "auroc": 0.852512616512835
+    },
+    {
+      "id": "919f26692a458257",
+      "config": {
+        "arch": "lgb",
+        "k": 0,
+        "weight": 3,
+        "depth": -1,
+        "leaves": 31,
+        "lr": 0.04,
+        "rounds": 400,
+        "reg": 0,
+        "child": 20,
+        "seed": 42,
+        "window": 24
+      },
+      "ap": 0.16826428881402056,
+      "auroc": 0.848753836607164
+    },
+    {
+      "id": "dbe50b16a233133a",
+      "config": {
+        "arch": "xgb",
+        "k": 0,
+        "weight": 1,
+        "depth": 6,
+        "leaves": 31,
+        "lr": 0.04,
+        "rounds": 400,
+        "reg": 5,
+        "child": 20,
+        "seed": 42,
+        "window": 24
+      },
+      "ap": 0.16676779835090033,
+      "auroc": 0.8478120087031318
+    },
+    {
+      "id": "f7afb30c23ab93a0",
+      "config": {
+        "arch": "lgb",
+        "k": 0,
+        "weight": 3,
+        "depth": -1,
+        "leaves": 31,
+        "lr": 0.02,
+        "rounds": 800,
+        "reg": 3,
+        "child": 20,
+        "seed": 42,
+        "window": 24
+      },
+      "ap": 0.16108357100110698,
+      "auroc": 0.8478939513252143
+    },
+    {
+      "id": "753ad6217f97147a",
+      "config": {
+        "arch": "lgb",
+        "k": 256,
+        "weight": 3,
+        "depth": -1,
+        "leaves": 31,
+        "lr": 0.04,
+        "rounds": 400,
+        "reg": 0,
+        "child": 20,
+        "seed": 42,
+        "window": 24
+      },
+      "ap": 0.15778658813778998,
+      "auroc": 0.8467077773174023
+    },
+    {
+      "id": "c78f0a8a380cb55f",
+      "config": {
+        "arch": "lgb",
+        "k": 0,
+        "weight": 5,
+        "depth": -1,
+        "leaves": 31,
+        "lr": 0.04,
+        "rounds": 400,
+        "reg": 0,
+        "child": 20,
+        "seed": 42,
+        "window": 24
+      },
+      "ap": 0.1546355573168023,
+      "auroc": 0.8494748645391275
+    },
+    {
+      "id": "12e4e783f58a8112",
+      "config": {
+        "arch": "lgb",
+        "k": 0,
+        "weight": 3,
+        "depth": -1,
+        "leaves": 31,
+        "lr": 0.04,
+        "rounds": 400,
+        "reg": 0,
+        "child": 20,
+        "seed": 42,
+        "window": 6
+      },
+      "ap": 0.1526588845691237,
+      "auroc": 0.8576587601982302
+    },
+    {
+      "id": "b1fa608551158b8d",
+      "config": {
+        "arch": "lgb",
+        "k": 512,
+        "weight": 3,
+        "depth": -1,
+        "leaves": 31,
+        "lr": 0.04,
+        "rounds": 400,
+        "reg": 0,
+        "child": 20,
+        "seed": 42,
+        "window": 24
+      },
+      "ap": 0.15245391171177006,
+      "auroc": 0.8461773237184238
+    },
+    {
+      "id": "678005c4052a1970",
+      "config": {
+        "arch": "xgb",
+        "k": 128,
+        "weight": 3,
+        "depth": 5,
+        "leaves": 31,
+        "lr": 0.04,
+        "rounds": 400,
+        "reg": 1,
+        "child": 20,
+        "seed": 42,
+        "window": 24
+      },
+      "ap": 0.15158658575038744,
+      "auroc": 0.8478458606085673
+    },
+    {
+      "id": "4333c1f1abd4ef0a",
+      "config": {
+        "arch": "lgb",
+        "k": 0,
+        "weight": 3,
+        "depth": -1,
+        "leaves": 63,
+        "lr": 0.04,
+        "rounds": 400,
+        "reg": 5,
+        "child": 40,
+        "seed": 42,
+        "window": 24
+      },
+      "ap": 0.1508494620282066,
+      "auroc": 0.8432790021200316
+    },
+    {
+      "id": "c4fd9cdba262d2e8",
+      "config": {
+        "arch": "lgb",
+        "k": 0,
+        "weight": 3,
+        "depth": -1,
+        "leaves": 31,
+        "lr": 0.04,
+        "rounds": 400,
+        "reg": 0,
+        "child": 20,
+        "seed": 42,
+        "window": 12
+      },
+      "ap": 0.1494590390852573,
+      "auroc": 0.8555130957935357
+    },
+    {
+      "id": "2477c475106a4800",
+      "config": {
+        "arch": "lgb",
+        "k": 128,
+        "weight": 3,
+        "depth": -1,
+        "leaves": 31,
+        "lr": 0.04,
+        "rounds": 400,
+        "reg": 0,
+        "child": 20,
+        "seed": 42,
+        "window": 24
+      },
+      "ap": 0.14278414166499623,
+      "auroc": 0.8460318447424106
+    },
+    {
+      "id": "b7df40f78b865e0e",
+      "config": {
+        "arch": "lgb",
+        "k": 64,
+        "weight": 3,
+        "depth": -1,
+        "leaves": 31,
+        "lr": 0.04,
+        "rounds": 400,
+        "reg": 0,
+        "child": 20,
+        "seed": 42,
+        "window": 24
+      },
+      "ap": 0.1282673721173251,
+      "auroc": 0.8405985545916485
+    }
+  ],
+  "finalists": [
+    {
+      "id": "2c2716c8cd6ac7d4",
+      "config": {
+        "arch": "lgb",
+        "k": 0,
+        "weight": 1,
+        "depth": -1,
+        "leaves": 31,
+        "lr": 0.04,
+        "rounds": 400,
+        "reg": 0,
+        "child": 20,
+        "seed": 42,
+        "window": 24
+      },
+      "inner_ap": 0.1821093609888445,
+      "ap": 0.1818450368532723,
+      "auroc": 0.8732565266762824
+    },
+    {
+      "id": "ff90a79646a98e19",
+      "config": {
+        "arch": "xgb",
+        "k": 0,
+        "weight": 1,
+        "depth": 3,
+        "leaves": 31,
+        "lr": 0.015,
+        "rounds": 1000,
+        "reg": 5,
+        "child": 20,
+        "seed": 42,
+        "window": 24
+      },
+      "inner_ap": 0.19349715762075428,
+      "ap": 0.1934416301130327,
+      "auroc": 0.8796531605062106
+    },
+    {
+      "id": "93a9d7a5d5a24fd3",
+      "config": {
+        "arch": "cat",
+        "k": 0,
+        "weight": 3,
+        "depth": 6,
+        "leaves": 31,
+        "lr": 0.04,
+        "rounds": 400,
+        "reg": 3,
+        "child": 20,
+        "seed": 42,
+        "window": 24
+      },
+      "inner_ap": 0.18901015718622238,
+      "ap": 0.17280202931822736,
+      "auroc": 0.877516940397436
+    },
+    {
+      "id": "d58bcb0795e41d0b",
+      "config": {
+        "arch": "xgb",
+        "k": 0,
+        "weight": 3,
+        "depth": 3,
+        "leaves": 31,
+        "lr": 0.04,
+        "rounds": 600,
+        "reg": 5,
+        "child": 20,
+        "seed": 42,
+        "window": 24
+      },
+      "inner_ap": 0.18895576027714173,
+      "ap": 0.19531113157279578,
+      "auroc": 0.8796116028684461
+    }
+  ],
+  "equal_blend": {
+    "ap": 0.19627235275243415,
+    "auroc": 0.88033985755634
+  },
+  "failures": []
+}

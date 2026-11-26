@@ -1,0 +1,18 @@
+{
+  "id": "5620cad975a3ab2d",
+  "config": {
+    "arch": "xgb",
+    "k": 0,
+    "weight": 1,
+    "depth": 3,
+    "leaves": 31,
+    "lr": 0.04,
+    "rounds": 600,
+    "reg": 5,
+    "child": 20,
+    "seed": 42,
+    "window": 24
+  },
+  "ap": 0.18797865268424116,
+  "auroc": 0.8558599815965101
+}

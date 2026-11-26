@@ -1,0 +1,18 @@
+{
+  "id": "7fda7ad520b087b7",
+  "config": {
+    "arch": "xgb",
+    "k": 256,
+    "weight": 1,
+    "depth": 3,
+    "leaves": 31,
+    "lr": 0.04,
+    "rounds": 600,
+    "reg": 5,
+    "child": 20,
+    "seed": 42,
+    "window": 24
+  },
+  "ap": 0.18491105164191873,
+  "auroc": 0.8537608190655043
+}

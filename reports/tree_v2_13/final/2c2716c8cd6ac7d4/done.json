@@ -1,0 +1,17 @@
+{
+  "config": {
+    "arch": "lgb",
+    "k": 0,
+    "weight": 1,
+    "depth": -1,
+    "leaves": 31,
+    "lr": 0.04,
+    "rounds": 400,
+    "reg": 0,
+    "child": 20,
+    "seed": 42,
+    "window": 24
+  },
+  "ap": 0.1818450368532723,
+  "auroc": 0.8732565266762824
+}

@@ -1,0 +1,18 @@
+{
+  "id": "1cd6d105bc24ecd7",
+  "config": {
+    "arch": "cat",
+    "k": 0,
+    "weight": 3,
+    "depth": 6,
+    "leaves": 31,
+    "lr": 0.04,
+    "rounds": 400,
+    "reg": 3,
+    "child": 20,
+    "seed": 43,
+    "window": 24
+  },
+  "ap": 0.17936104553051593,
+  "auroc": 0.8608635114325383
+}

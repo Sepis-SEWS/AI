@@ -1,0 +1,17 @@
+{
+  "config": {
+    "arch": "xgb",
+    "k": 0,
+    "weight": 1,
+    "depth": 3,
+    "leaves": 31,
+    "lr": 0.015,
+    "rounds": 1000,
+    "reg": 5,
+    "child": 20,
+    "seed": 42,
+    "window": 24
+  },
+  "ap": 0.1934416301130327,
+  "auroc": 0.8796531605062106
+}

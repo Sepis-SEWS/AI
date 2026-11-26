@@ -1,0 +1,18 @@
+{
+  "id": "dbe50b16a233133a",
+  "config": {
+    "arch": "xgb",
+    "k": 0,
+    "weight": 1,
+    "depth": 6,
+    "leaves": 31,
+    "lr": 0.04,
+    "rounds": 400,
+    "reg": 5,
+    "child": 20,
+    "seed": 42,
+    "window": 24
+  },
+  "ap": 0.16676779835090033,
+  "auroc": 0.8478120087031318
+}
