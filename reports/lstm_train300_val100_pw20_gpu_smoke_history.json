@@ -1,0 +1,27 @@
+{
+  "scope": "train300_val100",
+  "train_patients": 300,
+  "validation_patients": 100,
+  "test_patients_evaluated": 0,
+  "best_validation_AP": 0.05451659728779436,
+  "history": [
+    {
+      "epoch": 1,
+      "training": {
+        "loss": 1.0239991239255357,
+        "samples": 4684
+      },
+      "validation": {
+        "loss": 1.0469279471951694,
+        "samples": 1853,
+        "AUROC": 0.6902266833157238,
+        "AP": 0.05451659728779436,
+        "positive_rate": 0.03130059316754341
+      }
+    }
+  ],
+  "pos_weight": 20.0,
+  "run_tag": "gpu_smoke",
+  "manifest": "data\\splits\\patient_splits.json",
+  "limitations": "One CV fold or single fixed Validation; not calibrated or clinical."
+}
