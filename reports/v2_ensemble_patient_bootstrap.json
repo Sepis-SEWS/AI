@@ -1,0 +1,71 @@
+{
+  "scope": "locked_validation_scored_patients_only",
+  "total_validation_patients": 6454,
+  "scored_patients": 4960,
+  "scoreable_rows": 108748,
+  "repeats_requested": 200,
+  "repeats_valid": 200,
+  "seed": 42,
+  "test_patients_evaluated": 0,
+  "point_metrics": {
+    "xgboost_v1": {
+      "AUROC": 0.7900623071762783,
+      "AP": 0.09487981162898537
+    },
+    "lstm_v1": {
+      "AUROC": 0.8294292117790818,
+      "AP": 0.1354104882979276
+    },
+    "lstm_v2": {
+      "AUROC": 0.8329069707837127,
+      "AP": 0.14218280541181233
+    },
+    "blend_75_25": {
+      "AUROC": 0.8335902912316235,
+      "AP": 0.14684730679209473
+    },
+    "blend_90_10": {
+      "AUROC": 0.8386152369224558,
+      "AP": 0.1457203770986836
+    }
+  },
+  "paired_deltas": {
+    "blend75_minus_lstm_AP": {
+      "point_delta": 0.004664501380282404,
+      "bootstrap_mean": 0.004329205441403786,
+      "percentile_95_interval": [
+        -0.0017511545968191306,
+        0.010615667103707947
+      ],
+      "fraction_le_zero": 0.09
+    },
+    "blend75_minus_lstm_AUROC": {
+      "point_delta": 0.0006833204479108623,
+      "bootstrap_mean": 0.0007782423645429765,
+      "percentile_95_interval": [
+        -0.010002123350093706,
+        0.009516189462822311
+      ],
+      "fraction_le_zero": 0.44
+    },
+    "blend90_minus_lstm_AP": {
+      "point_delta": 0.0035375716868712714,
+      "bootstrap_mean": 0.003425304825048216,
+      "percentile_95_interval": [
+        0.0009142253833493499,
+        0.006140971331153902
+      ],
+      "fraction_le_zero": 0.0
+    },
+    "blend75_minus_blend90_AP": {
+      "point_delta": 0.0011269296934111328,
+      "bootstrap_mean": 0.0009039006163555694,
+      "percentile_95_interval": [
+        -0.0030852192470926555,
+        0.00481458941743916
+      ],
+      "fraction_le_zero": 0.34
+    }
+  },
+  "warning": "Whole-patient paired resampling within a previously repeatedly used Validation cohort. Intervals quantify sampling variation, NOT independent out-of-sample performance or corrected weight-selection bias. No model refitting and no Test access."
+}
