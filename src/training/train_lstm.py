@@ -142,11 +142,16 @@ def main():
                         help="Opt-in persistent Train/Validation sequence cache; raw inputs must remain unchanged")
     parser.add_argument("--torch-threads", type=int, default=None,
                         help="Optional CPU compute threads; benchmark before changing")
+    parser.add_argument("--negative-ratio", type=int, default=None,
+                        help="Train-only negative:positive sequence ratio; requires --cache-dir")
     args = parser.parse_args()
     if args.torch_threads is not None:
         if args.torch_threads < 1:
             parser.error("--torch-threads must be positive")
         torch.set_num_threads(args.torch_threads)
+    if args.negative_ratio is not None:
+        if args.negative_ratio < 1 or args.cache_dir is None:
+            parser.error("--negative-ratio must be >=1 and requires --cache-dir")
     if args.epochs < 1 or args.batch_size < 1:
         parser.error("epochs and batch size must be positive")
     if not np.isfinite(args.pos_weight) or args.pos_weight <= 0:
@@ -191,6 +196,8 @@ def main():
     variant = f"_pw{args.pos_weight:g}" if args.pos_weight != 1.0 else ""
     if args.run_tag:
         variant += f"_{args.run_tag}"
+    if args.negative_ratio is not None:
+        variant += f"_neg{args.negative_ratio}"
     if is_cv and (Path("models") / f"lstm_{scope}{variant}_best.pt").exists():
         raise FileExistsError("CV checkpoint already exists; refusing to overwrite")
     out = Path("models") / f"lstm_{scope}{variant}_best.pt"
@@ -204,7 +211,8 @@ def main():
         pos_weight=torch.tensor(args.pos_weight, device=device, dtype=torch.float32))
     if args.cache_dir is not None:
         train_data = CachedPatientSequences(train_ids, args.data_root, stats, args.batch_size,
-                                            True, args.seed, args.cache_dir, "train")
+                                            True, args.seed, args.cache_dir, "train",
+                                            negative_ratio=args.negative_ratio)
         val_data = CachedPatientSequences(val_ids, args.data_root, stats, args.batch_size,
                                           False, args.seed, args.cache_dir, "validation")
     else:
@@ -232,6 +240,7 @@ def main():
                         "layers": 1, "best_epoch": epoch,
                         "validation": validation, "scope": scope,
                         "pos_weight": args.pos_weight,
+                        "negative_ratio": args.negative_ratio,
                         "run_tag": args.run_tag, "manifest": str(args.manifest)}, out)
         else:
             bad_epochs += 1
@@ -240,7 +249,7 @@ def main():
             "validation_patients": len(val_ids), "test_patients_evaluated": 0,
             "best_validation_AP": best, "history": history,
             "pos_weight": args.pos_weight, "run_tag": args.run_tag,
-            "manifest": str(args.manifest),
+            "negative_ratio": args.negative_ratio, "manifest": str(args.manifest),
             "limitations": "One CV fold or single fixed Validation; not calibrated or clinical.",
         }, indent=2), encoding="utf-8")
         if bad_epochs >= args.patience:
