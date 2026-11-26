@@ -10,6 +10,9 @@ data/raw/*
 data/processed/*
 !data/processed/.gitkeep
 
+# Reusable large local training caches (never commit)
+data/cache/
+
 # Model artifacts
 models/*
 !models/.gitkeep
