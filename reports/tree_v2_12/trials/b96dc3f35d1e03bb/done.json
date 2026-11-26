@@ -1,0 +1,15 @@
+{
+  "id": "b96dc3f35d1e03bb",
+  "config": {
+    "arch": "lgb",
+    "group": "dynamic",
+    "depth": 5,
+    "weight": 3,
+    "lr": 0.04,
+    "rounds": 400,
+    "reg": 3,
+    "seed": 42
+  },
+  "ap": 0.12793944596717488,
+  "auroc": 0.8372955758184514
+}

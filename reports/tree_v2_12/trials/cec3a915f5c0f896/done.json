@@ -1,0 +1,15 @@
+{
+  "id": "cec3a915f5c0f896",
+  "config": {
+    "arch": "xgb",
+    "group": "all",
+    "depth": 6,
+    "weight": 1,
+    "lr": 0.04,
+    "rounds": 400,
+    "reg": 8,
+    "seed": 42
+  },
+  "ap": 0.1376756929259159,
+  "auroc": 0.8496105268387931
+}

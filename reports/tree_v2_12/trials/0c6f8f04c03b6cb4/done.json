@@ -1,0 +1,15 @@
+{
+  "id": "0c6f8f04c03b6cb4",
+  "config": {
+    "arch": "lgb",
+    "group": "all",
+    "depth": 6,
+    "weight": 1,
+    "lr": 0.04,
+    "rounds": 400,
+    "reg": 8,
+    "seed": 42
+  },
+  "ap": 0.14050014706693947,
+  "auroc": 0.8505036418017046
+}

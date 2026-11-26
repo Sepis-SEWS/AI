@@ -1,0 +1,392 @@
+[
+  {
+    "id": "c9ff2f7b3e910e92",
+    "config": {
+      "arch": "cat",
+      "group": "all",
+      "depth": 5,
+      "weight": 1,
+      "lr": 0.04,
+      "rounds": 400,
+      "reg": 3,
+      "seed": 42
+    },
+    "ap": 0.17853938364675626,
+    "auroc": 0.8611795551600897
+  },
+  {
+    "id": "31ea3add727a9fdb",
+    "config": {
+      "arch": "cat",
+      "group": "all",
+      "depth": 5,
+      "weight": 3,
+      "lr": 0.04,
+      "rounds": 400,
+      "reg": 3,
+      "seed": 42
+    },
+    "ap": 0.17528924481475014,
+    "auroc": 0.8649426472260666
+  },
+  {
+    "id": "0d926896d36b97de",
+    "config": {
+      "arch": "cat",
+      "group": "all",
+      "depth": 3,
+      "weight": 3,
+      "lr": 0.04,
+      "rounds": 400,
+      "reg": 10,
+      "seed": 42
+    },
+    "ap": 0.17352657674213093,
+    "auroc": 0.863777947197765
+  },
+  {
+    "id": "dc3b4d815c75e793",
+    "config": {
+      "arch": "cat",
+      "group": "all",
+      "depth": 5,
+      "weight": 3,
+      "lr": 0.02,
+      "rounds": 1000,
+      "reg": 3,
+      "seed": 42
+    },
+    "ap": 0.17223083845721185,
+    "auroc": 0.8657288206133903
+  },
+  {
+    "id": "4514537708224c72",
+    "config": {
+      "arch": "cat",
+      "group": "all",
+      "depth": 5,
+      "weight": 3,
+      "lr": 0.04,
+      "rounds": 400,
+      "reg": 3,
+      "seed": 43
+    },
+    "ap": 0.17192458143632441,
+    "auroc": 0.8655564789045183
+  },
+  {
+    "id": "dd79355ab4c094b3",
+    "config": {
+      "arch": "cat",
+      "group": "all",
+      "depth": 7,
+      "weight": 3,
+      "lr": 0.04,
+      "rounds": 400,
+      "reg": 10,
+      "seed": 42
+    },
+    "ap": 0.167867160086722,
+    "auroc": 0.864895919615127
+  },
+  {
+    "id": "43c5080a47fe08ff",
+    "config": {
+      "arch": "cat",
+      "group": "all",
+      "depth": 5,
+      "weight": 5,
+      "lr": 0.04,
+      "rounds": 400,
+      "reg": 3,
+      "seed": 42
+    },
+    "ap": 0.16593891448870776,
+    "auroc": 0.8637517616766587
+  },
+  {
+    "id": "91e410a15d327a95",
+    "config": {
+      "arch": "lgb",
+      "group": "short",
+      "depth": 5,
+      "weight": 3,
+      "lr": 0.04,
+      "rounds": 400,
+      "reg": 3,
+      "seed": 42
+    },
+    "ap": 0.15846505143366568,
+    "auroc": 0.8578404381682749
+  },
+  {
+    "id": "5ce3d2f72cc198c9",
+    "config": {
+      "arch": "xgb",
+      "group": "all",
+      "depth": 4,
+      "weight": 1,
+      "lr": 0.03,
+      "rounds": 800,
+      "reg": 5,
+      "seed": 42
+    },
+    "ap": 0.15803769276573698,
+    "auroc": 0.8558762173141722
+  },
+  {
+    "id": "e042d71a81eb9631",
+    "config": {
+      "arch": "lgb",
+      "group": "all",
+      "depth": 4,
+      "weight": 1,
+      "lr": 0.03,
+      "rounds": 800,
+      "reg": 5,
+      "seed": 42
+    },
+    "ap": 0.15616338388760562,
+    "auroc": 0.8561436117700839
+  },
+  {
+    "id": "c845979ba65a3ccc",
+    "config": {
+      "arch": "lgb",
+      "group": "short",
+      "depth": 5,
+      "weight": 1,
+      "lr": 0.04,
+      "rounds": 400,
+      "reg": 3,
+      "seed": 42
+    },
+    "ap": 0.15505213006682367,
+    "auroc": 0.8569315244918667
+  },
+  {
+    "id": "134654ddf01b66c9",
+    "config": {
+      "arch": "lgb",
+      "group": "short",
+      "depth": 5,
+      "weight": 5,
+      "lr": 0.04,
+      "rounds": 400,
+      "reg": 3,
+      "seed": 42
+    },
+    "ap": 0.15401623269131437,
+    "auroc": 0.8564443256230441
+  },
+  {
+    "id": "0fad0b4589c1ccae",
+    "config": {
+      "arch": "lgb",
+      "group": "all",
+      "depth": 3,
+      "weight": 1,
+      "lr": 0.06,
+      "rounds": 600,
+      "reg": 5,
+      "seed": 42
+    },
+    "ap": 0.15321123632963798,
+    "auroc": 0.8545547861761194
+  },
+  {
+    "id": "f0b87391020e370c",
+    "config": {
+      "arch": "xgb",
+      "group": "all",
+      "depth": 3,
+      "weight": 1,
+      "lr": 0.06,
+      "rounds": 600,
+      "reg": 5,
+      "seed": 42
+    },
+    "ap": 0.15016776931812956,
+    "auroc": 0.8567463562766346
+  },
+  {
+    "id": "4c42aa9a9620eb5e",
+    "config": {
+      "arch": "lgb",
+      "group": "all",
+      "depth": 5,
+      "weight": 3,
+      "lr": 0.04,
+      "rounds": 400,
+      "reg": 3,
+      "seed": 42
+    },
+    "ap": 0.14750919097221651,
+    "auroc": 0.8507194697661187
+  },
+  {
+    "id": "cce7c777be95da68",
+    "config": {
+      "arch": "xgb",
+      "group": "all",
+      "depth": 5,
+      "weight": 3,
+      "lr": 0.04,
+      "rounds": 400,
+      "reg": 3,
+      "seed": 42
+    },
+    "ap": 0.1462662247033716,
+    "auroc": 0.8534638067246455
+  },
+  {
+    "id": "9050f1a8752d30da",
+    "config": {
+      "arch": "lgb",
+      "group": "values",
+      "depth": 5,
+      "weight": 3,
+      "lr": 0.04,
+      "rounds": 400,
+      "reg": 3,
+      "seed": 42
+    },
+    "ap": 0.14499802237985404,
+    "auroc": 0.8519856473709089
+  },
+  {
+    "id": "21d8831a63147c32",
+    "config": {
+      "arch": "xgb",
+      "group": "all",
+      "depth": 5,
+      "weight": 5,
+      "lr": 0.03,
+      "rounds": 600,
+      "reg": 8,
+      "seed": 42
+    },
+    "ap": 0.14378578372845463,
+    "auroc": 0.8498822566075493
+  },
+  {
+    "id": "f5ebe7bc30edfcd2",
+    "config": {
+      "arch": "xgb",
+      "group": "all",
+      "depth": 7,
+      "weight": 3,
+      "lr": 0.025,
+      "rounds": 600,
+      "reg": 10,
+      "seed": 42
+    },
+    "ap": 0.14166470545822818,
+    "auroc": 0.8490338810313289
+  },
+  {
+    "id": "0c6f8f04c03b6cb4",
+    "config": {
+      "arch": "lgb",
+      "group": "all",
+      "depth": 6,
+      "weight": 1,
+      "lr": 0.04,
+      "rounds": 400,
+      "reg": 8,
+      "seed": 42
+    },
+    "ap": 0.14050014706693947,
+    "auroc": 0.8505036418017046
+  },
+  {
+    "id": "58074e5002564d0d",
+    "config": {
+      "arch": "lgb",
+      "group": "all",
+      "depth": 5,
+      "weight": 5,
+      "lr": 0.03,
+      "rounds": 600,
+      "reg": 8,
+      "seed": 42
+    },
+    "ap": 0.13831801508238828,
+    "auroc": 0.8501893374086124
+  },
+  {
+    "id": "cec3a915f5c0f896",
+    "config": {
+      "arch": "xgb",
+      "group": "all",
+      "depth": 6,
+      "weight": 1,
+      "lr": 0.04,
+      "rounds": 400,
+      "reg": 8,
+      "seed": 42
+    },
+    "ap": 0.1376756929259159,
+    "auroc": 0.8496105268387931
+  },
+  {
+    "id": "98f752c7f0ed503a",
+    "config": {
+      "arch": "lgb",
+      "group": "all",
+      "depth": 7,
+      "weight": 3,
+      "lr": 0.025,
+      "rounds": 600,
+      "reg": 10,
+      "seed": 42
+    },
+    "ap": 0.13292865361681974,
+    "auroc": 0.8491845201293727
+  },
+  {
+    "id": "b96dc3f35d1e03bb",
+    "config": {
+      "arch": "lgb",
+      "group": "dynamic",
+      "depth": 5,
+      "weight": 3,
+      "lr": 0.04,
+      "rounds": 400,
+      "reg": 3,
+      "seed": 42
+    },
+    "ap": 0.12793944596717488,
+    "auroc": 0.8372955758184514
+  },
+  {
+    "id": "800d2bfc743e8ff5",
+    "config": {
+      "arch": "lgb",
+      "group": "no_context",
+      "depth": 5,
+      "weight": 3,
+      "lr": 0.04,
+      "rounds": 400,
+      "reg": 3,
+      "seed": 42
+    },
+    "ap": 0.12503445846928604,
+    "auroc": 0.8346175274718761
+  },
+  {
+    "id": "f0955723d6de3feb",
+    "config": {
+      "arch": "lgb",
+      "group": "base",
+      "depth": 5,
+      "weight": 3,
+      "lr": 0.04,
+      "rounds": 400,
+      "reg": 3,
+      "seed": 42
+    },
+    "ap": 0.11960848128948641,
+    "auroc": 0.8256901864353536
+  }
+]

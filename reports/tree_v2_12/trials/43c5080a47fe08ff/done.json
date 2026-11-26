@@ -1,0 +1,15 @@
+{
+  "id": "43c5080a47fe08ff",
+  "config": {
+    "arch": "cat",
+    "group": "all",
+    "depth": 5,
+    "weight": 5,
+    "lr": 0.04,
+    "rounds": 400,
+    "reg": 3,
+    "seed": 42
+  },
+  "ap": 0.16593891448870776,
+  "auroc": 0.8637517616766587
+}

@@ -1,0 +1,62 @@
+[
+  {
+    "id": "c9ff2f7b3e910e92",
+    "config": {
+      "arch": "cat",
+      "group": "all",
+      "depth": 5,
+      "weight": 1,
+      "lr": 0.04,
+      "rounds": 400,
+      "reg": 3,
+      "seed": 42
+    },
+    "ap": 0.17853938364675626,
+    "auroc": 0.8611795551600897
+  },
+  {
+    "id": "31ea3add727a9fdb",
+    "config": {
+      "arch": "cat",
+      "group": "all",
+      "depth": 5,
+      "weight": 3,
+      "lr": 0.04,
+      "rounds": 400,
+      "reg": 3,
+      "seed": 42
+    },
+    "ap": 0.17528924481475014,
+    "auroc": 0.8649426472260666
+  },
+  {
+    "id": "0d926896d36b97de",
+    "config": {
+      "arch": "cat",
+      "group": "all",
+      "depth": 3,
+      "weight": 3,
+      "lr": 0.04,
+      "rounds": 400,
+      "reg": 10,
+      "seed": 42
+    },
+    "ap": 0.17352657674213093,
+    "auroc": 0.863777947197765
+  },
+  {
+    "id": "dc3b4d815c75e793",
+    "config": {
+      "arch": "cat",
+      "group": "all",
+      "depth": 5,
+      "weight": 3,
+      "lr": 0.02,
+      "rounds": 1000,
+      "reg": 3,
+      "seed": 42
+    },
+    "ap": 0.17223083845721185,
+    "auroc": 0.8657288206133903
+  }
+]

@@ -28,3 +28,5 @@ models/*
 
 # Experiment outputs
 mlruns/
+reports/tree_v2_12/train_features.npy
+reports/tree_v2_12/validation_features.npy
