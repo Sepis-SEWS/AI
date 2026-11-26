@@ -1,0 +1,183 @@
+{
+  "scope": "full",
+  "train_patients": 25814,
+  "validation_patients": 6454,
+  "test_patients_evaluated": 0,
+  "best_validation_AP": 0.14152683850840503,
+  "history": [
+    {
+      "epoch": 1,
+      "training": {
+        "loss": 0.37481405556650776,
+        "samples": 219912
+      },
+      "validation": {
+        "loss": 0.24537909387178505,
+        "samples": 108748,
+        "AUROC": 0.791321098125717,
+        "AP": 0.09810172776740463,
+        "positive_rate": 0.024542979896068573
+      }
+    },
+    {
+      "epoch": 2,
+      "training": {
+        "loss": 0.35020921151845064,
+        "samples": 219912
+      },
+      "validation": {
+        "loss": 0.22667167496149776,
+        "samples": 108748,
+        "AUROC": 0.8101927124722796,
+        "AP": 0.10887428117036942,
+        "positive_rate": 0.024542979896068573
+      }
+    },
+    {
+      "epoch": 3,
+      "training": {
+        "loss": 0.3411389092365805,
+        "samples": 219912
+      },
+      "validation": {
+        "loss": 0.23757878773529104,
+        "samples": 108748,
+        "AUROC": 0.8177883773967972,
+        "AP": 0.12097251524713226,
+        "positive_rate": 0.024542979896068573
+      }
+    },
+    {
+      "epoch": 4,
+      "training": {
+        "loss": 0.332699704440832,
+        "samples": 219912
+      },
+      "validation": {
+        "loss": 0.22388267098890485,
+        "samples": 108748,
+        "AUROC": 0.8215262760526802,
+        "AP": 0.11642906166104301,
+        "positive_rate": 0.024542979896068573
+      }
+    },
+    {
+      "epoch": 5,
+      "training": {
+        "loss": 0.3261596350867784,
+        "samples": 219912
+      },
+      "validation": {
+        "loss": 0.23037568849222356,
+        "samples": 108748,
+        "AUROC": 0.8160030625499561,
+        "AP": 0.12871102864385298,
+        "positive_rate": 0.024542979896068573
+      }
+    },
+    {
+      "epoch": 6,
+      "training": {
+        "loss": 0.3234665343015025,
+        "samples": 219912
+      },
+      "validation": {
+        "loss": 0.2398969094323205,
+        "samples": 108748,
+        "AUROC": 0.8339676848077175,
+        "AP": 0.135054093778192,
+        "positive_rate": 0.024542979896068573
+      }
+    },
+    {
+      "epoch": 7,
+      "training": {
+        "loss": 0.317428063047388,
+        "samples": 219912
+      },
+      "validation": {
+        "loss": 0.2231670691864231,
+        "samples": 108748,
+        "AUROC": 0.8294839667747852,
+        "AP": 0.13664384525210446,
+        "positive_rate": 0.024542979896068573
+      }
+    },
+    {
+      "epoch": 8,
+      "training": {
+        "loss": 0.31479823963846115,
+        "samples": 219912
+      },
+      "validation": {
+        "loss": 0.23913753089905837,
+        "samples": 108748,
+        "AUROC": 0.8298005779789355,
+        "AP": 0.1284638318316361,
+        "positive_rate": 0.024542979896068573
+      }
+    },
+    {
+      "epoch": 9,
+      "training": {
+        "loss": 0.30905290848864764,
+        "samples": 219912
+      },
+      "validation": {
+        "loss": 0.23104544643463557,
+        "samples": 108748,
+        "AUROC": 0.8290766040879965,
+        "AP": 0.13457540539003512,
+        "positive_rate": 0.024542979896068573
+      }
+    },
+    {
+      "epoch": 10,
+      "training": {
+        "loss": 0.30445652318731947,
+        "samples": 219912
+      },
+      "validation": {
+        "loss": 0.22201175715041352,
+        "samples": 108748,
+        "AUROC": 0.8293661053441049,
+        "AP": 0.14152683850840503,
+        "positive_rate": 0.024542979896068573
+      }
+    },
+    {
+      "epoch": 11,
+      "training": {
+        "loss": 0.2999336998162323,
+        "samples": 219912
+      },
+      "validation": {
+        "loss": 0.22782371067573715,
+        "samples": 108748,
+        "AUROC": 0.8326868611756021,
+        "AP": 0.12375773717503086,
+        "positive_rate": 0.024542979896068573
+      }
+    },
+    {
+      "epoch": 12,
+      "training": {
+        "loss": 0.29633634073792653,
+        "samples": 219912
+      },
+      "validation": {
+        "loss": 0.23012541307774062,
+        "samples": 108748,
+        "AUROC": 0.8333191193449847,
+        "AP": 0.13188645109101996,
+        "positive_rate": 0.024542979896068573
+      }
+    }
+  ],
+  "pos_weight": 3.0,
+  "run_tag": "v2_10_pw3_neg20",
+  "negative_ratio": 20,
+  "positive_repeat": 1,
+  "manifest": "C:\\AI\\data\\splits\\patient_splits.json",
+  "limitations": "One CV fold or single fixed Validation; not calibrated or clinical."
+}
