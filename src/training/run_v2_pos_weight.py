@@ -37,8 +37,16 @@ def main() -> None:
     parser.add_argument("--weights", type=int, nargs="+", choices=WEIGHTS, default=[3],
                         help="Positive-class weights to train sequentially (default: 3)")
     parser.add_argument("--dry-run", action="store_true", help="Validate paths and print commands only")
+    parser.add_argument("--fast", action="store_true",
+                        help="Use reusable memory-mapped Train/Validation sequence cache")
+    parser.add_argument("--device", choices=["auto", "cpu", "cuda"], default="auto",
+                        help="PyTorch device (auto prefers CUDA when available)")
+    parser.add_argument("--torch-threads", type=int, default=None,
+                        help="Optional CPU compute thread count for benchmarking")
     args = parser.parse_args()
 
+    if args.torch_threads is not None and args.torch_threads < 1:
+        parser.error("--torch-threads must be positive")
     weights = list(args.weights)
     if len(set(weights)) != len(weights):
         parser.error("Duplicate weight specified")
@@ -65,7 +73,7 @@ def main() -> None:
                 f"Refusing to overwrite: {checkpoint.relative_to(ROOT)} / "
                 f"{report.relative_to(ROOT)}"
             )
-        commands.append([
+        command = [
             sys.executable,
             str(TRAIN_SCRIPT),
             "--manifest", str(MANIFEST),
@@ -76,7 +84,13 @@ def main() -> None:
             "--patience", "3",
             "--batch-size", "256",
             "--seed", "42",
-        ])
+            "--device", args.device,
+        ]
+        if args.fast:
+            command.extend(["--cache-dir", str(ROOT / "data" / "cache" / "lstm_v2")])
+        if args.torch_threads is not None:
+            command.extend(["--torch-threads", str(args.torch_threads)])
+        commands.append(command)
 
     print("Locked patient split: Train 25,814 / Validation 6,454 / Test 8,068")
     print("v1 pos_weight=10 is the baseline; Test will not be accessed.")
