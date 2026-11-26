@@ -1,0 +1,23 @@
+{
+  "id": "aafc015bd33460da",
+  "config": {
+    "arch": "lstm",
+    "features": "all",
+    "fill": "carry",
+    "trend": false,
+    "window": 24,
+    "hidden": 64,
+    "layers": 1,
+    "dropout": 0.2,
+    "lr": 0.001,
+    "weight": 3,
+    "repeat": 1,
+    "neg_ratio": 0,
+    "focal": 0,
+    "seed": 42,
+    "early": false,
+    "sampler": "none"
+  },
+  "ap": 0.1415810912380792,
+  "auroc": 0.8581056118595538
+}

@@ -1,0 +1,23 @@
+{
+  "id": "5001e27053006e69",
+  "config": {
+    "arch": "lstm",
+    "features": "all",
+    "fill": "original",
+    "trend": false,
+    "window": 6,
+    "hidden": 64,
+    "layers": 1,
+    "dropout": 0.2,
+    "lr": 0.001,
+    "weight": 3,
+    "repeat": 1,
+    "neg_ratio": 0,
+    "focal": 0,
+    "seed": 42,
+    "early": true,
+    "sampler": "none"
+  },
+  "ap": 0.14882625064545055,
+  "auroc": 0.8539923293416586
+}

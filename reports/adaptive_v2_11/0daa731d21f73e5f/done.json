@@ -1,0 +1,23 @@
+{
+  "id": "0daa731d21f73e5f",
+  "config": {
+    "arch": "xgb",
+    "features": "dynamic",
+    "fill": "original",
+    "trend": false,
+    "window": 24,
+    "hidden": 64,
+    "layers": 1,
+    "dropout": 0.2,
+    "lr": 0.001,
+    "weight": 1,
+    "repeat": 1,
+    "neg_ratio": 0,
+    "focal": 0,
+    "seed": 42,
+    "early": false,
+    "sampler": "borderline"
+  },
+  "ap": 0.08224766288217869,
+  "auroc": 0.7717357703792663
+}

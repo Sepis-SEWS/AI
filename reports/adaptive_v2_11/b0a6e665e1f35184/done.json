@@ -1,0 +1,23 @@
+{
+  "id": "b0a6e665e1f35184",
+  "config": {
+    "arch": "gru",
+    "features": "all",
+    "fill": "original",
+    "trend": false,
+    "window": 24,
+    "hidden": 128,
+    "layers": 1,
+    "dropout": 0.35,
+    "lr": 0.001,
+    "weight": 3,
+    "repeat": 1,
+    "neg_ratio": 0,
+    "focal": 0,
+    "seed": 42,
+    "early": false,
+    "sampler": "none"
+  },
+  "ap": 0.17106707818264177,
+  "auroc": 0.8686177251180257
+}
