@@ -1,0 +1,92 @@
+{
+  "scope": "original_locked_validation_only",
+  "train_patients": 25814,
+  "validation_patients": 6454,
+  "validation_rows": 108748,
+  "test_patients_evaluated": 0,
+  "v2_lstm_checkpoint": "C:\\AI\\models\\lstm_full_pw3_v2pw3_retry1_best.pt",
+  "xgboost_source_archive": "C:\\AI\\reports\\ensemble_validation_scores.npz",
+  "v2_best_epoch": 10,
+  "v2_checkpoint_AP": 0.1421805308218942,
+  "reproduced_AP": 0.14218280541181233,
+  "results": [
+    {
+      "model": "xgboost_v1",
+      "kind": "individual",
+      "lstm_weight": null,
+      "AUROC": 0.7900623071762783,
+      "AP": 0.09487981162898537
+    },
+    {
+      "model": "lstm_v1_posweight10",
+      "kind": "individual",
+      "lstm_weight": null,
+      "AUROC": 0.8294292117790818,
+      "AP": 0.1354104882979276
+    },
+    {
+      "model": "lstm_v2_posweight3",
+      "kind": "individual",
+      "lstm_weight": null,
+      "AUROC": 0.8329069707837127,
+      "AP": 0.14218280541181233
+    },
+    {
+      "model": "v2_raw_lstm_0",
+      "kind": "raw_blend",
+      "lstm_weight": 0.0,
+      "AUROC": 0.7900623071762783,
+      "AP": 0.09487981162898537
+    },
+    {
+      "model": "v2_raw_lstm_0.5",
+      "kind": "raw_blend",
+      "lstm_weight": 0.5,
+      "AUROC": 0.8198395307941372,
+      "AP": 0.13880507932405478
+    },
+    {
+      "model": "v2_raw_lstm_0.75",
+      "kind": "raw_blend",
+      "lstm_weight": 0.75,
+      "AUROC": 0.8335902912316235,
+      "AP": 0.14684730679209473
+    },
+    {
+      "model": "v2_raw_lstm_0.9",
+      "kind": "raw_blend",
+      "lstm_weight": 0.9,
+      "AUROC": 0.8386152369224558,
+      "AP": 0.1457203770986836
+    },
+    {
+      "model": "v2_raw_lstm_1",
+      "kind": "raw_blend",
+      "lstm_weight": 1.0,
+      "AUROC": 0.8329069707837127,
+      "AP": 0.14218280541181233
+    },
+    {
+      "model": "v2_rank_lstm_0.5",
+      "kind": "rank_diagnostic",
+      "lstm_weight": 0.5,
+      "AUROC": 0.8330004772346883,
+      "AP": 0.13075666995944057
+    },
+    {
+      "model": "v2_rank_lstm_0.75",
+      "kind": "rank_diagnostic",
+      "lstm_weight": 0.75,
+      "AUROC": 0.8388283407873652,
+      "AP": 0.13756380653599953
+    },
+    {
+      "model": "v2_rank_lstm_0.9",
+      "kind": "rank_diagnostic",
+      "lstm_weight": 0.9,
+      "AUROC": 0.8367289754441231,
+      "AP": 0.14056348697335555
+    }
+  ],
+  "limitations": "Raw model scores are not calibrated probabilities. XGBoost scores are reused from the prior aligned Validation score archive. Weight selection on the same Validation is optimistically biased. Rank ensemble uses all Validation ranks and is not directly deployable. No Test used."
+}
