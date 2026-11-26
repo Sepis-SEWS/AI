@@ -9,9 +9,13 @@ The locked Test split is never opened. Existing model files are untouched.
 from __future__ import annotations
 
 import json
+import sys
 from pathlib import Path
 
 import numpy as np
+
+HERE = Path(__file__).resolve().parent
+sys.path.insert(0, str(HERE.parent / "preprocessing"))
 
 from lstm_sequences import read_manifest
 from train_lstm import CachedPatientSequences, PatientSequences
