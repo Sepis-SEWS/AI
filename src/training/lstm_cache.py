@@ -89,19 +89,57 @@ def load_or_build(cache_dir: Path, split: str, ids: list[str], root: Path, stats
 class CachedPatientSequences:
     """Same patient/within-patient ordering and batching as PatientSequences."""
 
-    def __init__(self, ids, root, stats, batch_size, shuffle, seed, cache_dir, split):
+    def __init__(self, ids, root, stats, batch_size, shuffle, seed, cache_dir, split,
+                 negative_ratio=None):
+        if negative_ratio is not None and (split != "train" or not shuffle):
+            raise ValueError("Negative-window undersampling is allowed only on shuffled Train")
+        if negative_ratio is not None and negative_ratio < 1:
+            raise ValueError("negative_ratio must be at least 1")
         self.batch_size, self.shuffle, self.seed = batch_size, shuffle, seed
+        self.negative_ratio = negative_ratio
         self.epoch = 0
         self.directory, meta = load_or_build(cache_dir, split, ids, root, stats)
         self.offsets = meta["offsets"]
         self.n = meta["samples"]
         self.n_patients = len(ids)
 
+    def _keep_mask(self, labels):
+        """Keep all positives and a fixed ratio of negatives, preserving patient coverage."""
+        if self.negative_ratio is None:
+            return None
+        y = np.asarray(labels)
+        positive = np.flatnonzero(y > 0.5)
+        negative = np.flatnonzero(y <= 0.5)
+        if not len(positive):
+            raise ValueError("Training has no positive sequences")
+        target = min(len(negative), self.negative_ratio * len(positive))
+        rng = np.random.default_rng(self.seed + 173 * self.epoch + 917)
+        mandatory = []
+        for start, stop in zip(self.offsets[:-1], self.offsets[1:]):
+            local = np.flatnonzero(y[start:stop] <= 0.5)
+            if len(local):
+                mandatory.append(start + int(rng.choice(local)))
+        if target < len(mandatory):
+            raise ValueError(
+                f"Target {target} negative windows is fewer than minimum per-patient "
+                f"coverage {len(mandatory)}; raise negative_ratio")
+        keep = np.zeros(self.n, dtype=np.bool_)
+        keep[positive] = True
+        keep[mandatory] = True
+        remaining = negative[~keep[negative]]
+        need = target - len(mandatory)
+        if need:
+            keep[rng.choice(remaining, size=need, replace=False)] = True
+        print(f"Train undersampling epoch {self.epoch}: positive={len(positive):,}, "
+              f"negative={target:,}, ratio={target/len(positive):.2f}:1", flush=True)
+        return keep
+
     def __iter__(self):
         x_data = np.memmap(self.directory / "x.f32", dtype=np.float32,
                            mode="r", shape=(self.n, *WINDOW_SHAPE))
         y_data = np.memmap(self.directory / "y.f32", dtype=np.float32,
                            mode="r", shape=(self.n,))
+        keep = self._keep_mask(y_data)
         rng = np.random.default_rng(self.seed + self.epoch)
         order = list(range(self.n_patients))
         if self.shuffle:
@@ -116,6 +154,8 @@ class CachedPatientSequences:
                 # Preserve the original loader's per-patient permutation calls.
                 indices = rng.permutation(stop - start)
             for index in indices:
+                if keep is not None and not keep[start + index]:
+                    continue
                 bx.append(x_data[start + index])
                 by.append(y_data[start + index])
                 if len(by) >= self.batch_size:
