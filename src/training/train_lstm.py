@@ -30,6 +30,7 @@ sys.path.insert(0, str(HERE.parent / "preprocessing"))
 
 from lstm_sequences import FEATURES, make_sequences, patient_path, read_manifest  # noqa: E402
 from train_xgboost_manifest import subset  # noqa: E402
+from lstm_cache import CachedPatientSequences  # noqa: E402
 
 DEFAULT_MANIFEST = Path("data/splits/patient_splits.json")
 DEFAULT_INDEX = Path("data/splits/patient_index.csv")
@@ -137,7 +138,15 @@ def main():
     parser.add_argument("--run-tag", type=str, default="",
                         help="Unique identifier appended to model/history filenames (required for CV)")
     parser.add_argument("--device", choices=["auto", "cpu", "cuda"], default="auto")
+    parser.add_argument("--cache-dir", type=Path, default=None,
+                        help="Opt-in persistent Train/Validation sequence cache; raw inputs must remain unchanged")
+    parser.add_argument("--torch-threads", type=int, default=None,
+                        help="Optional CPU compute threads; benchmark before changing")
     args = parser.parse_args()
+    if args.torch_threads is not None:
+        if args.torch_threads < 1:
+            parser.error("--torch-threads must be positive")
+        torch.set_num_threads(args.torch_threads)
     if args.epochs < 1 or args.batch_size < 1:
         parser.error("epochs and batch size must be positive")
     if not np.isfinite(args.pos_weight) or args.pos_weight <= 0:
@@ -193,10 +202,16 @@ def main():
     # Use unweighted BCE first; alternative weighting can be compared later.
     criterion = nn.BCEWithLogitsLoss(
         pos_weight=torch.tensor(args.pos_weight, device=device, dtype=torch.float32))
-    train_data = PatientSequences(train_ids, args.data_root, stats, args.batch_size,
-                                  True, args.seed)
-    val_data = PatientSequences(val_ids, args.data_root, stats, args.batch_size,
-                                False, args.seed)
+    if args.cache_dir is not None:
+        train_data = CachedPatientSequences(train_ids, args.data_root, stats, args.batch_size,
+                                            True, args.seed, args.cache_dir, "train")
+        val_data = CachedPatientSequences(val_ids, args.data_root, stats, args.batch_size,
+                                          False, args.seed, args.cache_dir, "validation")
+    else:
+        train_data = PatientSequences(train_ids, args.data_root, stats, args.batch_size,
+                                      True, args.seed)
+        val_data = PatientSequences(val_ids, args.data_root, stats, args.batch_size,
+                                    False, args.seed)
     history = []
     best, bad_epochs = -1.0, 0
     print(f"Training LSTM {scope} on {device}, pos_weight={args.pos_weight:g}, Test HELD OUT; "
