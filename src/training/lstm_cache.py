@@ -90,13 +90,20 @@ class CachedPatientSequences:
     """Same patient/within-patient ordering and batching as PatientSequences."""
 
     def __init__(self, ids, root, stats, batch_size, shuffle, seed, cache_dir, split,
-                 negative_ratio=None):
+                 negative_ratio=None, positive_repeat=1):
         if negative_ratio is not None and (split != "train" or not shuffle):
             raise ValueError("Negative-window undersampling is allowed only on shuffled Train")
         if negative_ratio is not None and negative_ratio < 1:
             raise ValueError("negative_ratio must be at least 1")
+        if not isinstance(positive_repeat, int) or positive_repeat < 1:
+            raise ValueError("positive_repeat must be a positive integer")
+        if positive_repeat > 1 and (split != "train" or not shuffle):
+            raise ValueError("Positive oversampling is allowed only on shuffled Train")
+        if positive_repeat > 1 and negative_ratio is not None:
+            raise ValueError("Run individual sampling experiments before combining methods")
         self.batch_size, self.shuffle, self.seed = batch_size, shuffle, seed
         self.negative_ratio = negative_ratio
+        self.positive_repeat = positive_repeat
         self.epoch = 0
         self.directory, meta = load_or_build(cache_dir, split, ids, root, stats)
         self.offsets = meta["offsets"]
@@ -140,6 +147,13 @@ class CachedPatientSequences:
         y_data = np.memmap(self.directory / "y.f32", dtype=np.float32,
                            mode="r", shape=(self.n,))
         keep = self._keep_mask(y_data)
+        if self.positive_repeat > 1:
+            pos = int(np.count_nonzero(y_data > 0.5))
+            if not pos:
+                raise ValueError("Train cache contains no positive sequences")
+            print(f"Train positive oversampling epoch {self.epoch}: original_positive={pos:,}, "
+                  f"effective_positive={pos * self.positive_repeat:,}, "
+                  f"negative={self.n - pos:,}, repeat={self.positive_repeat}", flush=True)
         rng = np.random.default_rng(self.seed + self.epoch)
         order = list(range(self.n_patients))
         if self.shuffle:
@@ -150,9 +164,14 @@ class CachedPatientSequences:
             if start == stop:
                 continue
             indices = np.arange(stop - start)
+            if self.positive_repeat > 1:
+                local_y = np.asarray(y_data[start:stop])
+                local_positive = np.flatnonzero(local_y > 0.5)
+                indices = np.concatenate((
+                    indices, np.tile(local_positive, self.positive_repeat - 1)))
             if self.shuffle:
-                # Preserve the original loader's per-patient permutation calls.
-                indices = rng.permutation(stop - start)
+                # A different but seeded permutation each epoch; old loader unaffected when repeat=1.
+                indices = rng.permutation(indices)
             for index in indices:
                 if keep is not None and not keep[start + index]:
                     continue
