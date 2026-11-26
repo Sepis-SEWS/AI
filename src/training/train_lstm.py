@@ -144,6 +144,8 @@ def main():
                         help="Optional CPU compute threads; benchmark before changing")
     parser.add_argument("--negative-ratio", type=int, default=None,
                         help="Train-only negative:positive sequence ratio; requires --cache-dir")
+    parser.add_argument("--positive-repeat", type=int, default=1,
+                        help="Train-only positive sequence repetition (>=1); requires --cache-dir if >1")
     args = parser.parse_args()
     if args.torch_threads is not None:
         if args.torch_threads < 1:
@@ -152,6 +154,10 @@ def main():
     if args.negative_ratio is not None:
         if args.negative_ratio < 1 or args.cache_dir is None:
             parser.error("--negative-ratio must be >=1 and requires --cache-dir")
+    if args.positive_repeat < 1 or (args.positive_repeat > 1 and args.cache_dir is None):
+        parser.error("--positive-repeat must be >=1 and requires --cache-dir when >1")
+    if args.positive_repeat > 1 and args.negative_ratio is not None:
+        parser.error("Combining positive oversampling and negative undersampling is not supported")
     if args.epochs < 1 or args.batch_size < 1:
         parser.error("epochs and batch size must be positive")
     if not np.isfinite(args.pos_weight) or args.pos_weight <= 0:
@@ -198,6 +204,8 @@ def main():
         variant += f"_{args.run_tag}"
     if args.negative_ratio is not None:
         variant += f"_neg{args.negative_ratio}"
+    if args.positive_repeat > 1:
+        variant += f"_pos{args.positive_repeat}"
     if is_cv and (Path("models") / f"lstm_{scope}{variant}_best.pt").exists():
         raise FileExistsError("CV checkpoint already exists; refusing to overwrite")
     out = Path("models") / f"lstm_{scope}{variant}_best.pt"
@@ -212,7 +220,8 @@ def main():
     if args.cache_dir is not None:
         train_data = CachedPatientSequences(train_ids, args.data_root, stats, args.batch_size,
                                             True, args.seed, args.cache_dir, "train",
-                                            negative_ratio=args.negative_ratio)
+                                            negative_ratio=args.negative_ratio,
+                                            positive_repeat=args.positive_repeat)
         val_data = CachedPatientSequences(val_ids, args.data_root, stats, args.batch_size,
                                           False, args.seed, args.cache_dir, "validation")
     else:
@@ -241,6 +250,7 @@ def main():
                         "validation": validation, "scope": scope,
                         "pos_weight": args.pos_weight,
                         "negative_ratio": args.negative_ratio,
+                        "positive_repeat": args.positive_repeat,
                         "run_tag": args.run_tag, "manifest": str(args.manifest)}, out)
         else:
             bad_epochs += 1
@@ -249,7 +259,8 @@ def main():
             "validation_patients": len(val_ids), "test_patients_evaluated": 0,
             "best_validation_AP": best, "history": history,
             "pos_weight": args.pos_weight, "run_tag": args.run_tag,
-            "negative_ratio": args.negative_ratio, "manifest": str(args.manifest),
+            "negative_ratio": args.negative_ratio,
+            "positive_repeat": args.positive_repeat, "manifest": str(args.manifest),
             "limitations": "One CV fold or single fixed Validation; not calibrated or clinical.",
         }, indent=2), encoding="utf-8")
         if bad_epochs >= args.patience:
