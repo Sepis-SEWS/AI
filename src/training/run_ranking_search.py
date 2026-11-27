@@ -134,7 +134,7 @@ def main():
             pred=np.load(folder/"scores.npy",allow_pickle=False)
         else:
             x=construct(raw,off,med,scale,c["mode"])
-            m=model(c,args.device); m.fit(x,y); del x; gc.collect()
+            m=model(c,args.device); train(m,c,x,y); del x; gc.collect()
             v=construct(vraw,vo,med,scale,c["mode"])
             pred=score(m,c,v); del v
             joblib.dump(dict(model=m,config=c,median=med,scale=scale,score_type="probability" if c["objective"]=="binary" else "ranking_score",base_representation="v2-16"),folder/"model.joblib")
