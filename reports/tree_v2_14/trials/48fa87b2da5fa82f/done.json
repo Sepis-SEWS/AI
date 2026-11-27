@@ -1,0 +1,9 @@
+{
+  "id": "48fa87b2da5fa82f",
+  "config": {
+    "base": "xgb_shallow",
+    "policy": "bagging"
+  },
+  "ap": 0.18256742916780794,
+  "auroc": 0.8546815347484413
+}

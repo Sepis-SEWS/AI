@@ -1,0 +1,191 @@
+[
+  {
+    "id": "647c3fe40f8bdcc8",
+    "config": {
+      "base": "xgb_slow",
+      "policy": "hard2"
+    },
+    "ap": 0.19714775833114642,
+    "auroc": 0.8576532904109965
+  },
+  {
+    "id": "574977732bc69bed",
+    "config": {
+      "base": "xgb_shallow",
+      "policy": "hard2"
+    },
+    "ap": 0.1965876786090588,
+    "auroc": 0.854519585635313
+  },
+  {
+    "id": "09ba3c2a8893cb16",
+    "config": {
+      "base": "xgb_shallow",
+      "policy": "patient_sqrt"
+    },
+    "ap": 0.1940720135228181,
+    "auroc": 0.857949567658756
+  },
+  {
+    "id": "621d4bd8375e316e",
+    "config": {
+      "base": "xgb_slow",
+      "policy": "patient_hard"
+    },
+    "ap": 0.1939823420079031,
+    "auroc": 0.8589814502555669
+  },
+  {
+    "id": "e24dd7933062f89c",
+    "config": {
+      "base": "xgb_slow",
+      "policy": "hard4"
+    },
+    "ap": 0.19375256079169387,
+    "auroc": 0.8545595353405906
+  },
+  {
+    "id": "2c1c88d4d3b41004",
+    "config": {
+      "base": "xgb_slow",
+      "policy": "patient_sqrt"
+    },
+    "ap": 0.1935687292068742,
+    "auroc": 0.8583106112390572
+  },
+  {
+    "id": "b89f09990bf07c69",
+    "config": {
+      "base": "xgb_slow",
+      "policy": "control"
+    },
+    "ap": 0.19349715762075428,
+    "auroc": 0.8589067977890622
+  },
+  {
+    "id": "0b04850e32d2b8f4",
+    "config": {
+      "base": "xgb_shallow",
+      "policy": "patient_equal"
+    },
+    "ap": 0.19344865935260477,
+    "auroc": 0.8563723762154157
+  },
+  {
+    "id": "47640bf32722954f",
+    "config": {
+      "base": "xgb_slow",
+      "policy": "bagging"
+    },
+    "ap": 0.1928778205226239,
+    "auroc": 0.8576017326017007
+  },
+  {
+    "id": "fe843601402ac633",
+    "config": {
+      "base": "xgb_shallow",
+      "policy": "patient_hard"
+    },
+    "ap": 0.19266879645460913,
+    "auroc": 0.8568282294411015
+  },
+  {
+    "id": "4439a4df75f2c5de",
+    "config": {
+      "base": "xgb_slow",
+      "policy": "patient_equal"
+    },
+    "ap": 0.19051591314698674,
+    "auroc": 0.856941621892744
+  },
+  {
+    "id": "48a6647b7d0295c3",
+    "config": {
+      "base": "xgb_shallow",
+      "policy": "control"
+    },
+    "ap": 0.18895576027714173,
+    "auroc": 0.8557169075904395
+  },
+  {
+    "id": "0c2adbc835cf30e0",
+    "config": {
+      "base": "xgb_shallow",
+      "policy": "hard4"
+    },
+    "ap": 0.18487882538361994,
+    "auroc": 0.8472816708668459
+  },
+  {
+    "id": "48fa87b2da5fa82f",
+    "config": {
+      "base": "xgb_shallow",
+      "policy": "bagging"
+    },
+    "ap": 0.18256742916780794,
+    "auroc": 0.8546815347484413
+  },
+  {
+    "id": "6f25bd4d95034e23",
+    "config": {
+      "base": "lgb",
+      "policy": "bagging"
+    },
+    "ap": 0.16828097461322783,
+    "auroc": 0.8507040559635752
+  },
+  {
+    "id": "6d88e790b632e318",
+    "config": {
+      "base": "lgb",
+      "policy": "control"
+    },
+    "ap": 0.16826428881402056,
+    "auroc": 0.848753836607164
+  },
+  {
+    "id": "a194e90d362a61c6",
+    "config": {
+      "base": "lgb",
+      "policy": "patient_sqrt"
+    },
+    "ap": 0.15952065953317882,
+    "auroc": 0.8530137589980027
+  },
+  {
+    "id": "d5aee5152bfe51b6",
+    "config": {
+      "base": "lgb",
+      "policy": "hard2"
+    },
+    "ap": 0.15558651689081066,
+    "auroc": 0.8429970736580417
+  },
+  {
+    "id": "7c704825d06a53b2",
+    "config": {
+      "base": "lgb",
+      "policy": "hard4"
+    },
+    "ap": 0.15105988489463984,
+    "auroc": 0.8316724030167942
+  },
+  {
+    "id": "bfa773601f3bcd85",
+    "config": {
+      "base": "lgb",
+      "policy": "patient_equal"
+    },
+    "ap": 0.14332860306369033,
+    "auroc": 0.8457256987250916
+  },
+  {
+    "id": "5628ec0904cea4f9",
+    "config": {
+      "base": "lgb",
+      "policy": "patient_hard"
+    },
+    "ap": 0.13483704177628847,
+    "auroc": 0.846974066239598
+  }
+]

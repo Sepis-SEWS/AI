@@ -1,0 +1,9 @@
+{
+  "id": "bfa773601f3bcd85",
+  "config": {
+    "base": "lgb",
+    "policy": "patient_equal"
+  },
+  "ap": 0.14332860306369033,
+  "auroc": 0.8457256987250916
+}

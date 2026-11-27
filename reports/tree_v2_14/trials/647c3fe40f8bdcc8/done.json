@@ -1,0 +1,9 @@
+{
+  "id": "647c3fe40f8bdcc8",
+  "config": {
+    "base": "xgb_slow",
+    "policy": "hard2"
+  },
+  "ap": 0.19714775833114642,
+  "auroc": 0.8576532904109965
+}

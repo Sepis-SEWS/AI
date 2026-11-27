@@ -1,0 +1,9 @@
+{
+  "id": "5628ec0904cea4f9",
+  "config": {
+    "base": "lgb",
+    "policy": "patient_hard"
+  },
+  "ap": 0.13483704177628847,
+  "auroc": 0.846974066239598
+}

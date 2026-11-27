@@ -1,0 +1,9 @@
+{
+  "id": "574977732bc69bed",
+  "config": {
+    "base": "xgb_shallow",
+    "policy": "hard2"
+  },
+  "ap": 0.1965876786090588,
+  "auroc": 0.854519585635313
+}

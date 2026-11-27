@@ -1,0 +1,9 @@
+{
+  "id": "621d4bd8375e316e",
+  "config": {
+    "base": "xgb_slow",
+    "policy": "patient_hard"
+  },
+  "ap": 0.1939823420079031,
+  "auroc": 0.8589814502555669
+}

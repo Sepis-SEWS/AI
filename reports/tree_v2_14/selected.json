@@ -1,0 +1,38 @@
+[
+  {
+    "id": "647c3fe40f8bdcc8",
+    "config": {
+      "base": "xgb_slow",
+      "policy": "hard2"
+    },
+    "ap": 0.19714775833114642,
+    "auroc": 0.8576532904109965
+  },
+  {
+    "id": "574977732bc69bed",
+    "config": {
+      "base": "xgb_shallow",
+      "policy": "hard2"
+    },
+    "ap": 0.1965876786090588,
+    "auroc": 0.854519585635313
+  },
+  {
+    "id": "09ba3c2a8893cb16",
+    "config": {
+      "base": "xgb_shallow",
+      "policy": "patient_sqrt"
+    },
+    "ap": 0.1940720135228181,
+    "auroc": 0.857949567658756
+  },
+  {
+    "id": "621d4bd8375e316e",
+    "config": {
+      "base": "xgb_slow",
+      "policy": "patient_hard"
+    },
+    "ap": 0.1939823420079031,
+    "auroc": 0.8589814502555669
+  }
+]

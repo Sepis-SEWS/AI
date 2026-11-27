@@ -1,0 +1,132 @@
+{
+  "version": 1,
+  "bases": {
+    "xgb_shallow": {
+      "arch": "xgb",
+      "k": 0,
+      "weight": 3,
+      "depth": 3,
+      "leaves": 31,
+      "lr": 0.04,
+      "rounds": 600,
+      "reg": 5,
+      "child": 20,
+      "seed": 42,
+      "window": 24
+    },
+    "xgb_slow": {
+      "arch": "xgb",
+      "k": 0,
+      "weight": 1,
+      "depth": 3,
+      "leaves": 31,
+      "lr": 0.015,
+      "rounds": 1000,
+      "reg": 5,
+      "child": 20,
+      "seed": 42,
+      "window": 24
+    },
+    "lgb": {
+      "arch": "lgb",
+      "k": 0,
+      "weight": 3,
+      "depth": -1,
+      "leaves": 31,
+      "lr": 0.04,
+      "rounds": 400,
+      "reg": 0,
+      "child": 20,
+      "seed": 42,
+      "window": 24
+    }
+  },
+  "trials": [
+    {
+      "base": "xgb_shallow",
+      "policy": "control"
+    },
+    {
+      "base": "xgb_shallow",
+      "policy": "patient_sqrt"
+    },
+    {
+      "base": "xgb_shallow",
+      "policy": "patient_equal"
+    },
+    {
+      "base": "xgb_shallow",
+      "policy": "hard2"
+    },
+    {
+      "base": "xgb_shallow",
+      "policy": "hard4"
+    },
+    {
+      "base": "xgb_shallow",
+      "policy": "patient_hard"
+    },
+    {
+      "base": "xgb_shallow",
+      "policy": "bagging"
+    },
+    {
+      "base": "xgb_slow",
+      "policy": "control"
+    },
+    {
+      "base": "xgb_slow",
+      "policy": "patient_sqrt"
+    },
+    {
+      "base": "xgb_slow",
+      "policy": "patient_equal"
+    },
+    {
+      "base": "xgb_slow",
+      "policy": "hard2"
+    },
+    {
+      "base": "xgb_slow",
+      "policy": "hard4"
+    },
+    {
+      "base": "xgb_slow",
+      "policy": "patient_hard"
+    },
+    {
+      "base": "xgb_slow",
+      "policy": "bagging"
+    },
+    {
+      "base": "lgb",
+      "policy": "control"
+    },
+    {
+      "base": "lgb",
+      "policy": "patient_sqrt"
+    },
+    {
+      "base": "lgb",
+      "policy": "patient_equal"
+    },
+    {
+      "base": "lgb",
+      "policy": "hard2"
+    },
+    {
+      "base": "lgb",
+      "policy": "hard4"
+    },
+    {
+      "base": "lgb",
+      "policy": "patient_hard"
+    },
+    {
+      "base": "lgb",
+      "policy": "bagging"
+    }
+  ],
+  "finalists": 4,
+  "manifest": "91684dafae57c57ecf8ac0dc12d56d13dbb234411557d3abe4eb26ea130d68db"
+}

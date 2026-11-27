@@ -1,0 +1,8 @@
+{
+  "config": {
+    "base": "xgb_shallow",
+    "policy": "patient_sqrt"
+  },
+  "ap": 0.18782849341540733,
+  "auroc": 0.8787046778878482
+}
