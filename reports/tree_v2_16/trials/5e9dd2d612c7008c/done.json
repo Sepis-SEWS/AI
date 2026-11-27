@@ -1,0 +1,21 @@
+{
+  "id": "5e9dd2d612c7008c",
+  "config": {
+    "mode": "combined",
+    "base": {
+      "arch": "xgb",
+      "k": 0,
+      "weight": 3,
+      "depth": 3,
+      "leaves": 31,
+      "lr": 0.04,
+      "rounds": 600,
+      "reg": 5,
+      "child": 20,
+      "seed": 42,
+      "window": 24
+    }
+  },
+  "ap": 0.17621292542562147,
+  "auroc": 0.8566069548419922
+}

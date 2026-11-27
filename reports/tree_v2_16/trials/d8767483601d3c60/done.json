@@ -1,0 +1,21 @@
+{
+  "id": "d8767483601d3c60",
+  "config": {
+    "mode": "personal",
+    "base": {
+      "arch": "xgb",
+      "k": 0,
+      "weight": 1,
+      "depth": 3,
+      "leaves": 31,
+      "lr": 0.015,
+      "rounds": 1000,
+      "reg": 5,
+      "child": 20,
+      "seed": 42,
+      "window": 24
+    }
+  },
+  "ap": 0.18700048951061585,
+  "auroc": 0.8588589791147432
+}

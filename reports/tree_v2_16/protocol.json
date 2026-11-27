@@ -1,0 +1,328 @@
+{
+  "version": 1,
+  "base_representation": "v2-15 segments",
+  "device": "cuda",
+  "trials": [
+    {
+      "mode": "control",
+      "base": {
+        "arch": "xgb",
+        "k": 0,
+        "weight": 3,
+        "depth": 3,
+        "leaves": 31,
+        "lr": 0.04,
+        "rounds": 600,
+        "reg": 5,
+        "child": 20,
+        "seed": 42,
+        "window": 24
+      }
+    },
+    {
+      "mode": "control",
+      "base": {
+        "arch": "xgb",
+        "k": 0,
+        "weight": 1,
+        "depth": 3,
+        "leaves": 31,
+        "lr": 0.015,
+        "rounds": 1000,
+        "reg": 5,
+        "child": 20,
+        "seed": 42,
+        "window": 24
+      }
+    },
+    {
+      "mode": "control",
+      "base": {
+        "arch": "lgb",
+        "k": 0,
+        "weight": 3,
+        "depth": -1,
+        "leaves": 31,
+        "lr": 0.04,
+        "rounds": 400,
+        "reg": 0,
+        "child": 20,
+        "seed": 42,
+        "window": 24
+      }
+    },
+    {
+      "mode": "control",
+      "base": {
+        "arch": "cat",
+        "k": 0,
+        "weight": 3,
+        "depth": 6,
+        "leaves": 31,
+        "lr": 0.04,
+        "rounds": 400,
+        "reg": 3,
+        "child": 20,
+        "seed": 42,
+        "window": 24
+      }
+    },
+    {
+      "mode": "personal",
+      "base": {
+        "arch": "xgb",
+        "k": 0,
+        "weight": 3,
+        "depth": 3,
+        "leaves": 31,
+        "lr": 0.04,
+        "rounds": 600,
+        "reg": 5,
+        "child": 20,
+        "seed": 42,
+        "window": 24
+      }
+    },
+    {
+      "mode": "personal",
+      "base": {
+        "arch": "xgb",
+        "k": 0,
+        "weight": 1,
+        "depth": 3,
+        "leaves": 31,
+        "lr": 0.015,
+        "rounds": 1000,
+        "reg": 5,
+        "child": 20,
+        "seed": 42,
+        "window": 24
+      }
+    },
+    {
+      "mode": "personal",
+      "base": {
+        "arch": "lgb",
+        "k": 0,
+        "weight": 3,
+        "depth": -1,
+        "leaves": 31,
+        "lr": 0.04,
+        "rounds": 400,
+        "reg": 0,
+        "child": 20,
+        "seed": 42,
+        "window": 24
+      }
+    },
+    {
+      "mode": "personal",
+      "base": {
+        "arch": "cat",
+        "k": 0,
+        "weight": 3,
+        "depth": 6,
+        "leaves": 31,
+        "lr": 0.04,
+        "rounds": 400,
+        "reg": 3,
+        "child": 20,
+        "seed": 42,
+        "window": 24
+      }
+    },
+    {
+      "mode": "history",
+      "base": {
+        "arch": "xgb",
+        "k": 0,
+        "weight": 3,
+        "depth": 3,
+        "leaves": 31,
+        "lr": 0.04,
+        "rounds": 600,
+        "reg": 5,
+        "child": 20,
+        "seed": 42,
+        "window": 24
+      }
+    },
+    {
+      "mode": "history",
+      "base": {
+        "arch": "xgb",
+        "k": 0,
+        "weight": 1,
+        "depth": 3,
+        "leaves": 31,
+        "lr": 0.015,
+        "rounds": 1000,
+        "reg": 5,
+        "child": 20,
+        "seed": 42,
+        "window": 24
+      }
+    },
+    {
+      "mode": "history",
+      "base": {
+        "arch": "lgb",
+        "k": 0,
+        "weight": 3,
+        "depth": -1,
+        "leaves": 31,
+        "lr": 0.04,
+        "rounds": 400,
+        "reg": 0,
+        "child": 20,
+        "seed": 42,
+        "window": 24
+      }
+    },
+    {
+      "mode": "history",
+      "base": {
+        "arch": "cat",
+        "k": 0,
+        "weight": 3,
+        "depth": 6,
+        "leaves": 31,
+        "lr": 0.04,
+        "rounds": 400,
+        "reg": 3,
+        "child": 20,
+        "seed": 42,
+        "window": 24
+      }
+    },
+    {
+      "mode": "combined",
+      "base": {
+        "arch": "xgb",
+        "k": 0,
+        "weight": 3,
+        "depth": 3,
+        "leaves": 31,
+        "lr": 0.04,
+        "rounds": 600,
+        "reg": 5,
+        "child": 20,
+        "seed": 42,
+        "window": 24
+      }
+    },
+    {
+      "mode": "combined",
+      "base": {
+        "arch": "xgb",
+        "k": 0,
+        "weight": 1,
+        "depth": 3,
+        "leaves": 31,
+        "lr": 0.015,
+        "rounds": 1000,
+        "reg": 5,
+        "child": 20,
+        "seed": 42,
+        "window": 24
+      }
+    },
+    {
+      "mode": "combined",
+      "base": {
+        "arch": "lgb",
+        "k": 0,
+        "weight": 3,
+        "depth": -1,
+        "leaves": 31,
+        "lr": 0.04,
+        "rounds": 400,
+        "reg": 0,
+        "child": 20,
+        "seed": 42,
+        "window": 24
+      }
+    },
+    {
+      "mode": "combined",
+      "base": {
+        "arch": "cat",
+        "k": 0,
+        "weight": 3,
+        "depth": 6,
+        "leaves": 31,
+        "lr": 0.04,
+        "rounds": 400,
+        "reg": 3,
+        "child": 20,
+        "seed": 42,
+        "window": 24
+      }
+    },
+    {
+      "mode": "history_all",
+      "base": {
+        "arch": "xgb",
+        "k": 0,
+        "weight": 3,
+        "depth": 3,
+        "leaves": 31,
+        "lr": 0.04,
+        "rounds": 600,
+        "reg": 5,
+        "child": 20,
+        "seed": 42,
+        "window": 24
+      }
+    },
+    {
+      "mode": "history_all",
+      "base": {
+        "arch": "xgb",
+        "k": 0,
+        "weight": 1,
+        "depth": 3,
+        "leaves": 31,
+        "lr": 0.015,
+        "rounds": 1000,
+        "reg": 5,
+        "child": 20,
+        "seed": 42,
+        "window": 24
+      }
+    },
+    {
+      "mode": "history_all",
+      "base": {
+        "arch": "lgb",
+        "k": 0,
+        "weight": 3,
+        "depth": -1,
+        "leaves": 31,
+        "lr": 0.04,
+        "rounds": 400,
+        "reg": 0,
+        "child": 20,
+        "seed": 42,
+        "window": 24
+      }
+    },
+    {
+      "mode": "history_all",
+      "base": {
+        "arch": "cat",
+        "k": 0,
+        "weight": 3,
+        "depth": 6,
+        "leaves": 31,
+        "lr": 0.04,
+        "rounds": 400,
+        "reg": 3,
+        "child": 20,
+        "seed": 42,
+        "window": 24
+      }
+    }
+  ],
+  "manifest": "91684dafae57c57ecf8ac0dc12d56d13dbb234411557d3abe4eb26ea130d68db"
+}

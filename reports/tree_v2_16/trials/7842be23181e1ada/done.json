@@ -1,0 +1,21 @@
+{
+  "id": "7842be23181e1ada",
+  "config": {
+    "mode": "history",
+    "base": {
+      "arch": "cat",
+      "k": 0,
+      "weight": 3,
+      "depth": 6,
+      "leaves": 31,
+      "lr": 0.04,
+      "rounds": 400,
+      "reg": 3,
+      "child": 20,
+      "seed": 42,
+      "window": 24
+    }
+  },
+  "ap": 0.1737914790406211,
+  "auroc": 0.8610808848289009
+}
