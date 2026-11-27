@@ -1,0 +1,24 @@
+{
+  "id": "6e804939660b6edb",
+  "config": {
+    "mode": "control",
+    "base": {
+      "arch": "xgb",
+      "k": 0,
+      "weight": 3,
+      "depth": 3,
+      "leaves": 31,
+      "lr": 0.04,
+      "rounds": 600,
+      "reg": 5,
+      "child": 20,
+      "seed": 42,
+      "window": 24
+    },
+    "objective": "rank:map",
+    "pair_method": "mean",
+    "pairs": 4
+  },
+  "ap": 0.02370178342032474,
+  "auroc": 0.5
+}

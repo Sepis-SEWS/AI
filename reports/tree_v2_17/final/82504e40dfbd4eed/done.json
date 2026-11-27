@@ -1,0 +1,23 @@
+{
+  "config": {
+    "mode": "control",
+    "base": {
+      "arch": "xgb",
+      "k": 0,
+      "weight": 1,
+      "depth": 3,
+      "leaves": 31,
+      "lr": 0.015,
+      "rounds": 1000,
+      "reg": 5,
+      "child": 20,
+      "seed": 42,
+      "window": 24
+    },
+    "objective": "binary",
+    "pair_method": "mean",
+    "pairs": 4
+  },
+  "ap": 0.20265915530339149,
+  "auroc": 0.8801421532580338
+}

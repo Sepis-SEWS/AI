@@ -1,0 +1,24 @@
+{
+  "id": "78991f2242b9f5a8",
+  "config": {
+    "mode": "personal",
+    "base": {
+      "arch": "xgb",
+      "k": 0,
+      "weight": 1,
+      "depth": 3,
+      "leaves": 31,
+      "lr": 0.015,
+      "rounds": 1000,
+      "reg": 5,
+      "child": 20,
+      "seed": 42,
+      "window": 24
+    },
+    "objective": "rank:pairwise",
+    "pair_method": "mean",
+    "pairs": 8
+  },
+  "ap": 0.13715840298647922,
+  "auroc": 0.8053020551952815
+}

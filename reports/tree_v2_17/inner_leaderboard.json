@@ -1,0 +1,386 @@
+[
+  {
+    "id": "82504e40dfbd4eed",
+    "config": {
+      "mode": "control",
+      "base": {
+        "arch": "xgb",
+        "k": 0,
+        "weight": 1,
+        "depth": 3,
+        "leaves": 31,
+        "lr": 0.015,
+        "rounds": 1000,
+        "reg": 5,
+        "child": 20,
+        "seed": 42,
+        "window": 24
+      },
+      "objective": "binary",
+      "pair_method": "mean",
+      "pairs": 4
+    },
+    "ap": 0.19493871730162457,
+    "auroc": 0.8586370359860833
+  },
+  {
+    "id": "16a7754c03de9952",
+    "config": {
+      "mode": "control",
+      "base": {
+        "arch": "xgb",
+        "k": 0,
+        "weight": 3,
+        "depth": 3,
+        "leaves": 31,
+        "lr": 0.04,
+        "rounds": 600,
+        "reg": 5,
+        "child": 20,
+        "seed": 42,
+        "window": 24
+      },
+      "objective": "binary",
+      "pair_method": "mean",
+      "pairs": 4
+    },
+    "ap": 0.18981686744589676,
+    "auroc": 0.8548411338789059
+  },
+  {
+    "id": "fc00319409621a75",
+    "config": {
+      "mode": "personal",
+      "base": {
+        "arch": "xgb",
+        "k": 0,
+        "weight": 1,
+        "depth": 3,
+        "leaves": 31,
+        "lr": 0.015,
+        "rounds": 1000,
+        "reg": 5,
+        "child": 20,
+        "seed": 42,
+        "window": 24
+      },
+      "objective": "binary",
+      "pair_method": "mean",
+      "pairs": 4
+    },
+    "ap": 0.18700048951061585,
+    "auroc": 0.8588589791147432
+  },
+  {
+    "id": "d75b9d2c98a886fb",
+    "config": {
+      "mode": "personal",
+      "base": {
+        "arch": "xgb",
+        "k": 0,
+        "weight": 3,
+        "depth": 3,
+        "leaves": 31,
+        "lr": 0.04,
+        "rounds": 600,
+        "reg": 5,
+        "child": 20,
+        "seed": 42,
+        "window": 24
+      },
+      "objective": "binary",
+      "pair_method": "mean",
+      "pairs": 4
+    },
+    "ap": 0.18641138196775514,
+    "auroc": 0.8575696894883399
+  },
+  {
+    "id": "b1204787ef2e04c1",
+    "config": {
+      "mode": "control",
+      "base": {
+        "arch": "xgb",
+        "k": 0,
+        "weight": 1,
+        "depth": 3,
+        "leaves": 31,
+        "lr": 0.015,
+        "rounds": 1000,
+        "reg": 5,
+        "child": 20,
+        "seed": 42,
+        "window": 24
+      },
+      "objective": "rank:pairwise",
+      "pair_method": "mean",
+      "pairs": 8
+    },
+    "ap": 0.13956864559222568,
+    "auroc": 0.8031011488335936
+  },
+  {
+    "id": "78991f2242b9f5a8",
+    "config": {
+      "mode": "personal",
+      "base": {
+        "arch": "xgb",
+        "k": 0,
+        "weight": 1,
+        "depth": 3,
+        "leaves": 31,
+        "lr": 0.015,
+        "rounds": 1000,
+        "reg": 5,
+        "child": 20,
+        "seed": 42,
+        "window": 24
+      },
+      "objective": "rank:pairwise",
+      "pair_method": "mean",
+      "pairs": 8
+    },
+    "ap": 0.13715840298647922,
+    "auroc": 0.8053020551952815
+  },
+  {
+    "id": "707f7b0397043eac",
+    "config": {
+      "mode": "personal",
+      "base": {
+        "arch": "xgb",
+        "k": 0,
+        "weight": 1,
+        "depth": 3,
+        "leaves": 31,
+        "lr": 0.015,
+        "rounds": 1000,
+        "reg": 5,
+        "child": 20,
+        "seed": 42,
+        "window": 24
+      },
+      "objective": "rank:pairwise",
+      "pair_method": "mean",
+      "pairs": 2
+    },
+    "ap": 0.13342562206053443,
+    "auroc": 0.80629418777746
+  },
+  {
+    "id": "3d771f095bbc721b",
+    "config": {
+      "mode": "control",
+      "base": {
+        "arch": "xgb",
+        "k": 0,
+        "weight": 1,
+        "depth": 3,
+        "leaves": 31,
+        "lr": 0.015,
+        "rounds": 1000,
+        "reg": 5,
+        "child": 20,
+        "seed": 42,
+        "window": 24
+      },
+      "objective": "rank:pairwise",
+      "pair_method": "mean",
+      "pairs": 2
+    },
+    "ap": 0.1307186589191747,
+    "auroc": 0.8048551156969396
+  },
+  {
+    "id": "637dc689fa2edafa",
+    "config": {
+      "mode": "personal",
+      "base": {
+        "arch": "xgb",
+        "k": 0,
+        "weight": 3,
+        "depth": 3,
+        "leaves": 31,
+        "lr": 0.04,
+        "rounds": 600,
+        "reg": 5,
+        "child": 20,
+        "seed": 42,
+        "window": 24
+      },
+      "objective": "rank:pairwise",
+      "pair_method": "mean",
+      "pairs": 4
+    },
+    "ap": 0.09785963707590138,
+    "auroc": 0.7380206421319524
+  },
+  {
+    "id": "944b3a2216833c29",
+    "config": {
+      "mode": "control",
+      "base": {
+        "arch": "xgb",
+        "k": 0,
+        "weight": 3,
+        "depth": 3,
+        "leaves": 31,
+        "lr": 0.04,
+        "rounds": 600,
+        "reg": 5,
+        "child": 20,
+        "seed": 42,
+        "window": 24
+      },
+      "objective": "rank:pairwise",
+      "pair_method": "mean",
+      "pairs": 4
+    },
+    "ap": 0.09172894668508277,
+    "auroc": 0.7406164468734442
+  },
+  {
+    "id": "cf387910fcca21eb",
+    "config": {
+      "mode": "control",
+      "base": {
+        "arch": "xgb",
+        "k": 0,
+        "weight": 1,
+        "depth": 3,
+        "leaves": 31,
+        "lr": 0.015,
+        "rounds": 1000,
+        "reg": 5,
+        "child": 20,
+        "seed": 42,
+        "window": 24
+      },
+      "objective": "rank:map",
+      "pair_method": "mean",
+      "pairs": 2
+    },
+    "ap": 0.02370178342032474,
+    "auroc": 0.5
+  },
+  {
+    "id": "e63ab5cf1bbb89c6",
+    "config": {
+      "mode": "control",
+      "base": {
+        "arch": "xgb",
+        "k": 0,
+        "weight": 1,
+        "depth": 3,
+        "leaves": 31,
+        "lr": 0.015,
+        "rounds": 1000,
+        "reg": 5,
+        "child": 20,
+        "seed": 42,
+        "window": 24
+      },
+      "objective": "rank:map",
+      "pair_method": "mean",
+      "pairs": 8
+    },
+    "ap": 0.02370178342032474,
+    "auroc": 0.5
+  },
+  {
+    "id": "6e804939660b6edb",
+    "config": {
+      "mode": "control",
+      "base": {
+        "arch": "xgb",
+        "k": 0,
+        "weight": 3,
+        "depth": 3,
+        "leaves": 31,
+        "lr": 0.04,
+        "rounds": 600,
+        "reg": 5,
+        "child": 20,
+        "seed": 42,
+        "window": 24
+      },
+      "objective": "rank:map",
+      "pair_method": "mean",
+      "pairs": 4
+    },
+    "ap": 0.02370178342032474,
+    "auroc": 0.5
+  },
+  {
+    "id": "3651090f47996704",
+    "config": {
+      "mode": "personal",
+      "base": {
+        "arch": "xgb",
+        "k": 0,
+        "weight": 1,
+        "depth": 3,
+        "leaves": 31,
+        "lr": 0.015,
+        "rounds": 1000,
+        "reg": 5,
+        "child": 20,
+        "seed": 42,
+        "window": 24
+      },
+      "objective": "rank:map",
+      "pair_method": "mean",
+      "pairs": 2
+    },
+    "ap": 0.02370178342032474,
+    "auroc": 0.5
+  },
+  {
+    "id": "0ccb050b16531221",
+    "config": {
+      "mode": "personal",
+      "base": {
+        "arch": "xgb",
+        "k": 0,
+        "weight": 1,
+        "depth": 3,
+        "leaves": 31,
+        "lr": 0.015,
+        "rounds": 1000,
+        "reg": 5,
+        "child": 20,
+        "seed": 42,
+        "window": 24
+      },
+      "objective": "rank:map",
+      "pair_method": "mean",
+      "pairs": 8
+    },
+    "ap": 0.02370178342032474,
+    "auroc": 0.5
+  },
+  {
+    "id": "c92177b80c8242a9",
+    "config": {
+      "mode": "personal",
+      "base": {
+        "arch": "xgb",
+        "k": 0,
+        "weight": 3,
+        "depth": 3,
+        "leaves": 31,
+        "lr": 0.04,
+        "rounds": 600,
+        "reg": 5,
+        "child": 20,
+        "seed": 42,
+        "window": 24
+      },
+      "objective": "rank:map",
+      "pair_method": "mean",
+      "pairs": 4
+    },
+    "ap": 0.02370178342032474,
+    "auroc": 0.5
+  }
+]
