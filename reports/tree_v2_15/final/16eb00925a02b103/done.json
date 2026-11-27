@@ -1,0 +1,20 @@
+{
+  "config": {
+    "mode": "lags",
+    "base": {
+      "arch": "cat",
+      "k": 0,
+      "weight": 3,
+      "depth": 6,
+      "leaves": 31,
+      "lr": 0.04,
+      "rounds": 400,
+      "reg": 3,
+      "child": 20,
+      "seed": 42,
+      "window": 24
+    }
+  },
+  "ap": 0.17659860705328306,
+  "auroc": 0.8784553355932716
+}

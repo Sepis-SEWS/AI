@@ -1,0 +1,20 @@
+{
+  "config": {
+    "mode": "control",
+    "base": {
+      "arch": "xgb",
+      "k": 0,
+      "weight": 1,
+      "depth": 3,
+      "leaves": 31,
+      "lr": 0.015,
+      "rounds": 1000,
+      "reg": 5,
+      "child": 20,
+      "seed": 42,
+      "window": 24
+    }
+  },
+  "ap": 0.19176669973721344,
+  "auroc": 0.8788875353792238
+}
