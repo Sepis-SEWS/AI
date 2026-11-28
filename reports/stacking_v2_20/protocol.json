@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "xgb": {
+    "mode": "segments",
+    "base": {
+      "arch": "xgb",
+      "k": 0,
+      "weight": 3,
+      "depth": 3,
+      "leaves": 31,
+      "lr": 0.015,
+      "rounds": 1000,
+      "reg": 5,
+      "child": 20,
+      "seed": 42,
+      "window": 24
+    }
+  },
+  "lstm": {
+    "weight": 1.0,
+    "epochs": 2,
+    "seed": 42,
+    "hidden": 64
+  },
+  "folds": 5,
+  "seed": 42,
+  "device": "cuda",
+  "batch": 512,
+  "meta": "logistic regression C=1 on clipped logits",
+  "manifest": "91684dafae57c57ecf8ac0dc12d56d13dbb234411557d3abe4eb26ea130d68db"
+}

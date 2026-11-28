@@ -1,0 +1,138 @@
+{
+  "scope": "fixed 16 variables; 5-fold patient OOF base predictions; full Train refit; reused Validation",
+  "test_patients_evaluated": 0,
+  "folds": [
+    {
+      "fold": 1,
+      "fit_patients": 20651,
+      "holdout_patients": 5163,
+      "samples": 85569,
+      "lstm": {
+        "ap": 0.11379759706698472,
+        "auroc": 0.810274958401968
+      },
+      "xgb": {
+        "ap": 0.09433579219998273,
+        "auroc": 0.7909688751207107
+      }
+    },
+    {
+      "fold": 2,
+      "fit_patients": 20651,
+      "holdout_patients": 5163,
+      "samples": 84263,
+      "lstm": {
+        "ap": 0.145720417840495,
+        "auroc": 0.8238232441421027
+      },
+      "xgb": {
+        "ap": 0.12798862794302057,
+        "auroc": 0.7939013649744957
+      }
+    },
+    {
+      "fold": 3,
+      "fit_patients": 20651,
+      "holdout_patients": 5163,
+      "samples": 86320,
+      "lstm": {
+        "ap": 0.13824904314630146,
+        "auroc": 0.8245588621966883
+      },
+      "xgb": {
+        "ap": 0.12669267047110339,
+        "auroc": 0.8145959195621166
+      }
+    },
+    {
+      "fold": 4,
+      "fit_patients": 20651,
+      "holdout_patients": 5163,
+      "samples": 85791,
+      "lstm": {
+        "ap": 0.11822520034658937,
+        "auroc": 0.8179625335716444
+      },
+      "xgb": {
+        "ap": 0.10510887891193813,
+        "auroc": 0.8092799513524604
+      }
+    },
+    {
+      "fold": 5,
+      "fit_patients": 20652,
+      "holdout_patients": 5162,
+      "samples": 88962,
+      "lstm": {
+        "ap": 0.0989607392618364,
+        "auroc": 0.8051840897446583
+      },
+      "xgb": {
+        "ap": 0.0994063898372039,
+        "auroc": 0.8125594939774812
+      }
+    }
+  ],
+  "oof_base": {
+    "lstm": {
+      "ap": 0.1182283029183,
+      "auroc": 0.8157706842936346
+    },
+    "xgb": {
+      "ap": 0.10777379845151538,
+      "auroc": 0.8041844888305945
+    }
+  },
+  "meta_coef": [
+    [
+      0.6289686638730566,
+      0.4807690544167426
+    ]
+  ],
+  "meta_intercept": [
+    -0.06521894147852242
+  ],
+  "validation": {
+    "lstm": {
+      "ap": 0.13428673056189208,
+      "auroc": 0.8328478307967392,
+      "brier": 0.022570842877030373
+    },
+    "xgb": {
+      "ap": 0.10310470012865959,
+      "auroc": 0.7995863068904537,
+      "brier": 0.026479635387659073
+    },
+    "lstm_calibrated": {
+      "ap": 0.13428673056189208,
+      "auroc": 0.8328478307967392,
+      "brier": 0.022584820039659528
+    },
+    "xgb_calibrated": {
+      "ap": 0.10310471286233117,
+      "auroc": 0.7995863068904538,
+      "brier": 0.023005347896855086
+    },
+    "soft_50_50": {
+      "ap": 0.13078709380761463,
+      "auroc": 0.8353460784691062,
+      "brier": 0.022589573366835404
+    },
+    "soft_75_25": {
+      "ap": 0.13864956741268336,
+      "auroc": 0.8382046971920524,
+      "brier": 0.02253581905289199
+    },
+    "stack": {
+      "ap": 0.13602390668000025,
+      "auroc": 0.8374587047464795,
+      "brier": 0.022513384744980137
+    }
+  },
+  "limitations": [
+    "OOF base scores are out-of-fold; meta learner fitted on all OOF scores",
+    "Configuration selected in earlier development experiments",
+    "Full-refit base scores may differ from OOF score distributions",
+    "Validation repeatedly used in earlier experiments"
+  ]
+}
