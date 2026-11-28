@@ -1,0 +1,13 @@
+{
+  "id": "a6a41062ba89380b",
+  "config": {
+    "mode": "control",
+    "weight": 3,
+    "seed": 42,
+    "aux": 0.0,
+    "pre": 0
+  },
+  "best_epoch": 2,
+  "ap": 0.1210248268781039,
+  "auroc": 0.8076128261405496
+}

@@ -1,0 +1,154 @@
+{
+  "scope": "strict 16 variables, 24x64 LSTM, Train inner patient split, reused Validation",
+  "test_patients_evaluated": 0,
+  "target_ap": 0.4,
+  "inner_trials": [
+    {
+      "id": "03e46e49ad71f53c",
+      "config": {
+        "mode": "transition",
+        "weight": 3,
+        "seed": 42,
+        "aux": 0.3,
+        "pre": 0
+      },
+      "best_epoch": 2,
+      "ap": 0.12737166336892228,
+      "auroc": 0.8117534203476734
+    },
+    {
+      "id": "62a15cb65f050562",
+      "config": {
+        "mode": "forecast",
+        "weight": 3,
+        "seed": 42,
+        "aux": 0.3,
+        "pre": 0
+      },
+      "best_epoch": 2,
+      "ap": 0.12727079484059658,
+      "auroc": 0.8107627145406833
+    },
+    {
+      "id": "9c4bcd73eb67bd21",
+      "config": {
+        "mode": "control",
+        "weight": 1,
+        "seed": 42,
+        "aux": 0.0,
+        "pre": 0
+      },
+      "best_epoch": 2,
+      "ap": 0.12591943191594746,
+      "auroc": 0.8078722242884576
+    },
+    {
+      "id": "fdbf3a6b03fc04c8",
+      "config": {
+        "mode": "pretrain_joint",
+        "weight": 3,
+        "seed": 42,
+        "aux": 0.1,
+        "pre": 2
+      },
+      "best_epoch": 2,
+      "ap": 0.12462728183414878,
+      "auroc": 0.8026745372641034
+    },
+    {
+      "id": "a6a41062ba89380b",
+      "config": {
+        "mode": "control",
+        "weight": 3,
+        "seed": 42,
+        "aux": 0.0,
+        "pre": 0
+      },
+      "best_epoch": 2,
+      "ap": 0.1210248268781039,
+      "auroc": 0.8076128261405496
+    },
+    {
+      "id": "832374a62aa57cb6",
+      "config": {
+        "mode": "forecast",
+        "weight": 3,
+        "seed": 42,
+        "aux": 0.1,
+        "pre": 0
+      },
+      "best_epoch": 2,
+      "ap": 0.11979426731600687,
+      "auroc": 0.8082609814574098
+    },
+    {
+      "id": "75f9140eda9efe90",
+      "config": {
+        "mode": "pretrain",
+        "weight": 3,
+        "seed": 42,
+        "aux": 0.0,
+        "pre": 2
+      },
+      "best_epoch": 2,
+      "ap": 0.11772088833073197,
+      "auroc": 0.8131996610329439
+    },
+    {
+      "id": "db8d55cf3fca84e9",
+      "config": {
+        "mode": "transition",
+        "weight": 3,
+        "seed": 42,
+        "aux": 0.1,
+        "pre": 0
+      },
+      "best_epoch": 2,
+      "ap": 0.11580475264179033,
+      "auroc": 0.8086130331705493
+    },
+    {
+      "id": "482c05caed390612",
+      "config": {
+        "mode": "joint",
+        "weight": 3,
+        "seed": 42,
+        "aux": 0.1,
+        "pre": 0
+      },
+      "best_epoch": 1,
+      "ap": 0.1107108737324463,
+      "auroc": 0.8073452262058585
+    }
+  ],
+  "finalists": [
+    {
+      "id": "9c4bcd73eb67bd21",
+      "config": {
+        "mode": "control",
+        "weight": 1,
+        "seed": 42,
+        "aux": 0.0,
+        "pre": 0
+      },
+      "inner_ap": 0.12591943191594746,
+      "epoch": 2,
+      "ap": 0.13428673056189208,
+      "auroc": 0.8328478307967392
+    },
+    {
+      "id": "03e46e49ad71f53c",
+      "config": {
+        "mode": "transition",
+        "weight": 3,
+        "seed": 42,
+        "aux": 0.3,
+        "pre": 0
+      },
+      "inner_ap": 0.12737166336892228,
+      "epoch": 2,
+      "ap": 0.133697938566665,
+      "auroc": 0.8379543500404351
+    }
+  ]
+}

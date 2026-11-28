@@ -1,0 +1,13 @@
+{
+  "id": "75f9140eda9efe90",
+  "config": {
+    "mode": "pretrain",
+    "weight": 3,
+    "seed": 42,
+    "aux": 0.0,
+    "pre": 2
+  },
+  "best_epoch": 2,
+  "ap": 0.11772088833073197,
+  "auroc": 0.8131996610329439
+}

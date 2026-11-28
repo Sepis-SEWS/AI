@@ -1,0 +1,90 @@
+{
+  "version": 1,
+  "configs": [
+    {
+      "mode": "control",
+      "weight": 3,
+      "seed": 42,
+      "aux": 0.0,
+      "pre": 0
+    },
+    {
+      "mode": "control",
+      "weight": 1,
+      "seed": 42,
+      "aux": 0.0,
+      "pre": 0
+    },
+    {
+      "mode": "forecast",
+      "weight": 3,
+      "seed": 42,
+      "aux": 0.1,
+      "pre": 0
+    },
+    {
+      "mode": "forecast",
+      "weight": 3,
+      "seed": 42,
+      "aux": 0.3,
+      "pre": 0
+    },
+    {
+      "mode": "transition",
+      "weight": 3,
+      "seed": 42,
+      "aux": 0.1,
+      "pre": 0
+    },
+    {
+      "mode": "transition",
+      "weight": 3,
+      "seed": 42,
+      "aux": 0.3,
+      "pre": 0
+    },
+    {
+      "mode": "joint",
+      "weight": 3,
+      "seed": 42,
+      "aux": 0.1,
+      "pre": 0
+    },
+    {
+      "mode": "pretrain",
+      "weight": 3,
+      "seed": 42,
+      "aux": 0.0,
+      "pre": 2
+    },
+    {
+      "mode": "pretrain_joint",
+      "weight": 3,
+      "seed": 42,
+      "aux": 0.1,
+      "pre": 2
+    }
+  ],
+  "epochs": 12,
+  "batch": 512,
+  "device": "cuda",
+  "features": [
+    "HR",
+    "Temp",
+    "SBP",
+    "DBP",
+    "MAP",
+    "Resp",
+    "O2Sat",
+    "WBC",
+    "Lactate",
+    "Creatinine",
+    "Bilirubin_total",
+    "Platelets",
+    "FiO2",
+    "BUN",
+    "Glucose",
+    "pH"
+  ],
+  "manifest": "91684dafae57c57ecf8ac0dc12d56d13dbb234411557d3abe4eb26ea130d68db"
+}
