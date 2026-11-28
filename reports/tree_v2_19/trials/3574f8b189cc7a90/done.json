@@ -1,0 +1,21 @@
+{
+  "id": "3574f8b189cc7a90",
+  "config": {
+    "mode": "clinical",
+    "base": {
+      "arch": "xgb",
+      "k": 0,
+      "weight": 1,
+      "depth": 4,
+      "leaves": 31,
+      "lr": 0.04,
+      "rounds": 600,
+      "reg": 5,
+      "child": 20,
+      "seed": 42,
+      "window": 24
+    }
+  },
+  "ap": 0.09646297352259176,
+  "auroc": 0.7897717346076367
+}

@@ -1,0 +1,422 @@
+[
+  {
+    "id": "aad5ca6491087515",
+    "config": {
+      "mode": "segments",
+      "base": {
+        "arch": "xgb",
+        "k": 0,
+        "weight": 3,
+        "depth": 3,
+        "leaves": 31,
+        "lr": 0.015,
+        "rounds": 1000,
+        "reg": 5,
+        "child": 20,
+        "seed": 42,
+        "window": 24
+      }
+    },
+    "ap": 0.11613178909645921,
+    "auroc": 0.8056091620429504
+  },
+  {
+    "id": "9fa33d3ad6131494",
+    "config": {
+      "mode": "combined",
+      "base": {
+        "arch": "xgb",
+        "k": 0,
+        "weight": 3,
+        "depth": 3,
+        "leaves": 31,
+        "lr": 0.015,
+        "rounds": 1000,
+        "reg": 5,
+        "child": 20,
+        "seed": 42,
+        "window": 24
+      }
+    },
+    "ap": 0.11548988170947071,
+    "auroc": 0.805893535991825
+  },
+  {
+    "id": "26e05b4475b93704",
+    "config": {
+      "mode": "segments",
+      "base": {
+        "arch": "xgb",
+        "k": 0,
+        "weight": 1,
+        "depth": 3,
+        "leaves": 31,
+        "lr": 0.015,
+        "rounds": 1000,
+        "reg": 5,
+        "child": 20,
+        "seed": 42,
+        "window": 24
+      }
+    },
+    "ap": 0.11491002550153051,
+    "auroc": 0.805265393150479
+  },
+  {
+    "id": "2649321015dc2165",
+    "config": {
+      "mode": "combined",
+      "base": {
+        "arch": "xgb",
+        "k": 0,
+        "weight": 1,
+        "depth": 3,
+        "leaves": 31,
+        "lr": 0.015,
+        "rounds": 1000,
+        "reg": 5,
+        "child": 20,
+        "seed": 42,
+        "window": 24
+      }
+    },
+    "ap": 0.11369439507777054,
+    "auroc": 0.8040983055166387
+  },
+  {
+    "id": "5e9dd2d612c7008c",
+    "config": {
+      "mode": "combined",
+      "base": {
+        "arch": "xgb",
+        "k": 0,
+        "weight": 3,
+        "depth": 3,
+        "leaves": 31,
+        "lr": 0.04,
+        "rounds": 600,
+        "reg": 5,
+        "child": 20,
+        "seed": 42,
+        "window": 24
+      }
+    },
+    "ap": 0.11329524953949646,
+    "auroc": 0.8008194459004819
+  },
+  {
+    "id": "6833c39a066ef3c2",
+    "config": {
+      "mode": "segments",
+      "base": {
+        "arch": "xgb",
+        "k": 0,
+        "weight": 3,
+        "depth": 3,
+        "leaves": 31,
+        "lr": 0.04,
+        "rounds": 600,
+        "reg": 5,
+        "child": 20,
+        "seed": 42,
+        "window": 24
+      }
+    },
+    "ap": 0.11281732362973225,
+    "auroc": 0.8003817674175622
+  },
+  {
+    "id": "d9872a7756a6b004",
+    "config": {
+      "mode": "clinical",
+      "base": {
+        "arch": "xgb",
+        "k": 0,
+        "weight": 3,
+        "depth": 3,
+        "leaves": 31,
+        "lr": 0.015,
+        "rounds": 1000,
+        "reg": 5,
+        "child": 20,
+        "seed": 42,
+        "window": 24
+      }
+    },
+    "ap": 0.10735006908697112,
+    "auroc": 0.804250834440642
+  },
+  {
+    "id": "70cc22cf3fe28fcf",
+    "config": {
+      "mode": "measurement",
+      "base": {
+        "arch": "xgb",
+        "k": 0,
+        "weight": 3,
+        "depth": 3,
+        "leaves": 31,
+        "lr": 0.015,
+        "rounds": 1000,
+        "reg": 5,
+        "child": 20,
+        "seed": 42,
+        "window": 24
+      }
+    },
+    "ap": 0.10632551035573966,
+    "auroc": 0.803606021771536
+  },
+  {
+    "id": "ab06e32027802e4e",
+    "config": {
+      "mode": "measurement",
+      "base": {
+        "arch": "xgb",
+        "k": 0,
+        "weight": 1,
+        "depth": 3,
+        "leaves": 31,
+        "lr": 0.015,
+        "rounds": 1000,
+        "reg": 5,
+        "child": 20,
+        "seed": 42,
+        "window": 24
+      }
+    },
+    "ap": 0.10610031394542684,
+    "auroc": 0.8027482549468641
+  },
+  {
+    "id": "c3b2d55d7935b0c7",
+    "config": {
+      "mode": "clinical",
+      "base": {
+        "arch": "xgb",
+        "k": 0,
+        "weight": 1,
+        "depth": 3,
+        "leaves": 31,
+        "lr": 0.015,
+        "rounds": 1000,
+        "reg": 5,
+        "child": 20,
+        "seed": 42,
+        "window": 24
+      }
+    },
+    "ap": 0.10566040054576549,
+    "auroc": 0.8025865315709868
+  },
+  {
+    "id": "4d2fcb39eca6ab1b",
+    "config": {
+      "mode": "segments",
+      "base": {
+        "arch": "xgb",
+        "k": 0,
+        "weight": 1,
+        "depth": 4,
+        "leaves": 31,
+        "lr": 0.04,
+        "rounds": 600,
+        "reg": 5,
+        "child": 20,
+        "seed": 42,
+        "window": 24
+      }
+    },
+    "ap": 0.10476120211511307,
+    "auroc": 0.7946870359073647
+  },
+  {
+    "id": "f306c55b565022c9",
+    "config": {
+      "mode": "clinical",
+      "base": {
+        "arch": "xgb",
+        "k": 0,
+        "weight": 3,
+        "depth": 3,
+        "leaves": 31,
+        "lr": 0.04,
+        "rounds": 600,
+        "reg": 5,
+        "child": 20,
+        "seed": 42,
+        "window": 24
+      }
+    },
+    "ap": 0.10353326414162979,
+    "auroc": 0.796669527008455
+  },
+  {
+    "id": "e92d3438b5247ea0",
+    "config": {
+      "mode": "combined",
+      "base": {
+        "arch": "xgb",
+        "k": 0,
+        "weight": 1,
+        "depth": 4,
+        "leaves": 31,
+        "lr": 0.04,
+        "rounds": 600,
+        "reg": 5,
+        "child": 20,
+        "seed": 42,
+        "window": 24
+      }
+    },
+    "ap": 0.10346780140068723,
+    "auroc": 0.7918635635720551
+  },
+  {
+    "id": "99c7d19652bed440",
+    "config": {
+      "mode": "measurement",
+      "base": {
+        "arch": "xgb",
+        "k": 0,
+        "weight": 3,
+        "depth": 3,
+        "leaves": 31,
+        "lr": 0.04,
+        "rounds": 600,
+        "reg": 5,
+        "child": 20,
+        "seed": 42,
+        "window": 24
+      }
+    },
+    "ap": 0.1006329027843468,
+    "auroc": 0.7964997320788237
+  },
+  {
+    "id": "3574f8b189cc7a90",
+    "config": {
+      "mode": "clinical",
+      "base": {
+        "arch": "xgb",
+        "k": 0,
+        "weight": 1,
+        "depth": 4,
+        "leaves": 31,
+        "lr": 0.04,
+        "rounds": 600,
+        "reg": 5,
+        "child": 20,
+        "seed": 42,
+        "window": 24
+      }
+    },
+    "ap": 0.09646297352259176,
+    "auroc": 0.7897717346076367
+  },
+  {
+    "id": "832a22f3f70f9fa4",
+    "config": {
+      "mode": "measurement",
+      "base": {
+        "arch": "xgb",
+        "k": 0,
+        "weight": 1,
+        "depth": 4,
+        "leaves": 31,
+        "lr": 0.04,
+        "rounds": 600,
+        "reg": 5,
+        "child": 20,
+        "seed": 42,
+        "window": 24
+      }
+    },
+    "ap": 0.09585408129051468,
+    "auroc": 0.7903002636518481
+  },
+  {
+    "id": "4810045a3e593607",
+    "config": {
+      "mode": "control",
+      "base": {
+        "arch": "xgb",
+        "k": 0,
+        "weight": 3,
+        "depth": 3,
+        "leaves": 31,
+        "lr": 0.015,
+        "rounds": 1000,
+        "reg": 5,
+        "child": 20,
+        "seed": 42,
+        "window": 24
+      }
+    },
+    "ap": 0.08813741773468274,
+    "auroc": 0.7653262599009515
+  },
+  {
+    "id": "160a1ab32e5f359f",
+    "config": {
+      "mode": "control",
+      "base": {
+        "arch": "xgb",
+        "k": 0,
+        "weight": 1,
+        "depth": 3,
+        "leaves": 31,
+        "lr": 0.015,
+        "rounds": 1000,
+        "reg": 5,
+        "child": 20,
+        "seed": 42,
+        "window": 24
+      }
+    },
+    "ap": 0.08713606356965942,
+    "auroc": 0.7649831797965021
+  },
+  {
+    "id": "55121fcf1afd43d8",
+    "config": {
+      "mode": "control",
+      "base": {
+        "arch": "xgb",
+        "k": 0,
+        "weight": 3,
+        "depth": 3,
+        "leaves": 31,
+        "lr": 0.04,
+        "rounds": 600,
+        "reg": 5,
+        "child": 20,
+        "seed": 42,
+        "window": 24
+      }
+    },
+    "ap": 0.08666428651950026,
+    "auroc": 0.7574843446007169
+  },
+  {
+    "id": "64a620cd586a0440",
+    "config": {
+      "mode": "control",
+      "base": {
+        "arch": "xgb",
+        "k": 0,
+        "weight": 1,
+        "depth": 4,
+        "leaves": 31,
+        "lr": 0.04,
+        "rounds": 600,
+        "reg": 5,
+        "child": 20,
+        "seed": 42,
+        "window": 24
+      }
+    },
+    "ap": 0.08416618907481056,
+    "auroc": 0.7489188430130083
+  }
+]

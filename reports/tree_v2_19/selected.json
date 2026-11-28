@@ -1,0 +1,65 @@
+[
+  {
+    "id": "4810045a3e593607",
+    "config": {
+      "mode": "control",
+      "base": {
+        "arch": "xgb",
+        "k": 0,
+        "weight": 3,
+        "depth": 3,
+        "leaves": 31,
+        "lr": 0.015,
+        "rounds": 1000,
+        "reg": 5,
+        "child": 20,
+        "seed": 42,
+        "window": 24
+      }
+    },
+    "ap": 0.08813741773468274,
+    "auroc": 0.7653262599009515
+  },
+  {
+    "id": "aad5ca6491087515",
+    "config": {
+      "mode": "segments",
+      "base": {
+        "arch": "xgb",
+        "k": 0,
+        "weight": 3,
+        "depth": 3,
+        "leaves": 31,
+        "lr": 0.015,
+        "rounds": 1000,
+        "reg": 5,
+        "child": 20,
+        "seed": 42,
+        "window": 24
+      }
+    },
+    "ap": 0.11613178909645921,
+    "auroc": 0.8056091620429504
+  },
+  {
+    "id": "9fa33d3ad6131494",
+    "config": {
+      "mode": "combined",
+      "base": {
+        "arch": "xgb",
+        "k": 0,
+        "weight": 3,
+        "depth": 3,
+        "leaves": 31,
+        "lr": 0.015,
+        "rounds": 1000,
+        "reg": 5,
+        "child": 20,
+        "seed": 42,
+        "window": 24
+      }
+    },
+    "ap": 0.11548988170947071,
+    "auroc": 0.805893535991825
+  }
+]
