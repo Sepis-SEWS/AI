@@ -1,0 +1,21 @@
+{
+  "id": "39819414cb48cbaf",
+  "config": {
+    "mode": "trends",
+    "base": {
+      "arch": "lgb",
+      "k": 0,
+      "weight": 3,
+      "depth": -1,
+      "leaves": 31,
+      "lr": 0.04,
+      "rounds": 400,
+      "reg": 0,
+      "child": 20,
+      "seed": 42,
+      "window": 24
+    }
+  },
+  "ap": 0.09336236281216542,
+  "auroc": 0.791804472505527
+}

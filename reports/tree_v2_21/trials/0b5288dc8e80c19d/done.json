@@ -1,0 +1,21 @@
+{
+  "id": "0b5288dc8e80c19d",
+  "config": {
+    "mode": "encoded",
+    "base": {
+      "arch": "lgb",
+      "k": 0,
+      "weight": 3,
+      "depth": -1,
+      "leaves": 31,
+      "lr": 0.04,
+      "rounds": 400,
+      "reg": 0,
+      "child": 20,
+      "seed": 42,
+      "window": 24
+    }
+  },
+  "ap": 0.10147234625081834,
+  "auroc": 0.7939003849989332
+}

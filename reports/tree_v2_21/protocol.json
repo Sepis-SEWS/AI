@@ -1,0 +1,345 @@
+{
+  "version": 1,
+  "features": [
+    "HR",
+    "Temp",
+    "SBP",
+    "DBP",
+    "MAP",
+    "Resp",
+    "O2Sat",
+    "WBC",
+    "Lactate",
+    "Creatinine",
+    "Bilirubin_total",
+    "Platelets",
+    "FiO2",
+    "BUN",
+    "Glucose",
+    "pH"
+  ],
+  "device": "cuda",
+  "trials": [
+    {
+      "mode": "encoded",
+      "base": {
+        "arch": "xgb",
+        "k": 0,
+        "weight": 3,
+        "depth": 3,
+        "leaves": 31,
+        "lr": 0.04,
+        "rounds": 600,
+        "reg": 5,
+        "child": 20,
+        "seed": 42,
+        "window": 24
+      }
+    },
+    {
+      "mode": "encoded",
+      "base": {
+        "arch": "xgb",
+        "k": 0,
+        "weight": 1,
+        "depth": 3,
+        "leaves": 31,
+        "lr": 0.015,
+        "rounds": 1000,
+        "reg": 5,
+        "child": 20,
+        "seed": 42,
+        "window": 24
+      }
+    },
+    {
+      "mode": "encoded",
+      "base": {
+        "arch": "xgb",
+        "k": 0,
+        "weight": 3,
+        "depth": 3,
+        "leaves": 31,
+        "lr": 0.015,
+        "rounds": 1000,
+        "reg": 5,
+        "child": 20,
+        "seed": 42,
+        "window": 24
+      }
+    },
+    {
+      "mode": "encoded",
+      "base": {
+        "arch": "lgb",
+        "k": 0,
+        "weight": 3,
+        "depth": -1,
+        "leaves": 31,
+        "lr": 0.04,
+        "rounds": 400,
+        "reg": 0,
+        "child": 20,
+        "seed": 42,
+        "window": 24
+      }
+    },
+    {
+      "mode": "encoded",
+      "base": {
+        "arch": "cat",
+        "k": 0,
+        "weight": 3,
+        "depth": 6,
+        "leaves": 31,
+        "lr": 0.04,
+        "rounds": 400,
+        "reg": 3,
+        "child": 20,
+        "seed": 42,
+        "window": 24
+      }
+    },
+    {
+      "mode": "segments",
+      "base": {
+        "arch": "xgb",
+        "k": 0,
+        "weight": 3,
+        "depth": 3,
+        "leaves": 31,
+        "lr": 0.04,
+        "rounds": 600,
+        "reg": 5,
+        "child": 20,
+        "seed": 42,
+        "window": 24
+      }
+    },
+    {
+      "mode": "segments",
+      "base": {
+        "arch": "xgb",
+        "k": 0,
+        "weight": 1,
+        "depth": 3,
+        "leaves": 31,
+        "lr": 0.015,
+        "rounds": 1000,
+        "reg": 5,
+        "child": 20,
+        "seed": 42,
+        "window": 24
+      }
+    },
+    {
+      "mode": "segments",
+      "base": {
+        "arch": "xgb",
+        "k": 0,
+        "weight": 3,
+        "depth": 3,
+        "leaves": 31,
+        "lr": 0.015,
+        "rounds": 1000,
+        "reg": 5,
+        "child": 20,
+        "seed": 42,
+        "window": 24
+      }
+    },
+    {
+      "mode": "segments",
+      "base": {
+        "arch": "lgb",
+        "k": 0,
+        "weight": 3,
+        "depth": -1,
+        "leaves": 31,
+        "lr": 0.04,
+        "rounds": 400,
+        "reg": 0,
+        "child": 20,
+        "seed": 42,
+        "window": 24
+      }
+    },
+    {
+      "mode": "segments",
+      "base": {
+        "arch": "cat",
+        "k": 0,
+        "weight": 3,
+        "depth": 6,
+        "leaves": 31,
+        "lr": 0.04,
+        "rounds": 400,
+        "reg": 3,
+        "child": 20,
+        "seed": 42,
+        "window": 24
+      }
+    },
+    {
+      "mode": "trends",
+      "base": {
+        "arch": "xgb",
+        "k": 0,
+        "weight": 3,
+        "depth": 3,
+        "leaves": 31,
+        "lr": 0.04,
+        "rounds": 600,
+        "reg": 5,
+        "child": 20,
+        "seed": 42,
+        "window": 24
+      }
+    },
+    {
+      "mode": "trends",
+      "base": {
+        "arch": "xgb",
+        "k": 0,
+        "weight": 1,
+        "depth": 3,
+        "leaves": 31,
+        "lr": 0.015,
+        "rounds": 1000,
+        "reg": 5,
+        "child": 20,
+        "seed": 42,
+        "window": 24
+      }
+    },
+    {
+      "mode": "trends",
+      "base": {
+        "arch": "xgb",
+        "k": 0,
+        "weight": 3,
+        "depth": 3,
+        "leaves": 31,
+        "lr": 0.015,
+        "rounds": 1000,
+        "reg": 5,
+        "child": 20,
+        "seed": 42,
+        "window": 24
+      }
+    },
+    {
+      "mode": "trends",
+      "base": {
+        "arch": "lgb",
+        "k": 0,
+        "weight": 3,
+        "depth": -1,
+        "leaves": 31,
+        "lr": 0.04,
+        "rounds": 400,
+        "reg": 0,
+        "child": 20,
+        "seed": 42,
+        "window": 24
+      }
+    },
+    {
+      "mode": "trends",
+      "base": {
+        "arch": "cat",
+        "k": 0,
+        "weight": 3,
+        "depth": 6,
+        "leaves": 31,
+        "lr": 0.04,
+        "rounds": 400,
+        "reg": 3,
+        "child": 20,
+        "seed": 42,
+        "window": 24
+      }
+    },
+    {
+      "mode": "combined",
+      "base": {
+        "arch": "xgb",
+        "k": 0,
+        "weight": 3,
+        "depth": 3,
+        "leaves": 31,
+        "lr": 0.04,
+        "rounds": 600,
+        "reg": 5,
+        "child": 20,
+        "seed": 42,
+        "window": 24
+      }
+    },
+    {
+      "mode": "combined",
+      "base": {
+        "arch": "xgb",
+        "k": 0,
+        "weight": 1,
+        "depth": 3,
+        "leaves": 31,
+        "lr": 0.015,
+        "rounds": 1000,
+        "reg": 5,
+        "child": 20,
+        "seed": 42,
+        "window": 24
+      }
+    },
+    {
+      "mode": "combined",
+      "base": {
+        "arch": "xgb",
+        "k": 0,
+        "weight": 3,
+        "depth": 3,
+        "leaves": 31,
+        "lr": 0.015,
+        "rounds": 1000,
+        "reg": 5,
+        "child": 20,
+        "seed": 42,
+        "window": 24
+      }
+    },
+    {
+      "mode": "combined",
+      "base": {
+        "arch": "lgb",
+        "k": 0,
+        "weight": 3,
+        "depth": -1,
+        "leaves": 31,
+        "lr": 0.04,
+        "rounds": 400,
+        "reg": 0,
+        "child": 20,
+        "seed": 42,
+        "window": 24
+      }
+    },
+    {
+      "mode": "combined",
+      "base": {
+        "arch": "cat",
+        "k": 0,
+        "weight": 3,
+        "depth": 6,
+        "leaves": 31,
+        "lr": 0.04,
+        "rounds": 400,
+        "reg": 3,
+        "child": 20,
+        "seed": 42,
+        "window": 24
+      }
+    }
+  ],
+  "manifest": "91684dafae57c57ecf8ac0dc12d56d13dbb234411557d3abe4eb26ea130d68db"
+}

@@ -1,0 +1,21 @@
+{
+  "id": "a65836ed5d055c47",
+  "config": {
+    "mode": "segments",
+    "base": {
+      "arch": "cat",
+      "k": 0,
+      "weight": 3,
+      "depth": 6,
+      "leaves": 31,
+      "lr": 0.04,
+      "rounds": 400,
+      "reg": 3,
+      "child": 20,
+      "seed": 42,
+      "window": 24
+    }
+  },
+  "ap": 0.10721215512362883,
+  "auroc": 0.8026986448448743
+}

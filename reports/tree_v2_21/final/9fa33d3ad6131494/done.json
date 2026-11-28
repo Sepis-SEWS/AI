@@ -1,0 +1,20 @@
+{
+  "config": {
+    "mode": "combined",
+    "base": {
+      "arch": "xgb",
+      "k": 0,
+      "weight": 3,
+      "depth": 3,
+      "leaves": 31,
+      "lr": 0.015,
+      "rounds": 1000,
+      "reg": 5,
+      "child": 20,
+      "seed": 42,
+      "window": 24
+    }
+  },
+  "ap": 0.11152808960058612,
+  "auroc": 0.7977815518567815
+}
